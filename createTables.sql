@@ -1,6 +1,5 @@
 USE Baseball;
 
-DROP TABLE IF EXISTS players,pitching;
 DROP TABLE IF EXISTS pitching,players;
 CREATE TABLE players (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
