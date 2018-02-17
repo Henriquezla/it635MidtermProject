@@ -1,0 +1,71 @@
+players
+	id			pk
+	f_name
+	m_initial
+	l_name
+	dob
+	country
+	bats_throws
+	
+pitching
+	player_id	fk
+	games_pitched
+	games_won
+	games_lost
+	ERA
+	K
+	BB
+	
+batting
+	player_id	fk
+	games_played
+	AB
+	H
+	AVG(H/AB)
+	BB
+	K
+
+teams
+	id			pk
+	name
+	abbreviation
+	games_played
+	games_won
+	games_lost
+	
+seasons
+	id			pk
+	year
+
+team roster per season
+	player_id	fk
+	team_id		fk
+	season_id	fk
+
+game schedule
+	id			pk
+	team_A_id	pk,fk
+	team_B_id	pk,fk
+	date		pk
+	time		pk
+	town	
+
+game results
+	schd_id		fk
+	team_w		fk
+	team_w_score	
+	team_l		fk
+	team_l_score	
+	total_innings
+
+users
+	email_hash	pk
+	f_name
+	l_name
+	pw_hash
+	
+admins
+	email_hash	pk
+	f_name
+	l_name
+	pw_hash
