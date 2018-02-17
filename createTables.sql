@@ -1,5 +1,6 @@
 USE Baseball;
 
+DROP players IF EXISTS;
 CREATE TABLE players (
     id INT UNSIGNED NOT NULL PRIMARY KEY,
     f_name VARCHAR(255) DEFAULT NULL,
@@ -12,13 +13,13 @@ CREATE TABLE players (
 )Engine=InnoDB;
 
 
-
+DROP pitching IF EXISTS;
 CREATE TABLE pitching (
     player_id INT UNSIGNED NOT NULL,
 	games_pitched SMALLINT UNSIGNED DEFAULT NULL,
 	games_won SMALLINT UNSIGNED DEFAULT NULL,
 	games_lost SMALLINT UNSIGNED DEFAULT NULL,
-	ERA FLOAT(2,3) DEFAULT NULL,
+	ERA FLOAT(3,3) DEFAULT NULL,
     PRIMARY KEY (player_id),
     FOREIGN KEY (player_id) REFERENCES players (id)
        ON DELETE CASCADE
