@@ -1,6 +1,6 @@
 USE Baseball;
 
-DROP players IF EXISTS;
+DROP TABLE IF EXISTS players,pitching;
 CREATE TABLE players (
     id INT UNSIGNED NOT NULL PRIMARY KEY,
     f_name VARCHAR(255) DEFAULT NULL,
@@ -13,7 +13,6 @@ CREATE TABLE players (
 )Engine=InnoDB;
 
 
-DROP pitching IF EXISTS;
 CREATE TABLE pitching (
     player_id INT UNSIGNED NOT NULL,
 	games_pitched SMALLINT UNSIGNED DEFAULT NULL,
