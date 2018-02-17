@@ -1,6 +1,7 @@
 USE Baseball;
 
 DROP TABLE IF EXISTS players,pitching;
+DROP TABLE IF EXISTS pitching,players;
 CREATE TABLE players (
     id INT UNSIGNED NOT NULL PRIMARY KEY,
     f_name VARCHAR(255) DEFAULT NULL,
