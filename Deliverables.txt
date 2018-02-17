@@ -1,0 +1,20 @@
+Common Deliverables:
+	Apply First, second, and third normal forms to all data in the database
+	Functioning web interface
+	User Authentication - With Admin and user levels
+	All user security information needs to be hashed
+	All database data, sql files, and source code put into git
+
+
+Individual Deliverables:
+	-Admin Login:
+		Add /Remove team
+		Add / remove player
+		Add player to a team
+		Add a match to the schedule of events
+		Update outcome of a game
+		View team roster
+	-User Login:
+		View list of teams
+		View schedule of events
+		View scores of games played
