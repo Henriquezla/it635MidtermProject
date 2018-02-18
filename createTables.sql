@@ -1,6 +1,14 @@
 USE Baseball;
 
-DROP TABLE IF EXISTS team_roster_per_season,batting,pitching,players,teams;
+DROP TABLE IF EXISTS
+	game_results,
+	team_roster_per_season,
+	batting,
+	pitching,
+	game_schedule,
+	seasons,
+	players,
+	teams;
 
 CREATE TABLE players (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
