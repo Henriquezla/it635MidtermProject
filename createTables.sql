@@ -91,8 +91,8 @@ CREATE TABLE game_schedule (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     team_A_id INT UNSIGNED NOT NULL,
 	team_B_id INT UNSIGNED NOT NULL,
-	schd_date DATE DEFAULT NOT NULL,
-	schd_time TIME DEFAULT NOT NULL,
+	schd_date DATE NOT NULL,
+	schd_time TIME NOT NULL,
 	town VARCHAR(255) DEFAULT NULL,
 	PRIMARY KEY(id,team_A_id,team_B_id,schd_date,schd_time),
 	FOREIGN KEY (team_A_id) REFERENCES players (id)
