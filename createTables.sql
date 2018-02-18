@@ -121,3 +121,22 @@ CREATE TABLE game_results (
        ON UPDATE CASCADE
 	
 )Engine=InnoDB;
+
+
+CREATE TABLE IF NOT EXISTS users (
+	email_hash VARCHAR(255) NOT NULL,
+    f_name VARCHAR(255) DEFAULT NULL,
+	l_name VARCHAR(255) DEFAULT NULL,
+	pw_hash VARCHAR(255) NOT NULL,
+	PRIMARY KEY(email_hash)
+	
+)Engine=InnoDB;
+
+CREATE TABLE IF NOT EXISTS admins (
+	email_hash VARCHAR(255) NOT NULL,
+    f_name VARCHAR(255) DEFAULT NULL,
+	l_name VARCHAR(255) DEFAULT NULL,
+	pw_hash VARCHAR(255) NOT NULL,
+	PRIMARY KEY(email_hash)
+	
+)Engine=InnoDB;
