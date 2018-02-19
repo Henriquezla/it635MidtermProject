@@ -20,6 +20,6 @@
 	}
 	
 	foreach($rows as $row){
-		echo[$row];
+		echo $row['id'] . PHP_EOL;
 	}
 ?>
