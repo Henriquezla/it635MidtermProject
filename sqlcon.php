@@ -1,22 +1,15 @@
-#!/usr/bin/php
 
 <?php
-echo $argv[0]." begin".PHP_EOL;
-$mysql = new mysqli("localhost","root","ImdbGr0up!","Baseball");
-if ($mysql->errno != 0) {
-	echo "error connecting to database: " . $mysql->error.PHP_EOL;
-	exit(0);
-}
-$sql = "select * from players;";
-$response = $mysql->query($sql);
-if ($response->errno != 0) {
-        echo "error executing sql: " . $mysql->error.PHP_EOL;
-        echo $sql.PHP_EOL;
-	exit(0);
-}
-while($result = $response->fetch_assoc()){
-	print_r($result);
-	echo PHP_EOL;
-}
-echo $argv[0]." end".PHP_EOL;
+include("account.php");
+	$dbh = mysqli_connect($hostname, $username, $password, $project);
+		if (!$dbh) {
+		    echo "Error: Unable to connect to MySQL." . PHP_EOL;
+		    echo "Debugging error: " . mysqli_connect_errno() . PHP_EOL;
+		    echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
+			exit;
+		} else {
+			echo "Connection was successful." . PHP_EOL;
+			
+		}
+
 ?>
