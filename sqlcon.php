@@ -2,12 +2,12 @@
 
 <?php
 echo $argv[0]." begin".PHP_EOL;
-$mysql = new mysqli("localhost","root","ImdbGr0up!","Students");
+$mysql = new mysqli("localhost","root","ImdbGr0up!","Baseball");
 if ($mysql->errno != 0) {
 	echo "error connecting to database: " . $mysql->error.PHP_EOL;
 	exit(0);
 }
-$sql = "select * from students;";
+$sql = "select * from players;";
 $response = $mysql->query($sql);
 if ($response->errno != 0) {
         echo "error executing sql: " . $mysql->error.PHP_EOL;
