@@ -4,12 +4,12 @@
 
 	$dbh = mysqli_connect($hostname, $username, $password, $project);
 	if (!$dbh) {
-		echo "Error: Unable to connect to MySQL." . "\n\r";
-		echo "Debugging error: " . mysqli_connect_errno() . "\n\r";
-		echo "Debugging error: " . mysqli_connect_error() . "\n\r";
+		echo "Error: Unable to connect to MySQL." . "<br>";
+		echo "Debugging error: " . mysqli_connect_errno() . "<br>";
+		echo "Debugging error: " . mysqli_connect_error() . "<br>";
 		exit;
 	} else {
-		echo "Connection was successful." . "\n\r";
+		echo "Connection was successful." . "<br>";
 	}
 	$dataSet = "";
 	$userQuery = "SELECT * FROM players;";
@@ -20,6 +20,6 @@
 	}
 	
 	foreach($rows as $row){
-		echo $row['id'] . "\n\r";
+		echo $row['id'] . "<br>";
 	}
 ?>
