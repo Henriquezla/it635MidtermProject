@@ -4,6 +4,8 @@ Common Deliverables:
 	User Authentication - With Admin and user levels
 	All user security information needs to be hashed
 	All database data, sql files, and source code put into git
+	SQL dump
+	README.MD
 
 
 Individual Deliverables:
