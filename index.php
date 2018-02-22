@@ -1,17 +1,29 @@
 <?php
 	include("sqlcon.php");
-	$dataSet = "";
-	$userQuery = "SELECT * FROM players LIMIT 5;";
-	$result = $dbh->query($userQuery);
-
-	while($row = $result->fetch_array()){
-		$rows[] = $row;
-	}
-
-	foreach($rows as $row){
-		echo $row['f_name'] . "<br>";
+	ob_start();
+	session_start();
+	if ( isset($_SESSION['user'])!="" ) {
+		header("Location: home.php");
+		exit;
 	}
 	
+	if( isset($_POST['btn-signin']) ) {
+		// sanitizing input
+		$email = htmlspecialchars(strip_tags(trim($_POST['email'])));
+		$pass = htmlspecialchars(strip_tags(trim($_POST['pass'])));
+		/* $dataSet = "";
+		$userQuery = "SELECT * FROM players LIMIT 5;";
+		$result = $dbh->query($userQuery);
+
+		while($row = $result->fetch_array()){
+			$rows[] = $row;
+		}
+
+		foreach($rows as $row){
+			echo $row['f_name'] . "<br>";
+		} */
+	
+	}
 	
 	
 ?>
@@ -36,9 +48,9 @@
             <a href="#" id="flipToRecover" class="flipLink">
               <div id="triangle-topright"></div>
             </a>
-            <input type="email" class="form-control" name="loginEmail" id="loginEmail" placeholder="Email address" required autofocus>
-            <input type="password" class="form-control" name="loginPass" id="loginPass" placeholder="Password" required>
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+            <input type="email" class="form-control" name="email" id="email" placeholder="Email address" required autofocus>
+            <input type="password" class="form-control" name="pass" id="pass" placeholder="Password" required>
+            <button class="btn btn-lg btn-primary btn-block" type="submit" name="btn-signin">Sign in</button>
           </form>
     
         </div> <!-- /container -->
