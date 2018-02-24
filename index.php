@@ -37,19 +37,18 @@
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 </HEAD>
-<!--Inspired by http://tutorialzine.com/2012/02/apple-like-login-form/ - Apple-like Login Form with CSS 3D Transforms -->
 
 <div class="container">
 	<div class="row">
     	<div class="container" id="formContainer">
 
           <form class="form-signin" id="login" role="form">
-            <h3 class="form-signin-heading">Please sign in</h3>
+            <h3 class="form-signin-heading">Please sign in</h3><br>
             <a href="#" id="flipToRecover" class="flipLink">
               <div id="triangle-topright"></div>
             </a>
-            <input type="email" class="form-control" name="email" id="email" size="40" placeholder="Email address" required autofocus>
-            <input type="password" class="form-control" name="pass" id="pass" placeholder="Password" required>
+            <input type="email" class="form-control" name="email" id="email" placeholder="Email address" required autofocus><br>
+            <input type="password" class="form-control" name="pass" id="pass" placeholder="Password" required><br>
             <button class="btn btn-lg btn-primary btn-block" type="submit" name="btn-signin">Sign in</button>
           </form>
     
