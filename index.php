@@ -48,7 +48,7 @@
             <a href="#" id="flipToRecover" class="flipLink">
               <div id="triangle-topright"></div>
             </a>
-            <input type="email" class="form-control" name="email" id="email" placeholder="Email address" required autofocus>
+            <input type="email" class="form-control" name="email" id="email" size="40" placeholder="Email address" required autofocus>
             <input type="password" class="form-control" name="pass" id="pass" placeholder="Password" required>
             <button class="btn btn-lg btn-primary btn-block" type="submit" name="btn-signin">Sign in</button>
           </form>
