@@ -1,6 +1,6 @@
 <?php
 $hostname = "localhost";
-$username = "root";
+$username = "baseballAdmin";
 $project  = "Baseball";
 $password = "ImdbGr0up!";
 
