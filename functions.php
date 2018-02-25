@@ -10,7 +10,7 @@
 		
 		if ($_SESSION["state"] != $type) {
 			echo "Login as '$type'. Redirecting to Login page...<br>";
-			header("refresh:3; url=login.html");
+			header("refresh:3; url=index.php");
 			exit();
 			
 		}
