@@ -28,9 +28,10 @@
             <button class="btn btn-lg btn-primary btn-block" type="submit" name="btn-teams">View Teams</button>
 			<button class="btn btn-lg btn-primary btn-block" type="submit" name="btn-schedules">View Schedules</button>
 			<button class="btn btn-lg btn-primary btn-block" type="submit" name="btn-scores">View Scores</button><br>
+			</form>
 			<a href="logout.php?logout"><button class="btn btn-lg btn-danger btn-block" type="submit" name="btn-logout">Sign Out</button></a>
 			</div>
-          </form>
+          
 		  
     
         </div> <!-- /container -->
