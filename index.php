@@ -85,7 +85,7 @@
 	<div class="row">
     	<div class="container" id="formContainer">
 
-          <form class="form-signin" id="login" role="form">
+          <form class="form-signin" id="login" role="form" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" autocomplete="off">
             <h3 class="form-signin-heading">Please sign in</h3><br>
             <a href="#" id="flipToRecover" class="flipLink">
               <div id="triangle-topright"></div>
