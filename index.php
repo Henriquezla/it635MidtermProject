@@ -15,13 +15,16 @@
 		if(empty($email)){
 			$error = true;
 			$emailError = "Please enter your email address.";
+			echo $emailError;
 		} else if ( !filter_var($email,FILTER_VALIDATE_EMAIL) ) {
 			$error = true;
 			$emailError = "Please enter valid email address.";
+			echo $emailError;
 		}
 		if(empty($pass)){
 			$error = true;
 			$passError = "Please enter your password.";
+			echo $passError;
 		}
 		
 		if (!$error) {
