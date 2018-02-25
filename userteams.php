@@ -7,6 +7,21 @@
 	if(isset($_POST['btn-logout']) ) {
 		header("Location: logout.php");
 	}
+?>
+	
+	
+<!DOCTYPE html>
+<HTML>
+<HEAD>
+	<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+	<!------ Include the above in your HEAD tag ---------->
+</HEAD>
+	
+	
+	
+<?php
 	$row = array();
 	$userQuery = "SELECT * FROM teams";
 	$result = $dbh->query($userQuery);
@@ -17,23 +32,23 @@
 	/* foreach($rows as $row){
 		echo $row['f_name'] . "<br>";
 	} */
-	echo '<table class="table">';
+	echo '<table class="table table-striped">';
 	echo '<tr>';
-	echo '<th>Team ID</th>';
-	echo '<th>Team Name</th>';
-	echo '<th>Abbreviation</th>';
-	echo '<th>Games Played</th>';
-	echo '<th>Games Won</th>';
-	echo '<th>Games Lost</th>';
+	echo '<th scope="col">Team ID</th>';
+	echo '<th scope="col">Team Name</th>';
+	echo '<th scope="col">Abbreviation</th>';
+	echo '<th scope="col">Games Played</th>';
+	echo '<th scope="col">Games Won</th>';
+	echo '<th scope="col">Games Lost</th>';
 	echo ' </tr>';
 	foreach($rows as $row){
 		echo '<tr>';
-		echo '<td>' . $row['id'] . '</td>';
-		echo '<td>' . $row['name'] . '</td>';
-		echo '<td>' . $row['abbreviation'] . '</td>';
-		echo '<td>' . $row['games_played'] . '</td>';
-		echo '<td>' . $row['games_won'] . '</td>';
-		echo '<td>' . $row['games_lost'] . '</td>';
+		echo '<td scope="row">' . $row['id'] . '</td>';
+		echo '<td scope="row">' . $row['name'] . '</td>';
+		echo '<td scope="row">' . $row['abbreviation'] . '</td>';
+		echo '<td scope="row">' . $row['games_played'] . '</td>';
+		echo '<td scope="row">' . $row['games_won'] . '</td>';
+		echo '<td scope="row">' . $row['games_lost'] . '</td>';
 		echo '</tr>';
 	
 	}
