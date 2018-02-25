@@ -2,10 +2,10 @@
 	session_start();
 	require_once 'sqlcon.php';
 	ini_set("display_errors", true);
-	if ( isset($_SESSION['user'])!="" ) {
+	/* if ( isset($_SESSION['user'])!="" ) {
 		header("Location: home.php");
 		exit;
-	}
+	} */
 	$error = false;
 	if( isset($_POST['btn-signin']) ) {
 		
@@ -38,7 +38,7 @@
 				$row = $result->fetch_array(MYSQLI_ASSOC);
 				echo crypt($password,$row['pw_hash']).PHP_EOL;
 				echo $row['pw_hash'].PHP_EOL;
-				if(crypt($password,$row['pw_hash'])==$row['pw_hash']){
+				if(crypt($password,$row['pw_hash'])===$row['pw_hash']){
 					$_SESSION['user'] = $username;
 					header("Location: home.php");
 					
