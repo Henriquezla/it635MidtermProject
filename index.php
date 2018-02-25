@@ -107,14 +107,14 @@
 					<?php
 				}
 			?>
-		  
-            <h3 class="form-signin-heading">Please sign in</h3><br>
-            <a href="#" id="flipToRecover" class="flipLink">
-              <div id="triangle-topright"></div>
-            </a>
-            <input type="email" class="form-control" name="email" id="email" placeholder="Email address" required autofocus><br>
-            <input type="password" class="form-control" name="pass" id="pass" placeholder="Password" required><br>
-            <button class="btn btn-lg btn-primary btn-block" type="submit" name="btn-signin">Sign in</button>
+			<div style="margin:auto;width: 50%;padding: 40px;">
+				<h3 class="form-signin-heading">Please sign in</h3><br>
+				<a href="#" id="flipToRecover" class="flipLink">
+				</a>
+				<input type="email" class="form-control" name="email" id="email" placeholder="Email address" required autofocus><br>
+				<input type="password" class="form-control" name="pass" id="pass" placeholder="Password" required><br>
+				<button class="btn btn-lg btn-primary btn-block" type="submit" name="btn-signin">Sign in</button>
+			</div>
           </form>
     
         </div> <!-- /container -->
