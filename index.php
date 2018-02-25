@@ -2,10 +2,10 @@
 	session_start();
 	require_once 'sqlcon.php';
 	ini_set("display_errors", true);
-	/* if ( isset($_SESSION['user'])!="" ) {
+	if ( isset($_SESSION['user'])!="" ) {
 		header("Location: home.php");
 		exit;
-	} */
+	}
 	$error = false;
 	if( isset($_POST['btn-signin']) ) {
 		
@@ -29,14 +29,11 @@
 		
 		if (!$error) {
 			$username = hash('sha256',$email);
-			//$password = crypt($pass,$salt);
 			$query = "SELECT * FROM users WHERE email_hash='".$username."'";
 			$result = $dbh->query($query);
 			$row = array();
 			if($result){
 				$row = $result->fetch_array(MYSQLI_ASSOC);
-				/* echo crypt($pass,$row['pw_hash']).PHP_EOL;
-				echo $row['pw_hash'].PHP_EOL; */
 				if(crypt($pass,$row['pw_hash'])==$row['pw_hash']){
 					$_SESSION['user'] = $username;
 					header("Location: home.php");
@@ -50,23 +47,7 @@
 				$errMSG = "Incorrect Credentials, Try again...";
 				
 			}
-			/* if( $count == 1 && $eqPwHash == 1 ) {
-				if(strcmp("Y",$pwResFlag) == 0){
-					$_SESSION['user'] = $sqlEmail;
-					error_log("[{$date}] [{$file}] [{$level}] User {$sqlEmail} signed in.  Password change is required.".PHP_EOL, 3, $LOGFILE);
-					header("Location: changepwd.php");
-				}
-				else{
-					$_SESSION['user'] = $sqlEmail;
-					error_log("[{$date}] [{$file}] [{$level}] User {$sqlEmail} successfully signed in.".PHP_EOL, 3, $LOGFILE);
-					header("Location: home.php");
-				}
-			} else {
-				$errMSG = "Incorrect Credentials, Try again...";
-				error_log("[{$date}] [{$file}] [Warning] User from IP {$_SERVER['REMOTE_ADDR']} tried to sign in with incorrect credentials".PHP_EOL, 3, $LOGFILE);
-				
-			} */
-				
+							
 		}
 		/* $dataSet = "";
 		$userQuery = "SELECT * FROM players LIMIT 5;";
