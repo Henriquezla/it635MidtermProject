@@ -36,7 +36,14 @@
 				$row = $result->fetch_array(MYSQLI_ASSOC);
 				if(crypt($pass,$row['pw_hash'])==$row['pw_hash']){
 					$_SESSION['user'] = $username;
-					header("Location: home.php");
+					$_SESSION['admin_rights'] = $row['admin_rights'];
+					if($_SESSION['admin_rights'] !== 'Y'){
+						header("Location: home.php");
+					}
+					if($_SESSION['admin_rights'] == 'Y'){
+						header("Location: admin.php");
+					}
+					
 					
 				}else{
 					$errMSG = "Incorrect Credentials, Try again...";

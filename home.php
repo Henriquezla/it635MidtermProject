@@ -1,4 +1,4 @@
 <?php 
 	session_start();
-	echo "You're in.";
+	echo "You're a regular user.";
 ?>
