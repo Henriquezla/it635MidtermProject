@@ -24,9 +24,9 @@
             <h3 class="form-signin-heading">Pick your choice</h3><br>
             <a href="#" id="flipToRecover" class="flipLink">
             </a>
-            <button class="btn btn-lg btn-primary btn-block" type="submit" name="btn-teams">View Teams<br><br></button>
-			<button class="btn btn-lg btn-primary btn-block" type="submit" name="btn-schedules">View Schedules<br><br></button>
-			<button class="btn btn-lg btn-primary btn-block" type="submit" name="btn-scores">View Scores<br><br></button>
+            <button class="btn btn-lg btn-primary btn-block" type="submit" name="btn-teams">View Teams</button><br><br>
+			<button class="btn btn-lg btn-primary btn-block" type="submit" name="btn-schedules">View Schedules</button><br><br>
+			<button class="btn btn-lg btn-primary btn-block" type="submit" name="btn-scores">View Scores</button><br><br>
 			</div>
           </form>
 		  
