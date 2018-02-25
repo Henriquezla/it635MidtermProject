@@ -1,6 +1,8 @@
 <?php
 	session_start();
+	ini_set("display_errors", true);
 	if (isset($_POST['logout'])) {
+		echo 'true';
 		unset($_SESSION['user']);
 		unset($_SESSION["state"]);
 		unset($_SESSION['admin_rights']);
@@ -9,6 +11,7 @@
 		//header("Location: index.php");
 		exit;
 	}
+	echo 'false';
 
 
 ?>
