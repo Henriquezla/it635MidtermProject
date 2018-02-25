@@ -32,6 +32,7 @@
 			if($result){
 				$row = $result->fetch_array(MYSQLI_ASSOC);
 				$_SESSION['user'] = $username;
+				header("Location: home.php");
 			}else{
 				echo "Username or Password not found.";
 			}
