@@ -8,6 +8,7 @@
 		}else{
 		header("Location: home.php");
 		exit;
+		}
 	}
 	$error = false;
 	if( isset($_POST['btn-signin']) ) {
