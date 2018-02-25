@@ -32,14 +32,19 @@
 			$username = hash('sha256',$email);
 			//$password = crypt($pass,$salt);
 			$query = "SELECT * FROM users WHERE email_hash='".$username."'";
-			echo $username;
 			$result = $dbh->query($query);
 			$row = array();
 			if($result){
-				echo "valid email<br>";
 				$row = $result->fetch_array(MYSQLI_ASSOC);
 				$_SESSION['user'] = $username;
-				header("Location: home.php");
+				if(crypt($password,$row[3])==$row[3]){
+					header("Location: home.php");
+					
+				}else{
+					echo "Username or Password not found.";
+					
+				}
+				
 			}else{
 				echo "Username or Password not found.";
 			}
