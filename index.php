@@ -38,7 +38,7 @@
 				$row = $result->fetch_array(MYSQLI_ASSOC);
 				/* echo crypt($pass,$row['pw_hash']).PHP_EOL;
 				echo $row['pw_hash'].PHP_EOL; */
-				if(crypt($password,$row['pw_hash'])==$row['pw_hash']){
+				if(crypt($pass,$row['pw_hash'])==$row['pw_hash']){
 					$_SESSION['user'] = $username;
 					header("Location: home.php");
 					
