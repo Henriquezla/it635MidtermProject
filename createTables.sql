@@ -128,15 +128,7 @@ CREATE TABLE IF NOT EXISTS users (
     f_name VARCHAR(255) DEFAULT NULL,
 	l_name VARCHAR(255) DEFAULT NULL,
 	pw_hash VARCHAR(255) NOT NULL,
-	PRIMARY KEY(email_hash)
-	
-)Engine=InnoDB;
-
-CREATE TABLE IF NOT EXISTS admins (
-	email_hash VARCHAR(255) NOT NULL,
-    f_name VARCHAR(255) DEFAULT NULL,
-	l_name VARCHAR(255) DEFAULT NULL,
-	pw_hash VARCHAR(255) NOT NULL,
+	admin_rights CHAR(1) DEFAULT NULL,
 	PRIMARY KEY(email_hash)
 	
 )Engine=InnoDB;
