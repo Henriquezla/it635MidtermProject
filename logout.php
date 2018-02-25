@@ -1,5 +1,6 @@
 <?php
 	session_start();
+	ini_set("display_errors", true);
 	if (isset($_POST['logout'])) {
 		unset($_SESSION['user']);
 		unset($_SESSION["state"]);
