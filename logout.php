@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	if (isset($_GET['logout'])) {
+	if (isset($_POST['logout'])) {
 		unset($_SESSION['user']);
 		unset($_SESSION["state"]);
 		unset($_SESSION['admin_rights']);
