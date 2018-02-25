@@ -4,7 +4,7 @@
 	gatekeeper('User');
 	ini_set("display_errors", true);
 	if(isset($_POST['btn-logout']) ) {
-		header("Location: admin.php?logout");
+		header("Location: logout.php?logout");
 	}
 	
 ?>
@@ -31,7 +31,7 @@
             <button class="btn btn-lg btn-primary btn-block" type="submit" name="btn-teams">View Teams</button>
 			<button class="btn btn-lg btn-primary btn-block" type="submit" name="btn-schedules">View Schedules</button>
 			<button class="btn btn-lg btn-primary btn-block" type="submit" name="btn-scores">View Scores</button><br>
-			<a href="logout.php?logout"><button class="btn btn-lg btn-danger btn-block" type="submit" name="btn-logout">Sign Out</button></a>
+			<button class="btn btn-lg btn-danger btn-block" type="submit" name="btn-logout">Sign Out</button>
 			</div>
           </form>
 		  
