@@ -8,8 +8,6 @@
 		echo "Debugging error: " . mysqli_connect_errno() . "<br>";
 		echo "Debugging error: " . mysqli_connect_error() . "<br>";
 		exit;
-	} else {
-		echo "Connection was successful." . "<br>";
 	}
 	
 ?>

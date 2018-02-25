@@ -24,12 +24,14 @@
 		}
 		
 		if (!$error) {
+			echo "no error <br>";
 			$username = hash('sha256',$email);
 			//$password = crypt($pass,$salt);
 			$query = "SELECT * FROM users WHERE email='$email'";
 			$result = $mysqli->query($query);
 			$row = array();
 			if($result){
+				echo "valid email<br>";
 				$row = $result->fetch_array(MYSQLI_ASSOC);
 				$_SESSION['user'] = $username;
 				header("Location: home.php");
