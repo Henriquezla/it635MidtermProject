@@ -1,6 +1,6 @@
 <?php
-	require_once 'sqlcon.php';
 	session_start();
+	require_once 'sqlcon.php';
 	if ( isset($_SESSION['user'])!="" ) {
 		header("Location: home.php");
 		exit;
