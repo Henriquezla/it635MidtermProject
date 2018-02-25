@@ -43,7 +43,7 @@
 	echo ' </tr>';
 	foreach($rows as $row){
 		echo '<tr>';
-		echo '<td scope="row">' . $row['id'] . '</td>';
+		echo '<td scope="row"><b>' . $row['id'] . '</b></td>';
 		echo '<td scope="row">' . $row['name'] . '</td>';
 		echo '<td scope="row">' . $row['abbreviation'] . '</td>';
 		echo '<td scope="row">' . $row['games_played'] . '</td>';
