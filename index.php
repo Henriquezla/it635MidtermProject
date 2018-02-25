@@ -32,6 +32,7 @@
 			$username = hash('sha256',$email);
 			//$password = crypt($pass,$salt);
 			$query = "SELECT * FROM users WHERE email='$email'";
+			echo $email;
 			$result = $dbh->query($query);
 			$row = array();
 			if($result){
