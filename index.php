@@ -2,7 +2,7 @@
 	session_start();
 	include("functions.php");
 	require_once 'sqlcon.php';
-	ini_set("display_errors", true);
+	//ini_set("display_errors", true);
 	if(isset($_SESSION['user'])!=""){
 		if($_SESSION['admin_rights']=='Y'){
 			header("Location: admin.php");
