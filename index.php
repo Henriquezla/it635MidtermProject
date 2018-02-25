@@ -29,8 +29,9 @@
 			$query = "SELECT * FROM users WHERE email='$email'";
 			$result = $mysqli->query($query);
 			$row = array();
-			if(!$result){
+			if($result){
 				$row = $result->fetch_array(MYSQLI_ASSOC);
+				$_SESSION['user'] = $username;
 			}else{
 				echo "Username or Password not found.";
 			}
