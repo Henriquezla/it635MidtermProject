@@ -24,15 +24,15 @@
 		}
 		
 		if (!$error) {
-			$username = hash('sha256',$email)
+			$username = hash('sha256',$email);
 			//$password = crypt($pass,$salt);
 			$query = "SELECT * FROM users WHERE email='$email'";
 			$result = $mysqli->query($query);
-			$row = [];
+			$row = array();
 			if(!$result){
 				$row = $result->fetch_array(MYSQLI_ASSOC);
 			}else{
-				echo "Username or Password not found."
+				echo "Username or Password not found.";
 			}
 			/* if( $count == 1 && $eqPwHash == 1 ) {
 				if(strcmp("Y",$pwResFlag) == 0){
