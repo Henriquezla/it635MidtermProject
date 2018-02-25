@@ -28,7 +28,6 @@
 		}
 		
 		if (!$error) {
-			echo "no error <br>";
 			$username = hash('sha256',$email);
 			//$password = crypt($pass,$salt);
 			$query = "SELECT * FROM users WHERE email_hash='".$username."'";
