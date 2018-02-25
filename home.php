@@ -34,8 +34,7 @@
 			<button class="btn btn-lg btn-danger btn-block" type="submit" name="btn-logout">Sign Out</button>
 			</div>
           </form>
-		  
-    
+		
         </div> <!-- /container -->
 	</div>
 </div>
