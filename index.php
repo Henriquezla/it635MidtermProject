@@ -6,8 +6,9 @@
 		header("Location: home.php");
 		exit;
 	}
-	
+	$error = false;
 	if( isset($_POST['btn-signin']) ) {
+		
 		// sanitizing input
 		$email = htmlspecialchars(strip_tags(trim($_POST['email'])));
 		$pass = htmlspecialchars(strip_tags(trim($_POST['pass'])));
