@@ -4,7 +4,7 @@
 	gatekeeper('User');
 	ini_set("display_errors", true);
 	if(isset($_POST['btn-logout']) ) {
-		header("Location: logout.php?logout");
+		header("Location: logout.php?logout=true");
 	}
 	
 ?>
