@@ -43,12 +43,13 @@
 					header("Location: home.php");
 					
 				}else{
-					echo "Username or Password not found.";
+					$errMSG = "Incorrect Credentials, Try again...";
 					
 				}
 				
 			}else{
-				echo "Username or Password not found.";
+				$errMSG = "Incorrect Credentials, Try again...";
+				
 			}
 			/* if( $count == 1 && $eqPwHash == 1 ) {
 				if(strcmp("Y",$pwResFlag) == 0){
@@ -100,6 +101,19 @@
     	<div class="container" id="formContainer">
 
           <form class="form-signin" id="login" role="form" method="post" action="" autocomplete="off">
+			<?php
+				if ( isset($errMSG) ) {
+					
+					?>
+					<div class="form-group">
+					<div class="alert alert-danger">
+					<span class="glyphicon glyphicon-info-sign"></span> <?php echo $errMSG; ?>
+					</div>
+					</div>
+					<?php
+				}
+			?>
+		  
             <h3 class="form-signin-heading">Please sign in</h3><br>
             <a href="#" id="flipToRecover" class="flipLink">
               <div id="triangle-topright"></div>
