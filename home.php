@@ -25,7 +25,8 @@
 
           <form class="form-signin" id="userchoice" role="form" method="post" action="" autocomplete="off">
 		  <div style="margin:auto;width: 50%;padding: 40px;">
-            <h3 class="form-signin-heading">Pick your choice</h3><br>
+			<h3 class="form-signin-heading">Welcome Back, <?php echo $_SESSION['f_name']; ?></h3><br>
+            <h4 class="form-signin-heading">Pick your choice</h4><br>
             <a href="#" id="flipToRecover" class="flipLink">
             </a>
             <button class="btn btn-lg btn-primary btn-block" type="submit" name="btn-teams">View Teams</button>

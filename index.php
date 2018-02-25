@@ -42,6 +42,8 @@
 				if(crypt($pass,$row['pw_hash'])==$row['pw_hash']){
 					$_SESSION['user'] = $username;
 					$_SESSION['admin_rights'] = $row['admin_rights'];
+					$_SESSION['f_name'] = $row['f_name'];
+					$_SESSION['l_name'] = $row['l_name'];
 					if($_SESSION['admin_rights'] !== 'Y'){
 						$_SESSION["state"] = 'User';
 						header("Location: home.php");
