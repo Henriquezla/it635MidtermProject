@@ -88,14 +88,14 @@ CREATE TABLE team_roster_per_season (
 )Engine=InnoDB;
 
 CREATE TABLE game_schedule (
-    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    id VARCHAR(255) GENERATED ALWAYS AS(CONCAT('TA',team_A_id,'TB',team_B_id,'DT',schd_date)),
     team_A_id INT UNSIGNED NOT NULL,
 	team_B_id INT UNSIGNED NOT NULL,
 	schd_date DATE NOT NULL,
 	schd_time TIME NOT NULL,
 	town VARCHAR(255) DEFAULT NULL,
-	PRIMARY KEY(id,team_A_id,team_B_id,schd_date,schd_time),
-	FOREIGN KEY (team_A_id) REFERENCES players (id)
+	PRIMARY KEY(team_A_id,team_B_id,schd_date),
+	FOREIGN KEY (team_A_id) REFERENCES teams (id)
        ON DELETE CASCADE
        ON UPDATE CASCADE,
 	FOREIGN KEY (team_B_id) REFERENCES teams (id)
@@ -103,10 +103,10 @@ CREATE TABLE game_schedule (
        ON UPDATE CASCADE
 	
 )Engine=InnoDB;
-ALTER TABLE game_schedule AUTO_INCREMENT=100;
+
 
 CREATE TABLE game_results (
-	schd_id SMALLINT UNSIGNED NOT NULL,
+	schd_id VARCHAR(255) NOT NULL,
     team_w INT UNSIGNED NOT NULL,
 	team_w_score TINYINT UNSIGNED NOT NULL,
 	team_l INT UNSIGNED NOT NULL,
