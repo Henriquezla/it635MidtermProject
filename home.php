@@ -3,6 +3,7 @@
 	session_start();
 	gatekeeper('User');
 	echo "You're a regular user.";
+	
 ?>
 
 
@@ -24,9 +25,10 @@
             <h3 class="form-signin-heading">Pick your choice</h3><br>
             <a href="#" id="flipToRecover" class="flipLink">
             </a>
-            <button class="btn btn-lg btn-primary btn-block" type="submit" name="btn-teams">View Teams</button><br><br>
-			<button class="btn btn-lg btn-primary btn-block" type="submit" name="btn-schedules">View Schedules</button><br><br>
-			<button class="btn btn-lg btn-primary btn-block" type="submit" name="btn-scores">View Scores</button><br><br>
+            <button class="btn btn-lg btn-primary btn-block" type="submit" name="btn-teams">View Teams</button><br>
+			<button class="btn btn-lg btn-primary btn-block" type="submit" name="btn-schedules">View Schedules</button><br>
+			<button class="btn btn-lg btn-primary btn-block" type="submit" name="btn-scores">View Scores</button><br><br><br>
+			<button class="btn btn-lg btn-danger btn-block" type="submit" name="btn-scores">Sign Out</button>
 			</div>
           </form>
 		  
