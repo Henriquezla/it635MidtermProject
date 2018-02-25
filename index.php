@@ -1,5 +1,6 @@
 <?php
 	session_start();
+	include("functions.php");
 	require_once 'sqlcon.php';
 	ini_set("display_errors", true);
 	if(isset($_SESSION['user'])!=""){
@@ -42,9 +43,11 @@
 					$_SESSION['user'] = $username;
 					$_SESSION['admin_rights'] = $row['admin_rights'];
 					if($_SESSION['admin_rights'] !== 'Y'){
+						$_SESSION["state"] = 'User';
 						header("Location: home.php");
 					}
 					if($_SESSION['admin_rights'] == 'Y'){
+						$_SESSION["state"] = 'Admin';
 						header("Location: admin.php");
 					}
 					
