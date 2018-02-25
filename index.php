@@ -35,7 +35,6 @@
 			echo $username;
 			$result = $dbh->query($query);
 			$row = array();
-			echo '<br>result: '.$result;
 			if($result){
 				echo "valid email<br>";
 				$row = $result->fetch_array(MYSQLI_ASSOC);
