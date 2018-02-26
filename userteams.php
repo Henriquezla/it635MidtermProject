@@ -18,6 +18,9 @@
 	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 	<!------ Include the above in your HEAD tag ---------->
 </HEAD>
+<form>
+	<button class="btn btn-lg btn-primary btn-block" type="submit" style="width:20%" name="btn-goback">Home</button><br>
+</form>
 	
 	
 	
@@ -34,7 +37,6 @@
 	} */
 	echo '<div style="margin:auto;width:75%;padding:40px;">';
 	echo '<h4 class="form-signin-heading">Teams</h4><br>';
-	echo '<form><button class="btn btn-lg btn-primary btn-block" type="submit" style="width:20%" name="btn-goback">Home</button><br></form>';
 	echo '<table class="table table-striped">';
 	echo '<tr>';
 	echo '<th scope="col">Team ID</th>';
@@ -56,6 +58,6 @@
 	
 	}
 	echo '</table><br>';
-	echo '<form><button class="btn btn-lg btn-primary btn-block" type="submit" style="width:20%" name="btn-goback">Home</button></form>';
+	//echo '<form><button class="btn btn-lg btn-primary btn-block" type="submit" style="width:20%" name="btn-goback">Home</button></form>';
 	
 ?>
