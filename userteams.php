@@ -23,7 +23,7 @@
 	
 <?php
 	$row = array();
-	$userQuery = "SELECT * FROM teams";
+	$userQuery = "SELECT * FROM teams LIMIT 0,10";
 	$result = $dbh->query($userQuery);
 	while($row = $result->fetch_array(MYSQLI_ASSOC)){
 		$rows[] = $row;
@@ -32,6 +32,7 @@
 	/* foreach($rows as $row){
 		echo $row['f_name'] . "<br>";
 	} */
+	echo '<div style="margin:auto;width:75%;padding:40px;">';
 	echo '<table class="table table-striped">';
 	echo '<tr>';
 	echo '<th scope="col">Team ID</th>';
