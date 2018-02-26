@@ -4,8 +4,8 @@
 	gatekeeper('User');
 	require_once 'sqlcon.php';
 	ini_set("display_errors", true);
-	if(isset($_POST['btn-logout']) ) {
-		header("Location: logout.php");
+	if(isset($_POST['btn-goback']) ) {
+		header("Location: home.php");
 	}
 ?>
 	
@@ -33,6 +33,8 @@
 		echo $row['f_name'] . "<br>";
 	} */
 	echo '<div style="margin:auto;width:75%;padding:40px;">';
+	echo '<h4 class="form-signin-heading">Pick your choice</h4><br>';
+	echo '<button class="btn btn-lg btn-primary btn-block" type="submit" name="btn-goback">Home</button><br>';
 	echo '<table class="table table-striped">';
 	echo '<tr>';
 	echo '<th scope="col">Team ID</th>';
@@ -53,6 +55,7 @@
 		echo '</tr>';
 	
 	}
-	echo '</table>';
+	echo '</table><br>';
+	echo '<button class="btn btn-lg btn-primary btn-block" type="submit" name="btn-goback">Home</button>';
 	
 ?>
