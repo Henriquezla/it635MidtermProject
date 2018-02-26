@@ -5,6 +5,7 @@
 	require_once 'sqlcon.php';
 	ini_set("display_errors", true);
 	if(isset($_POST['btn-goback']) ) {
+		echo "go home";
 		header("Location: home.php");
 	}
 ?>
