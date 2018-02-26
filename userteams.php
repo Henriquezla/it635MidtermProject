@@ -34,7 +34,7 @@
 	} */
 	echo '<div style="margin:auto;width:75%;padding:40px;">';
 	echo '<h4 class="form-signin-heading">Teams</h4><br>';
-	echo '<button class="btn btn-lg btn-primary btn-block" type="submit" style="margin:auto;width: 50%;padding: 40px;" name="btn-goback">Home</button><br>';
+	echo '<button class="btn btn-lg btn-primary btn-block" type="submit" style="width:40%" name="btn-goback">Home</button><br>';
 	echo '<table class="table table-striped">';
 	echo '<tr>';
 	echo '<th scope="col">Team ID</th>';
