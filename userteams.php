@@ -23,7 +23,7 @@
 	
 <?php
 	$row = array();
-	$userQuery = "SELECT * FROM teams LIMIT 0,10";
+	$userQuery = "SELECT * FROM teams LIMIT 0,15";
 	$result = $dbh->query($userQuery);
 	while($row = $result->fetch_array(MYSQLI_ASSOC)){
 		$rows[] = $row;
@@ -33,8 +33,8 @@
 		echo $row['f_name'] . "<br>";
 	} */
 	echo '<div style="margin:auto;width:75%;padding:40px;">';
-	echo '<h4 class="form-signin-heading">Pick your choice</h4><br>';
-	echo '<button class="btn btn-lg btn-primary btn-block" type="submit" name="btn-goback">Home</button><br>';
+	echo '<h4 class="form-signin-heading">Teams</h4><br>';
+	echo '<button class="btn btn-lg btn-primary btn-block" type="submit" style="margin:auto;width: 50%;padding: 40px;" name="btn-goback">Home</button><br>';
 	echo '<table class="table table-striped">';
 	echo '<tr>';
 	echo '<th scope="col">Team ID</th>';
@@ -56,6 +56,6 @@
 	
 	}
 	echo '</table><br>';
-	echo '<button class="btn btn-lg btn-primary btn-block" type="submit" name="btn-goback">Home</button>';
+	echo '<button class="btn btn-lg btn-primary btn-block" type="submit" style="margin:auto;width: 50%;padding: 40px;" name="btn-goback">Home</button>';
 	
 ?>
