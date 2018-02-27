@@ -23,7 +23,7 @@
 	
 <?php
 	$row = array();
-	$userQuery = "SELECT * FROM game_schedule LIMIT 15";
+	$userQuery = "SELECT t1.name AS 'Team A',t2.name AS 'Team B', g.schd_date AS 'Date', g.schd_time AS 'Time', g.town AS 'Location' FROM game_schedule g LEFT JOIN teams t1 ON g.team_A_id = t1.id LEFT JOIN teams t2 ON g.team_B_id = t2.id;";
 	$result = $dbh->query($userQuery);
 	while($row = $result->fetch_array(MYSQLI_ASSOC)){
 		$rows[] = $row;
@@ -38,21 +38,19 @@
 	echo '<button class="btn btn-lg btn-primary btn-block" style="width:20%" type="submit" name="btn-goback">Home</button><br></form>';
 	echo '<table class="table table-striped">';
 	echo '<tr>';
-	echo '<th scope="col">id</th>';
-	echo '<th scope="col">team_A_id</th>';
-	echo '<th scope="col">team_B_id</th>';
-	echo '<th scope="col">schd_date</th>';
-	echo '<th scope="col">schd_time</th>';
-	echo '<th scope="col">town</th>';
+	echo '<th scope="col">Team A</th>';
+	echo '<th scope="col">Team B</th>';
+	echo '<th scope="col">Date</th>';
+	echo '<th scope="col">Time</th>';
+	echo '<th scope="col">Location</th>';
 	echo ' </tr>';
 	foreach($rows as $row){
 		echo '<tr>';
-		echo '<td scope="row"><b>' . $row['id'] . '</b></td>';
-		echo '<td scope="row">' . $row['team_A_id'] . '</td>';
-		echo '<td scope="row">' . $row['team_B_id'] . '</td>';
-		echo '<td scope="row">' . $row['schd_date'] . '</td>';
-		echo '<td scope="row">' . $row['schd_time'] . '</td>';
-		echo '<td scope="row">' . $row['town'] . '</td>';
+		echo '<td scope="row">' . $row['Team A'] . '</td>';
+		echo '<td scope="row">' . $row['Team B'] . '</td>';
+		echo '<td scope="row">' . $row['Date'] . '</td>';
+		echo '<td scope="row">' . $row['Time'] . '</td>';
+		echo '<td scope="row">' . $row['Location'] . '</td>';
 		echo '</tr>';
 	
 	}
