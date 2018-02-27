@@ -12,6 +12,9 @@
 	if(isset($_POST['btn-schedules']) ) {
 		header("Location: userschedules.php");
 	}
+	if(isset($_POST['btn-scores']) ) {
+		header("Location: userscores.php");
+	}
 ?>
 
 
