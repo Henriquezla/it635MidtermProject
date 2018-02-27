@@ -23,7 +23,7 @@
 	
 <?php
 	$row = array();
-	$userQuery = "SELECT t1.name AS 'Winning Team', g.team_w_score AS 'Score', t2.name AS 'Losing Team', g.team_l_score AS 'Score', g.total_innings AS 'Innings' FROM game_results g LEFT JOIN teams t1 ON g.team_w = t1.id LEFT JOIN teams t2 ON g.team_l = t2.id";
+	$userQuery = "SELECT t1.name AS 'Winning Team', g.team_w_score AS 'Winning Score', t2.name AS 'Losing Team', g.team_l_score AS 'Losing Score', g.total_innings AS 'Innings' FROM game_results g LEFT JOIN teams t1 ON g.team_w = t1.id LEFT JOIN teams t2 ON g.team_l = t2.id";
 	$result = $dbh->query($userQuery);
 	while($row = $result->fetch_array(MYSQLI_ASSOC)){
 		$rows[] = $row;
@@ -33,23 +33,23 @@
 		echo $row['f_name'] . "<br>";
 	} */
 	echo '<div style="margin:auto;width:75%;padding:40px;">';
-	echo '<h4 class="form-signin-heading">Teams</h4><br>';
+	echo '<h4 class="form-signin-heading">Scores</h4><br>';
 	echo '<form class="form-signin" id="userchoice" role="form" method="post" action="">';
 	echo '<button class="btn btn-lg btn-primary btn-block" style="width:20%" type="submit" name="btn-goback">Home</button><br></form>';
 	echo '<table class="table table-striped">';
 	echo '<tr>';
 	echo '<th scope="col">Winning Team</th>';
-	echo '<th scope="col">Score</th>';
+	echo '<th scope="col">Winning Score</th>';
 	echo '<th scope="col">Losing Team</th>';
-	echo '<th scope="col">Score</th>';
+	echo '<th scope="col">Losing Score</th>';
 	echo '<th scope="col">Innings</th>';
 	echo ' </tr>';
 	foreach($rows as $row){
 		echo '<tr>';
 		echo '<td scope="row">' . $row['Winning Team'] . '</td>';
-		echo '<td scope="row">' . $row['Score'] . '</td>';
+		echo '<td scope="row">' . $row['Winning Score'] . '</td>';
 		echo '<td scope="row">' . $row['Losing Team'] . '</td>';
-		echo '<td scope="row">' . $row['Score'] . '</td>';
+		echo '<td scope="row">' . $row['Losing Score'] . '</td>';
 		echo '<td scope="row">' . $row['Innings'] . '</td>';
 		echo '</tr>';
 	

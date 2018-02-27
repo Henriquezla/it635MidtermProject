@@ -33,7 +33,7 @@
 		echo $row['f_name'] . "<br>";
 	} */
 	echo '<div style="margin:auto;width:75%;padding:40px;">';
-	echo '<h4 class="form-signin-heading">Teams</h4><br>';
+	echo '<h4 class="form-signin-heading">Schedules</h4><br>';
 	echo '<form class="form-signin" id="userchoice" role="form" method="post" action="">';
 	echo '<button class="btn btn-lg btn-primary btn-block" style="width:20%" type="submit" name="btn-goback">Home</button><br></form>';
 	echo '<table class="table table-striped">';
