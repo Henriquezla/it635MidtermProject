@@ -6,9 +6,6 @@
 	if(isset($_POST['btn-logout']) ) {
 		header("Location: logout.php");
 	}
-	if(isset($_POST['btn-add-teams']) ) {
-		header("Location: admin_addplayer.php");
-	}
 ?>
 
 <!DOCTYPE html>
@@ -31,10 +28,8 @@
             <h4 class="form-signin-heading">Pick your choice</h4><br>
             <a href="#" id="flipToRecover" class="flipLink">
             </a>
-            <button class="btn btn-lg btn-primary btn-block" type="submit" name="btn-add-teams">Add Teams</button>
-			<button class="btn btn-lg btn-primary btn-block" type="submit" name="btn-rmv-teams">Remove Teams</button>
-			<button class="btn btn-lg btn-primary btn-block" type="submit" name="btn-add-players">Add Players</button>
-			<button class="btn btn-lg btn-primary btn-block" type="submit" name="btn-rmv-players">Remove Players</button>
+            <button class="btn btn-lg btn-primary btn-block" type="submit" name="btn-addrmv-teams">Add/Remove Teams</button>
+			<button class="btn btn-lg btn-primary btn-block" type="submit" name="btn-addrmv-players">Add/Remove Players</button>
 			<button class="btn btn-lg btn-primary btn-block" type="submit" name="btn-add-match">Add Match to Schedule</button>
 			<button class="btn btn-lg btn-primary btn-block" type="submit" name="btn-update-score">Update Match Score</button>
 			<button class="btn btn-lg btn-primary btn-block" type="submit" name="btn-view-roster">View Team Roster</button><br>
