@@ -10,12 +10,13 @@ Common Deliverables:
 
 Individual Deliverables:
 	-Admin Login:
-		Add /Remove team
 		Add / remove player
+		Add /Remove team
 		Add player to a team
+		View team roster
 		Add a match to the schedule of events
 		Update outcome of a game
-		View team roster
+		
 	-User Login:
 		View list of teams
 		View schedule of events
