@@ -32,6 +32,7 @@
 	/* foreach($rows as $row){
 		echo $row['f_name'] . "<br>";
 	} */
+	d
 	echo '<div style="margin:auto;width:75%;padding:40px;">';
 	echo '<h4 class="form-signin-heading">Scores</h4><br>';
 	echo '<form class="form-signin" id="userchoice" role="form" method="post" action="">';
