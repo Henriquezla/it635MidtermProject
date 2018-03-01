@@ -45,16 +45,22 @@
 	echo '<th scope="col">Games Won</th>';
 	echo '<th scope="col">Games Lost</th>';
 	echo ' </tr>';
-	foreach($rows as $row){
+	if($rows){
+		foreach($rows as $row){
 		echo '<tr>';
-		echo '<td scope="row"><b>' . $row['id'] . '</b></td>';
-		echo '<td scope="row">' . $row['name'] . '</td>';
-		echo '<td scope="row">' . $row['abbreviation'] . '</td>';
-		echo '<td scope="row">' . $row['games_played'] . '</td>';
-		echo '<td scope="row">' . $row['games_won'] . '</td>';
-		echo '<td scope="row">' . $row['games_lost'] . '</td>';
-		echo '</tr>';
+			echo '<td scope="row"><b>' . $row['id'] . '</b></td>';
+			echo '<td scope="row">' . $row['name'] . '</td>';
+			echo '<td scope="row">' . $row['abbreviation'] . '</td>';
+			echo '<td scope="row">' . $row['games_played'] . '</td>';
+			echo '<td scope="row">' . $row['games_won'] . '</td>';
+			echo '<td scope="row">' . $row['games_lost'] . '</td>';
+			echo '</tr>';
+		}
 	
+	}else{
+		echo "No data available.  Redirecting to your homepage...";
+		header('Refresh: 4; index.php');
+		
 	}
 	echo '</table><br>';
 	//echo '<form><button class="btn btn-lg btn-primary btn-block" type="submit" style="width:20%" name="btn-goback">Home</button></form>';
