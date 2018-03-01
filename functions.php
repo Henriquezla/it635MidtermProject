@@ -17,4 +17,11 @@
 		
 	}
 	
+	
+	function sanitizeData($userInput){
+		$sanitizedData = (mysql_real_escape_string(htmlspecialchars(strip_tags(trim(userInput)))));
+		return $sanitizedData;
+		
+	}
+	
 ?>
