@@ -2212,17 +2212,17 @@ INSERT INTO teams (name, abbreviation, games_played, games_won, games_lost) VALU
 	;
 	
 INSERT INTO game_schedule(team_A_id,team_B_id,schd_date,schd_time,town) VALUES
-	(10000,10010,'2017-10-01','17:00:00','Newark'),
-	(10001,10011,'2017-10-05','17:00:00','Woodbridge'),
-	(10002,10012,'2017-11-01','17:00:00','Harrison'),
-	(10003,10013,'2017-10-04','17:00:00','Edison'),
-	(10004,10014,'2017-10-08','17:00:00','Union'),
-	(10005,10015,'2017-11-01','15:00:00','Elizabeth'),
-	(10006,10016,'2017-12-01','17:00:00','Lyndhurst'),
-	(10007,10017,'2017-10-11','15:00:00','Nutley')
+	(10000,10010,4,2,9,'2017-10-01','17:00:00','Newark'),
+	(10001,10011,6,5,9,'2017-10-05','17:00:00','Woodbridge'),
+	(10002,10012,3,1,9,'2017-11-01','17:00:00','Harrison'),
+	(10003,10013,2,1,11,'2017-10-04','17:00:00','Edison'),
+	(10004,10014,9,4,9,'2017-10-08','17:00:00','Union'),
+	(10005,10015,2,0,9,'2017-11-01','15:00:00','Elizabeth'),
+	(10006,10016,8,7,10,'2017-12-01','17:00:00','Lyndhurst'),
+	(10007,10017,10,8,9,'2017-10-11','15:00:00','Nutley')
 	;
 
-INSERT INTO game_results(schd_id,team_w,team_w_score,team_l,team_l_score,total_innings) VALUES
+/* INSERT INTO game_results(schd_id,team_w,team_w_score,team_l,team_l_score,total_innings) VALUES
 	('TA100000TB10010DT2017-10-01',10000,4,10010,2,9),
 	('TA100001TB10011DT2017-10-05',10001,6,10011,5,9),
 	('TA100002TB10012DT2017-11-01',10002,3,10012,1,9),
@@ -2231,4 +2231,4 @@ INSERT INTO game_results(schd_id,team_w,team_w_score,team_l,team_l_score,total_i
 	('TA100005TB10015DT2017-11-01',10005,2,10015,0,9),
 	('TA100006TB10016DT2017-12-01',10006,8,10016,7,10),
 	('TA100007TB10017DT2017-10-11',10007,10,10017,8,9)
-	;
+	; */
