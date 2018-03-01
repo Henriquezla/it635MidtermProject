@@ -2211,7 +2211,7 @@ INSERT INTO teams (name, abbreviation, games_played, games_won, games_lost) VALU
 	('Zoovu','ZOO',275,1,274)
 	;
 	
-INSERT INTO game_schedule(team_A_id,team_B_id,team_A_score,team_B_score,innings,schd_date,schd_time,town) VALUES
+INSERT INTO game_schedule(team_A_id,team_B_id,team_A_score,team_B_score,total_innings,schd_date,schd_time,town) VALUES
 	(10000,10010,4,2,9,'2017-10-01','17:00:00','Newark'),
 	(10001,10011,6,5,9,'2017-10-05','17:00:00','Woodbridge'),
 	(10002,10012,3,1,9,'2017-11-01','17:00:00','Harrison'),
