@@ -91,6 +91,9 @@ CREATE TABLE game_schedule (
     id VARCHAR(255) GENERATED ALWAYS AS(CONCAT('TA',team_A_id,'TB',team_B_id,'DT',schd_date)),
     team_A_id INT UNSIGNED NOT NULL,
 	team_B_id INT UNSIGNED NOT NULL,
+	team_A_score TINYINT UNSIGNED NOT NULL,
+	team_B_score TINYINT UNSIGNED NOT NULL,
+	total_innings TINYINT UNSIGNED NOT NULL,
 	schd_date DATE NOT NULL,
 	schd_time TIME NOT NULL,
 	town VARCHAR(255) NOT NULL,
@@ -105,7 +108,7 @@ CREATE TABLE game_schedule (
 )Engine=InnoDB;
 
 
-CREATE TABLE game_results (
+/* CREATE TABLE game_results (
 	schd_id VARCHAR(255) NOT NULL,
     team_w INT UNSIGNED NOT NULL,
 	team_w_score TINYINT UNSIGNED NOT NULL,
@@ -120,7 +123,7 @@ CREATE TABLE game_results (
        ON DELETE CASCADE
        ON UPDATE CASCADE
 	
-)Engine=InnoDB;
+)Engine=InnoDB; */
 
 
 CREATE TABLE IF NOT EXISTS users (
