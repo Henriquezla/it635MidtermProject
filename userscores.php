@@ -23,7 +23,7 @@
 	
 <?php
 	$row = array();
-	$userQuery = "SELECT g.schd_date AS 'Match Date', t1.name AS 'Team A', g.team_A_score AS 'Score', t2.name AS 'Team B', g.team_l_score AS 'Score', g.total_innings AS 'Innings' FROM game_schedule g LEFT JOIN teams t1 ON g.team_w = t1.id LEFT JOIN teams t2 ON g.team_l = t2.id";
+	$userQuery = "SELECT g.schd_date AS 'Match Date', t1.name AS 'Team A', g.team_A_score AS 'Score', t2.name AS 'Team B', g.team_B_score AS 'Score', g.total_innings AS 'Innings' FROM game_schedule g LEFT JOIN teams t1 ON g.team_w = t1.id LEFT JOIN teams t2 ON g.team_l = t2.id";
 	$result = $dbh->query($userQuery);
 	while($row = $result->fetch_array(MYSQLI_ASSOC)){
 		$rows[] = $row;
