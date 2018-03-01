@@ -1,5 +1,4 @@
 <?php	
-	include("sqlcon.php");
 	
 	function gatekeeper($type){
 		if ($_SESSION['user']==""){

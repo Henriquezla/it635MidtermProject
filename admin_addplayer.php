@@ -5,12 +5,12 @@
 	require_once 'sqlcon.php';
 	ini_set("display_errors", true);
 	if(isset($_POST['btn-submit-addplayer']) ) {
-		echo sanitizeData($_POST['fname']).'<br>';
-		echo sanitizeData($_POST['minitial']).'<br>';
-		echo sanitizeData($_POST['lname']).'<br>';
+		echo ucwords(sanitizeData($_POST['fname'])).'<br>';
+		echo strtoupper(sanitizeData($_POST['minitial'])).'<br>';
+		echo ucwords(sanitizeData($_POST['lname'])).'<br>';
 		echo sanitizeData($_POST['dob']).'<br>';
-		echo sanitizeData($_POST['country']).'<br>';
-		echo sanitizeData($_POST['throwsbats']).'<br>';
+		echo strtoupper(sanitizeData($_POST['country'])).'<br>';
+		echo strtoupper(sanitizeData($_POST['throwsbats'])).'<br>';
 	}
 	if(isset($_POST['btn-submit-addplayer']) ) {
 		header('index.php');
