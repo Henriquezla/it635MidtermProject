@@ -20,7 +20,8 @@
 	
 	
 	function sanitizeData($userInput){
-		$sanitizedData = (mysqli_real_escape_string($dbh,htmlspecialchars(strip_tags(trim($userInput)))));
+		include("sqlcon.php");
+		$sanitizedData = mysqli_real_escape_string($dbh, htmlspecialchars(strip_tags(trim($userInput))));
 		return $sanitizedData;
 		
 	}
