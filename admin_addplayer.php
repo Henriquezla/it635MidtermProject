@@ -15,6 +15,10 @@
 	if(isset($_POST['btn-submit-addplayer']) ) {
 		header('index.php');
 	}
+	if(isset($_POST['btn-cancel']) ) {
+		header('index.php');
+		exit;
+	}
 	
 	
 ?>
