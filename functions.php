@@ -1,5 +1,8 @@
 <?php	
+	session_start();
 	require_once 'sqlcon.php';
+	ini_set("display_errors", true);
+	
 	function gatekeeper($type){
 		if ($_SESSION['user']==""){
 			echo "Login first. Redirecting to Login page...<br>";
