@@ -12,6 +12,9 @@
 		echo $_POST['country'].'<br>';
 		echo $_POST['throwsbats'].'<br>';
 	}
+	if(isset($_POST['btn-submit-addplayer']) ) {
+		header('index.php');
+	}
 	
 	
 ?>
@@ -53,8 +56,9 @@
 				<input type="text" class="form-control" name="lname" id="lname" placeholder="Last Name" required autofocus><br>
 				<input type="date" class="form-control" name="dob" id="dob" placeholder="Date of Birth" required autofocus><br>
 				<input type="text" class="form-control" name="country" id="country" pattern="[A-Za-z]{2}" title="Enter a two letter country code" placeholder="Country of Birth" required autofocus><br>
-				<input type="text" class="form-control" name="throwsbats" id="throwsbats" pattern="[RLA]{1}" title="Enter R, L or A" placeholder="Throws/Bats (R,L,A)" required autofocus><br>
-				<button class="btn btn-lg btn-primary btn-block" type="submit" name="btn-submit-addplayer">Submit</button>
+				<input type="text" class="form-control" name="throwsbats" id="throwsbats" pattern="[RLArla]{1}" title="Enter R, L or A" placeholder="Throws/Bats (R,L,A)" required autofocus><br>
+				<button class="btn btn-lg btn-primary btn-block" type="submit" name="btn-submit-addplayer">Submit</button><br><br>
+				<button class="btn btn-lg btn-danger btn-block" type="submit" name="btn-cancel">Cancel</button>
 			</div>
           </form>
     

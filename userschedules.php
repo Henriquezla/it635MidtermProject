@@ -44,15 +44,22 @@
 	echo '<th scope="col">Time</th>';
 	echo '<th scope="col">Location</th>';
 	echo ' </tr>';
-	foreach($rows as $row){
-		echo '<tr>';
-		echo '<td scope="row">' . $row['Team A'] . '</td>';
-		echo '<td scope="row">' . $row['Team B'] . '</td>';
-		echo '<td scope="row">' . $row['Date'] . '</td>';
-		echo '<td scope="row">' . $row['Time'] . '</td>';
-		echo '<td scope="row">' . $row['Location'] . '</td>';
-		echo '</tr>';
-	
+	if($row){
+		foreach($rows as $row){
+			echo '<tr>';
+			echo '<td scope="row">' . $row['Team A'] . '</td>';
+			echo '<td scope="row">' . $row['Team B'] . '</td>';
+			echo '<td scope="row">' . $row['Date'] . '</td>';
+			echo '<td scope="row">' . $row['Time'] . '</td>';
+			echo '<td scope="row">' . $row['Location'] . '</td>';
+			echo '</tr>';
+		}
+		
+	}else{
+		echo "No data available.  Redirecting to your homepage...";
+		header('Refresh: 4; index.php');
+		exit;
+		
 	}
 	echo '</table><br>';
 	//echo '<form><button class="btn btn-lg btn-primary btn-block" type="submit" style="width:20%" name="btn-goback">Home</button></form>';
