@@ -25,6 +25,7 @@
 	$row = array();
 	$userQuery = "SELECT t1.name AS 'Team A',t2.name AS 'Team B', g.schd_date AS 'Date', g.schd_time AS 'Time', g.town AS 'Location' FROM game_schedule g LEFT JOIN teams t1 ON g.team_A_id = t1.id LEFT JOIN teams t2 ON g.team_B_id = t2.id";
 	$result = $dbh->query($userQuery);
+	echo $result;
 	while($row = $result->fetch_array(MYSQLI_ASSOC)){
 		$rows[] = $row;
 	}
