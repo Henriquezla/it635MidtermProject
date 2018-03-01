@@ -62,7 +62,7 @@
 				<input type="text" class="form-control" name="country" id="country" pattern="[A-Za-z]{2}" title="Enter a two letter country code" placeholder="Country of Birth" required autofocus><br>
 				<input type="text" class="form-control" name="throwsbats" id="throwsbats" pattern="[RLArla]{1}" title="Enter R, L or A" placeholder="Throws/Bats (R,L,A)" required autofocus><br>
 				<button class="btn btn-lg btn-primary btn-block" type="submit" name="btn-submit-addplayer">Submit</button><br><br>
-				<button class="btn btn-lg btn-danger btn-block" type="button" onclick="window.location.href = 'admin.php'; name="btn-cancel">Cancel</button>
+				<button class="btn btn-lg btn-danger btn-block" type="button" onclick="window.location.href = 'admin.php' "; name="btn-cancel">Cancel</button>
 			</div>
           </form>
     
