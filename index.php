@@ -15,7 +15,7 @@
 	if( isset($_POST['btn-signin']) ) {
 		
 		// sanitizing input
-		$email = htmlspecialchars(strip_tags(trim($_POST['email'])));
+		$email = strtolower(htmlspecialchars(strip_tags(trim($_POST['email']))));
 		$pass = htmlspecialchars(strip_tags(trim($_POST['pass'])));
 		if(empty($email)){
 			$error = true;
