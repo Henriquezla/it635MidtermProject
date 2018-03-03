@@ -18,6 +18,9 @@
 	if(isset($_POST['btn-rmv-players']) ) {
 		header("Location: admin_rmvplayer.php");
 	}
+	if(isset($_POST['btn-add-players-team']) ) {
+		header("Location: admin_addplayerteam.php");
+	}
 ?>
 
 <!DOCTYPE html>
@@ -43,6 +46,7 @@
 			<button class="btn btn-lg btn-primary btn-block" type="submit" name="btn-rmv-teams">Remove Teams</button>
 			<button class="btn btn-lg btn-primary btn-block" type="submit" name="btn-add-players">Add Players</button>
 			<button class="btn btn-lg btn-primary btn-block" type="submit" name="btn-rmv-players">Remove Players</button>
+			<button class="btn btn-lg btn-primary btn-block" type="submit" name="btn-add-players-team">Add Players to Team</button>
 			<button class="btn btn-lg btn-primary btn-block" type="submit" name="btn-add-match">Add Match to Schedule</button>
 			<button class="btn btn-lg btn-primary btn-block" type="submit" name="btn-update-score">Update Match Score</button>
 			<button class="btn btn-lg btn-primary btn-block" type="submit" name="btn-view-roster">View Team Roster</button><br>

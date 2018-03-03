@@ -63,26 +63,23 @@ CREATE TABLE teams (
 )Engine=InnoDB;
 ALTER TABLE teams AUTO_INCREMENT=10000;
 
-CREATE TABLE seasons (
+/* CREATE TABLE seasons (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     season_year SMALLINT UNSIGNED NOT NULL,
 	PRIMARY KEY(id)
 	
 )Engine=InnoDB;
-ALTER TABLE seasons AUTO_INCREMENT=10;
+ALTER TABLE seasons AUTO_INCREMENT=10; */
 
 CREATE TABLE team_roster_per_season (
     player_id INT UNSIGNED NOT NULL,
 	team_id INT UNSIGNED NOT NULL,
-	season_id INT UNSIGNED NOT NULL,
-    PRIMARY KEY (player_id,team_id,season_id),
+	season_year YEAR(4) NOT NULL,
+    PRIMARY KEY (player_id,team_id,season_year),
     FOREIGN KEY (player_id) REFERENCES players (id)
        ON DELETE CASCADE
        ON UPDATE CASCADE,
 	FOREIGN KEY (team_id) REFERENCES teams (id)
-       ON DELETE CASCADE
-       ON UPDATE CASCADE,
-	FOREIGN KEY (season_id) REFERENCES seasons (id)
        ON DELETE CASCADE
        ON UPDATE CASCADE
 )Engine=InnoDB;
