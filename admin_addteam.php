@@ -11,56 +11,53 @@
 	
 	if(isset($_POST['btn-submit-addplayer']) ) {
 		$error = false;
-		$fname = ucwords(sanitizeData($_POST['fname']));
-		$minitial = strtoupper(sanitizeData($_POST['minitial']));
-		$lname = ucwords(sanitizeData($_POST['lname']));
-		$dob = sanitizeData($_POST['dob']);
-		$country = strtoupper(sanitizeData($_POST['country']));
-		$throwsbats = strtoupper(sanitizeData($_POST['throwsbats']));
+		$tname = ucwords(sanitizeData($_POST['tname']));
+		$abbrv = strtoupper(sanitizeData($_POST['abbrv']));
+		$gplayed = sanitizeData($_POST['gplayed']);
+		$gwon = sanitizeData($_POST['gwon']);
+		$glost = sanitizeData($_POST['glost']);
 		
-		if(empty($fname) || empty($lname) || empty($dob) || empty($country) || empty($throwsbats)){
+		if(empty($tname) || empty($abbrv) || empty($gplayed) || empty($gwon) || empty($glost)){
 			$error = true;
 			$errMSG = "A required field was empty. Enter all required values.";
 			
-
 		}
 		
-		if(!ctype_alpha(str_replace(' ', '', $fname))) {
+		if(!ctype_alpha(str_replace(' ', '', $tname))) {
 			$error = true;
-			$errMSG = 'First Name must only contain letters and spaces.';
+			$errMSG = 'Team Name must only contain letters and spaces.';
 			
 		}
 		
-		if(!ctype_alpha(str_replace(' ', '', $lname))) {
+		if(mb_strlen($abbrv, 'utf8') > 2) {
 			$error = true;
-			$errMSG = 'Last Name must only contain letters and spaces.';
+			$errMSG = 'Abbreviation must be only two letters.';
 			
 		}
 		
-		if(mb_strlen($minitial, 'utf8') > 1) {
+		if(!is_int($gplayed) || !is_int($gwon) || !is_int($glost)) {
 			$error = true;
-			$errMSG = 'Middle Name initial should only be one letter.';
+			$errMSG = 'Games Played, Won and Lost must be a valid integer.';
 			
 		}
 		
-		if(mb_strlen($country, 'utf8') > 2) {
+		if($gplayed < 0 || $gwon < 0 || $glost < 0) {
 			$error = true;
-			$errMSG = 'Country code must be two letters.';
+			$errMSG = 'Games Played, Won and Lost must be a positive integer.';
 			
 		}
 		
-		if(mb_strlen($throwsbats, 'utf8') > 1) {
+		if($gwon + $glost !== $gplayed){
 			$error = true;
-			$errMSG = 'Throws/Bats code must be one letter.';
+			$errMSG = 'Games won and games lost must add up to total games played.';
 			
 		}
+		
+		
 		
 		if(!$error) {
-			if(empty($minitial)){
-				$query = "INSERT INTO players(f_name,l_name,dob,country,bats_throws) VALUES('$fname','$lname','$dob','$country','$throwsbats')";			
-			}else{
-				$query = "INSERT INTO players(f_name,m_initial,l_name,dob,country,bats_throws) VALUES('$fname','$minitial','$lname','$dob','$country','$throwsbats')";
-			}
+			$query = "INSERT INTO teams(name,abbreviation,games_played,games_won,games_lost) VALUES('$name','$abbreviation','$games_played','$games_won','$games_lost')";
+			
 			$result = $dbh->query($query);
 			$row = array();
 			if(!$result){
@@ -75,8 +72,6 @@
 		}
 		
 	}
-	
-	
 	
 	
 	
@@ -126,12 +121,14 @@
 				<h3 class="form-signin-heading">Enter Player Information</h3><br>
 				<a href="#" id="flipToRecover" class="flipLink">
 				</a>
-				<input type="text" class="form-control" name="fname" id="fname" placeholder="First Name" required autofocus><br>
-				<input type="text" class="form-control" name="minitial" pattern=".{1}" title="Enter a single letter" id="minitial" placeholder="Middle Initial"><br>
-				<input type="text" class="form-control" name="lname" id="lname" placeholder="Last Name" required autofocus><br>
-				<input type="date" class="form-control" name="dob" id="dob" placeholder="Date of Birth" required autofocus><br>
-				<input type="text" class="form-control" name="country" id="country" pattern="[A-Za-z]{2}" title="Enter a two letter country code" placeholder="Country of Birth" required autofocus><br>
-				<input type="text" class="form-control" name="throwsbats" id="throwsbats" pattern="[RLArla]{1}" title="Enter R, L or A" placeholder="Throws/Bats (R,L,A)" required autofocus><br>
+				<input type="text" class="form-control" name="tname" id="tname" placeholder="Team Name" required autofocus><br>
+				<input type="text" class="form-control" name="abbrv" id="abbrv" pattern="[A-Za-z]{2}" title="Enter a two letter Abbreviation" placeholder="Abbreviation" required autofocus><br>
+				<input type="number" min="0" class="form-control" name="gplayed" id="gplayed" title="Games Played" placeholder="Number of Games Played" required autofocus><br>
+				<input type="number" min="0" class="form-control" name="gwon" id="gwon" title="Games Won" placeholder="Games Won" required autofocus><br>
+				<input type="number" min="0" class="form-control" name="glost" id="glost" title="Games Lost" placeholder="Games Lost" required autofocus><br>
+				
+			
+				
 				<button class="btn btn-lg btn-primary btn-block" type="submit" name="btn-submit-addplayer">Submit</button><br><br>
 				<button class="btn btn-lg btn-danger btn-block" type="button" onclick="window.location.href = 'admin.php' "; name="btn-cancel">Cancel</button>
 			</div>
