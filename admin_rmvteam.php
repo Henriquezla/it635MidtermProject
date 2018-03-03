@@ -10,6 +10,7 @@
 	}
 	
 	if(isset($_POST['btn-search']) ) {
+		$searchPerformed = true;
 		$error = false;
 		$searchTerm = ucwords(sanitizeData($_POST['searchbox']));
 		
@@ -112,6 +113,14 @@
 				}
 			?>
 			<div style="margin:auto;width: 50%;padding: 40px;">
+			<?php
+				if (isset($searchPerformed) ) {
+					?>
+					<button class="btn btn-lg btn-primary btn-block" type="delete" name="btn-delete">Delete Selected</button><br><br>
+					<?php
+				}
+			?>
+					
 				<h3 class="form-signin-heading">Enter Team Information</h3><br>
 				<a href="#" id="flipToRecover" class="flipLink">
 				</a>
