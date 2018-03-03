@@ -43,6 +43,7 @@
 			echo '<th scope="col">Games Won</th>';
 			echo '<th scope="col">Games Lost</th>';
 			echo ' </tr>';
+			echo $rowCount;
 			if($rowCount >= 1){
 				foreach($rows as $row){
 					echo '<tr>';
@@ -55,7 +56,7 @@
 				}
 			
 			}else{
-				echo '<h3 class="form-signin-heading">No data available.  Redirecting to your homepage...</h3><br>';
+				echo '<h4 class="form-signin-heading">No such team was found.  Redirecting to your homepage...</h4><br>';
 				header('Refresh: 4; index.php');
 				
 			}
