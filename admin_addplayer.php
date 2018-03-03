@@ -74,7 +74,7 @@
 			$row = array();
 			if(!$result){
 				$error = true;
-				$errMSG = 'mysqli_error($dbh)';
+				$errMSG = mysqli_error($dbh);
 				
 			}
 							
