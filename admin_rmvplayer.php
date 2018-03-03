@@ -14,7 +14,7 @@
 		$deleteID = $_POST['rmvID'];
 		$queries = array();
 		foreach($deleteID as $rmID){
-			$queries[] = "DELETE FROM teams where id = '$rmID';";
+			$queries[] = "DELETE FROM players where id = '$rmID';";
 		}
 		$succeed = true;
 		foreach($queries as $query){
@@ -29,10 +29,9 @@
 		if($succeed){
 			$dbh->commit();
 			$error = false;
-			$sucMSG = "Team(s) successfully deleted.";
+			$sucMSG = "Player(s) successfully deleted.";
 		}
-		$dbh->close();  
-		
+		$dbh->close();		
 		
 	}
 	
@@ -43,10 +42,10 @@
 		
 		if(!$error){
 			if(empty($searchTerm)){
-				$query = "SELECT * from teams";
+				$query = "SELECT * from players";
 				
 			}else{
-				$query = "SELECT * from teams where name like '%$searchTerm%'";
+				$query = "SELECT * from players where f_name like '%$searchTerm%'";
 			}
 			
 				
@@ -62,27 +61,29 @@
 			echo '<tr>';
 			echo '<th scope="col">Select</th>';
 			echo '<th scope="col">ID</th>';
-			echo '<th scope="col">Team Name</th>';
-			echo '<th scope="col">Abbreviation</th>';
-			echo '<th scope="col">Games Played</th>';
-			echo '<th scope="col">Games Won</th>';
-			echo '<th scope="col">Games Lost</th>';
+			echo '<th scope="col">First Name</th>';
+			echo '<th scope="col">Middle Initial</th>';
+			echo '<th scope="col">Last Name</th>';
+			echo '<th scope="col">DOB</th>';
+			echo '<th scope="col">Country</th>';
+			echo '<th scope="col">Bats/Throws</th>';
 			echo ' </tr>';
 			if($rowCount >= 1){
 				foreach($rows as $row){
 					echo '<tr>';
 					echo '<td scope="row"><input type="checkbox" name="rmvID[]" value="'.$row['id'].'"</td>';
 					echo '<td scope="row">' . $row['id'] . '</td>';
-					echo '<td scope="row">' . $row['name'] . '</td>';
-					echo '<td scope="row">' . $row['abbreviation'] . '</td>';
-					echo '<td scope="row">' . $row['games_played'] . '</td>';
-					echo '<td scope="row">' . $row['games_won'] . '</td>';
-					echo '<td scope="row">' . $row['games_lost'] . '</td>';
+					echo '<td scope="row">' . $row['f_name'] . '</td>';
+					echo '<td scope="row">' . $row['m_initial'] . '</td>';
+					echo '<td scope="row">' . $row['l_name'] . '</td>';
+					echo '<td scope="row">' . $row['dob'] . '</td>';
+					echo '<td scope="row">' . $row['country'] . '</td>';
+					echo '<td scope="row">' . $row['bats_throws'] . '</td>';
 					echo '</tr>';
 				}
 			
 			}else{
-				echo '<h4 class="form-signin-heading">No such team was found.  Redirecting to your homepage...</h4><br>';
+				echo '<h4 class="form-signin-heading">No such player was found.  Redirecting to your homepage...</h4><br>';
 				header('Refresh: 4; index.php');
 				
 			}
@@ -93,9 +94,7 @@
 		}
 							
 	}
-	
-	
-		
+			
 ?>
 
 
@@ -107,6 +106,7 @@
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
 </HEAD>
 
 <div class="container">
@@ -156,8 +156,8 @@
 					echo '<br>';
 					
 				}else{
-					echo '<h3 class="form-signin-heading">Enter Team Information</h3><br>';
-					echo '<input type="text" class="form-control" name="searchbox" id="searchbox" placeholder="Search teams by name or press Enter to load all teams..." autofocus><br>';
+					echo '<h3 class="form-signin-heading">Enter Player Information</h3><br>';
+					echo '<input type="text" class="form-control" name="searchbox" id="searchbox" placeholder="Search player by first name or press Enter to load all players..." autofocus><br>';
 					echo '<button class="btn btn-lg btn-primary btn-block" type="search" name="btn-search">Search</button><br><br>';
 				}
 			?>			
@@ -170,6 +170,3 @@
 	</div>
 </div>
 </HTML>
-
-
-		

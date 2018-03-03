@@ -2,7 +2,6 @@
 	session_start();
 	include("functions.php");
 	require_once 'sqlcon.php';
-	//ini_set("display_errors", true);
 	if(isset($_SESSION['user'])!=""){
 		if($_SESSION['admin_rights']=='Y'){
 			header("Location: admin.php");
@@ -65,17 +64,6 @@
 			}
 							
 		}
-		/* $dataSet = "";
-		$userQuery = "SELECT * FROM players LIMIT 5;";
-		$result = $dbh->query($userQuery);
-
-		while($row = $result->fetch_array()){
-			$rows[] = $row;
-		}
-
-		foreach($rows as $row){
-			echo $row['f_name'] . "<br>";
-		} */
 	
 	}
 	
@@ -89,7 +77,6 @@
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
 </HEAD>
 
 <div class="container">
@@ -119,7 +106,7 @@
 			</div>
           </form>
     
-        </div> <!-- /container -->
+        </div>
 	</div>
 </div>
 </HTML>

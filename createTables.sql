@@ -108,24 +108,6 @@ CREATE TABLE game_schedule (
 )Engine=InnoDB;
 
 
-/* CREATE TABLE game_results (
-	schd_id VARCHAR(255) NOT NULL,
-    team_w INT UNSIGNED NOT NULL,
-	team_w_score TINYINT UNSIGNED NOT NULL,
-	team_l INT UNSIGNED NOT NULL,
-	team_l_score TINYINT UNSIGNED NOT NULL,
-	total_innings TINYINT UNSIGNED NOT NULL,
-	PRIMARY KEY(schd_id,team_w,team_l),
-	FOREIGN KEY (team_w) REFERENCES teams (id)
-       ON DELETE CASCADE
-       ON UPDATE CASCADE,
-	FOREIGN KEY (team_l) REFERENCES teams (id)
-       ON DELETE CASCADE
-       ON UPDATE CASCADE
-	
-)Engine=InnoDB; */
-
-
 CREATE TABLE IF NOT EXISTS users (
 	email_hash VARCHAR(255) NOT NULL,
     f_name VARCHAR(255) NOT NULL,
