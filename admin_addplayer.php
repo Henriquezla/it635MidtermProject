@@ -23,7 +23,7 @@
 			echo 'empty strings';
 			$error = true;
 			$errMSG = "A required field was empty. Enter all required values.";
-			exit;
+			
 
 		}
 		
@@ -32,28 +32,28 @@
 			echo $fname;
 			$error = true;
 			$errMSG = 'First Name must only contain letters and spaces.';
-			exit;
+			
 		}
 		
 		if(!ctype_alpha(str_replace(' ', '', $lname))) {
 			echo 'lname';
 			$error = true;
 			$errMSG = 'Last Name must only contain letters and spaces.';
-			exit;
+			
 		}
 		
 		if(mb_strlen($minitial, 'utf8') > 1) {
 			echo 'minitial';
 			$error = true;
 			$errMSG = 'Middle Name initial should only be one letter.';
-			exit;
+			
 		}
 		
 		if(mb_strlen($country, 'utf8') > 2) {
 			echo 'country';
 			$error = true;
 			$errMSG = 'Country code must be two letters.';
-			exit;
+			
 		}
 		
 		if(mb_strlen($throwsbats, 'utf8') > 1) {
@@ -64,7 +64,7 @@
 			echo strlen($throwsbats);
 			echo strlen($minitial);
 			$errMSG = 'Throws/Bats code must be one letter.';
-			exit;
+			
 		}
 		
 		echo 'no error';
