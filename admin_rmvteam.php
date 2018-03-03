@@ -124,7 +124,7 @@
 				<h3 class="form-signin-heading">Enter Team Information</h3><br>
 				<a href="#" id="flipToRecover" class="flipLink">
 				</a>
-				<input type="text" class="form-control" name="searchbox" id="searchbox" placeholder="Search teams by name or press Enter to load all teams..." autofocus><br>
+				<input type="text" class="form-control" name="searchbox" id="searchbox" placeholder="Search teams by name or press Enter to load all teams..."><br>
 								
 				<button class="btn btn-lg btn-primary btn-block" type="search" name="btn-search" autofocus>Search</button><br><br>
 				<button class="btn btn-lg btn-danger btn-block" type="button" onclick="window.location.href = 'admin.php' "; name="btn-cancel">Cancel</button>
