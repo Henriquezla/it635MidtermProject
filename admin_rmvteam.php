@@ -9,6 +9,11 @@
 		exit;
 	}
 	
+	if(isset($_POST['btn-delete']) ) {
+		$deleteID = array();
+		
+	}
+	
 	if(isset($_POST['btn-search']) ) {
 		$searchPerformed = true;
 		$error = false;

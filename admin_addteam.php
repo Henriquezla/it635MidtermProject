@@ -17,7 +17,7 @@
 		$gwon = intval(sanitizeData($_POST['gwon']));
 		$glost = intval(sanitizeData($_POST['glost']));
 		
-		if(empty($tname) || empty($abbrv) || empty($gplayed) || empty($gwon) || empty($glost)){
+		if(empty($tname) || empty($abbrv) || !isset($gplayed) || !isset($gwon) || !isset($glost)){
 			$error = true;
 			$errMSG = "A required field was empty. Enter all required values.";
 			
