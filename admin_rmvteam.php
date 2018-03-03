@@ -46,7 +46,7 @@
 			if($rowCount >= 1){
 				foreach($rows as $row){
 					echo '<tr>';
-					echo '<input type="checkbox" name="'.<?php echo $row['id'];?>.'" value="'.<?php echo $row['id'];?>.'"';
+					echo '<input type="checkbox" name="'.$row['id'].'" value="'.$row['id'].'"';
 					echo '<td scope="row">' . $row['id'] . '</td>';
 					echo '<td scope="row">' . $row['name'] . '</td>';
 					echo '<td scope="row">' . $row['abbreviation'] . '</td>';
