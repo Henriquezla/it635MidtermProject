@@ -15,6 +15,9 @@
 	if(isset($_POST['btn-rmv-teams']) ) {
 		header("Location: admin_rmvteam.php");
 	}
+	if(isset($_POST['btn-rmv-players']) ) {
+		header("Location: admin_rmvplayer.php");
+	}
 ?>
 
 <!DOCTYPE html>
