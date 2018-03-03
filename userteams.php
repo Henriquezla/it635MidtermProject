@@ -38,7 +38,6 @@
 	echo '<button class="btn btn-lg btn-primary btn-block" style="width:20%" type="submit" name="btn-goback">Home</button><br></form>';
 	echo '<table class="table table-striped">';
 	echo '<tr>';
-	echo '<th scope="col">Team ID</th>';
 	echo '<th scope="col">Team Name</th>';
 	echo '<th scope="col">Abbreviation</th>';
 	echo '<th scope="col">Games Played</th>';
@@ -48,7 +47,6 @@
 	if($rows){
 		foreach($rows as $row){
 		echo '<tr>';
-			echo '<td scope="row"><b>' . $row['id'] . '</b></td>';
 			echo '<td scope="row">' . $row['name'] . '</td>';
 			echo '<td scope="row">' . $row['abbreviation'] . '</td>';
 			echo '<td scope="row">' . $row['games_played'] . '</td>';
