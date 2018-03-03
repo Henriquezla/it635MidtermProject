@@ -32,7 +32,7 @@
 				echo $row['f_name'] . "<br>";
 			} */
 			echo '<div style="margin:auto;width:75%;padding:40px;">';
-			echo '<h4 class="form-signin-heading">Teams</h4><br>';
+			echo '<h3 class="form-signin-heading">Teams</h3><br>';
 			echo '<form class="form-signin" id="userchoice" role="form" method="post" action="">';
 			echo '<table class="table table-striped">';
 			echo '<tr>';
@@ -46,6 +46,7 @@
 			if($rowCount >= 1){
 				foreach($rows as $row){
 					echo '<tr>';
+					echo '<input type="checkbox" name="'.<?php echo $row['id']?>.'" value="'.<?php echo $row['id']?>.'"';
 					echo '<td scope="row">' . $row['id'] . '</td>';
 					echo '<td scope="row">' . $row['name'] . '</td>';
 					echo '<td scope="row">' . $row['abbreviation'] . '</td>';
