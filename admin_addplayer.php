@@ -20,27 +20,32 @@
 		if(empty($fname) || empty($minitial) || empty($dob) || empty($country) || empty($throwsbats)){
 			$error = true;
 			$errMSG = "A required field was empty. Enter all required values.";
+			exit;
 
 		}
 		
 		if (ctype_alpha(str_replace(' ', '', $fname)) === false) {
 			$error = true;
 			$errMSG = 'First Name must only contain letters and spaces.';
+			exit;
 		}
 		
 		if (ctype_alpha(str_replace(' ', '', $lname)) === false) {
 			$error = true;
 			$errMSG = 'Last Name must only contain letters and spaces.';
+			exit;
 		}
 		
 		if (mb_strlen($minitial) > 1) {
 			$error = true;
 			$errMSG = 'Middle Name initial should only be one letter.';
+			exit;
 		}
 		
 		if (mb_strlen($country) > 2) {
 			$error = true;
 			$errMSG = 'Country code must be two letters.';
+			exit;
 		}
 		
 		if (mb_strlen($throwsbats) > 1) {
@@ -50,6 +55,7 @@
 			echo strlen($throwsbats);
 			echo strlen($minitial);
 			$errMSG = 'Throws/Bats code must be one letter.';
+			exit;
 		}
 		
 		
