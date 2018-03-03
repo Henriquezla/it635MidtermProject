@@ -13,9 +13,9 @@
 		$error = false;
 		$tname = ucwords(sanitizeData($_POST['tname']));
 		$abbrv = strtoupper(sanitizeData($_POST['abbrv']));
-		$gplayed = sanitizeData($_POST['gplayed']);
-		$gwon = sanitizeData($_POST['gwon']);
-		$glost = sanitizeData($_POST['glost']);
+		$gplayed = intval(sanitizeData($_POST['gplayed']));
+		$gwon = intval(sanitizeData($_POST['gwon']));
+		$glost = intval(sanitizeData($_POST['glost']));
 		
 		if(empty($tname) || empty($abbrv) || empty($gplayed) || empty($gwon) || empty($glost)){
 			echo 'empty';
