@@ -26,7 +26,7 @@
 
 		}
 		
-		if (!ctype_alpha(str_replace(' ', '', $fname))) {
+		/* if(!ctype_alpha(str_replace(' ', '', $fname))) {
 			echo 'fname';
 			echo $fname;
 			$error = true;
@@ -34,28 +34,28 @@
 			exit;
 		}
 		
-		if (!ctype_alpha(str_replace(' ', '', $lname))) {
+		if(!ctype_alpha(str_replace(' ', '', $lname))) {
 			echo 'lname';
 			$error = true;
 			$errMSG = 'Last Name must only contain letters and spaces.';
 			exit;
-		}
+		} */
 		
-		if (mb_strlen($minitial, 'utf8') > 1) {
+		if(mb_strlen($minitial, 'utf8') > 1) {
 			echo 'minitial';
 			$error = true;
 			$errMSG = 'Middle Name initial should only be one letter.';
 			exit;
 		}
 		
-		if (mb_strlen($country, 'utf8') > 2) {
+		if(mb_strlen($country, 'utf8') > 2) {
 			echo 'country';
 			$error = true;
 			$errMSG = 'Country code must be two letters.';
 			exit;
 		}
 		
-		if (mb_strlen($throwsbats, 'utf8') > 1) {
+		if(mb_strlen($throwsbats, 'utf8') > 1) {
 			echo 'throwsbats';
 			$error = true;
 			echo $throwsbats;
@@ -67,7 +67,7 @@
 		}
 		
 		echo 'no error';
-		if (!$error) {
+		if(!$error) {
 			$query = "INSERT INTO players(f_name,m_initial,l_name,dob,country,bats_throws) VALUES('$fname','$minitial','$lname','$dob','$country','$throwsbats')";
 			$result = $dbh->query($query);
 			$row = array();
