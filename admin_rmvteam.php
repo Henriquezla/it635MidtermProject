@@ -124,15 +124,16 @@
 				<h3 class="form-signin-heading">Enter Team Information</h3><br>
 				<a href="#" id="flipToRecover" class="flipLink">
 				</a>
+				
 				<?php
 				if (isset($searchPerformed) ) {
-					?>
-					<input type="text" class="form-control" name="searchbox" id="searchbox" placeholder="Search teams by name or press Enter to load all teams..."><br>
-					<?php
+					
+					echo '<input type="text" class="form-control" name="searchbox" id="searchbox" placeholder="Search teams by name or press Enter to load all teams..."><br>';
+					
 				}else{
-					?>
-					<input type="text" class="form-control" name="searchbox" id="searchbox" placeholder="Search teams by name or press Enter to load all teams..." autofocus><br
-					<?php
+					
+					echo '<input type="text" class="form-control" name="searchbox" id="searchbox" placeholder="Search teams by name or press Enter to load all teams..." autofocus><br>';
+					
 				}
 			?>			
 				<button class="btn btn-lg btn-primary btn-block" type="search" name="btn-search">Search</button><br><br>
