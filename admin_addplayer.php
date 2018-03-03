@@ -28,6 +28,7 @@
 		
 		if (!ctype_alpha(str_replace(' ', '', $fname))) {
 			echo 'fname';
+			echo $fname;
 			$error = true;
 			$errMSG = 'First Name must only contain letters and spaces.';
 			exit;
