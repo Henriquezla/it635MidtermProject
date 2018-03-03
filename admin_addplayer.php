@@ -33,17 +33,17 @@
 			$errMSG = 'Last Name must only contain letters and spaces.';
 		}
 		
-		if (strlen($minitial) > 1) {
+		if (mb_strlen($minitial) > 1) {
 			$error = true;
 			$errMSG = 'Middle Name initial should only be one letter.';
 		}
 		
-		if (strlen($country) > 2) {
+		if (mb_strlen($country) > 2) {
 			$error = true;
 			$errMSG = 'Country code must be two letters.';
 		}
 		
-		if (strlen($throwsbats) > 1) {
+		if (mb_strlen($throwsbats) > 1) {
 			$error = true;
 			echo $throwsbats;
 			echo $minitial;
