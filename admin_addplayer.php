@@ -120,7 +120,7 @@
 				}
 			?>
 			<?php
-				if (!$error && isset($sucMSG)) {
+				if (isset($sucMSG)) {
 					
 					?>
 					<div class="form-group">
