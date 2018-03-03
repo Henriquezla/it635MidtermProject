@@ -11,9 +11,8 @@
 	}
 	
 	if(isset($_POST['btn-add']) ) {
-		$dbh->autocommit(false);
 		$addID = $_POST['addID'];
-		header('chooseteam.php');
+		//header('chooseteam.php');
 		
 	}
 	

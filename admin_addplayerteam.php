@@ -10,7 +10,7 @@
 	}
 	
 	if(isset($_POST['btn-add']) ) {
-		$dbh->autocommit(false);
+		//$dbh->autocommit(false);
 		$addID = $_POST['addID'];
 		header('chooseteam.php');
 /* 		$queries = array();
@@ -114,7 +114,7 @@
 	<div class="row">
     	<div class="container" id="formContainer">
 
-          <form class="form-signin" id="login" role="form" method="post" action="" autocomplete="off">
+          <form class="form-signin" id="login" role="form" method="post" action="chooseteam.php" autocomplete="off">
 			<?php
 				if ( isset($errMSG) ) {
 					
