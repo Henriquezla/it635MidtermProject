@@ -54,7 +54,7 @@
 				}
 			
 			}else{
-				echo "No data available.  Redirecting to your homepage...";
+				echo '<h3 class="form-signin-heading">No data available.  Redirecting to your homepage...</h3><br>';
 				header('Refresh: 4; index.php');
 				
 			}
@@ -112,7 +112,7 @@
 				}
 			?>
 			<div style="margin:auto;width: 50%;padding: 40px;">
-				<h3 class="form-signin-heading">Enter Player Information</h3><br>
+				<h3 class="form-signin-heading">Enter Team Information</h3><br>
 				<a href="#" id="flipToRecover" class="flipLink">
 				</a>
 				<input type="text" class="form-control" name="searchbox" id="searchbox" placeholder="Search teams by name or press Enter to load all teams..." autofocus><br>
