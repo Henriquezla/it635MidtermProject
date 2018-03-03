@@ -34,7 +34,6 @@
 			echo '<div style="margin:auto;width:75%;padding:40px;">';
 			echo '<h4 class="form-signin-heading">Teams</h4><br>';
 			echo '<form class="form-signin" id="userchoice" role="form" method="post" action="">';
-			echo '<button class="btn btn-lg btn-primary btn-block" style="width:20%" type="submit" name="btn-goback">Home</button><br></form>';
 			echo '<table class="table table-striped">';
 			echo '<tr>';
 			echo '<th scope="col">Team Name</th>';
@@ -127,7 +126,7 @@
 				</a>
 				<input type="text" class="form-control" name="searchbox" id="searchbox" placeholder="Search teams by name or press Enter to load all teams..." autofocus><br>
 								
-				<button class="btn btn-lg btn-primary btn-block" type="search" name="btn-search">Search</button><br><br>
+				<button class="btn btn-lg btn-primary btn-block" type="search" name="btn-search" autofocus>Search</button><br><br>
 				<button class="btn btn-lg btn-danger btn-block" type="button" onclick="window.location.href = 'admin.php' "; name="btn-cancel">Cancel</button>
 			</div>
           </form>
