@@ -13,8 +13,8 @@
 	if(isset($_POST['btn-add']) ) {
 		//$addID = $_POST['addID'];
 		//header('chooseteam.php');
-		echo 'add id='.$addID;
-		echo '_POST add id='.$_POST['addID'];
+		/* echo 'add id='.$addID;
+		echo '_POST add id='.$_POST['addID']; */
 		echo 'Session ='.$_SESSION['addID'];
 		
 	}
