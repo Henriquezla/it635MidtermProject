@@ -11,8 +11,10 @@
 	}
 	
 	if(isset($_POST['btn-add']) ) {
-		$addID = $_POST['addID'];
+		//$addID = $_POST['addID'];
 		//header('chooseteam.php');
+		echo 'add id='.$addID;
+		echo '_POST add id='.$_POST['addID'];
 		
 	}
 	
