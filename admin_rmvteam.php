@@ -16,17 +16,17 @@
 		foreach($deleteID as $rmID){
 			$queries[] = "DELETE FROM teams where id = '$rmID';";
 		}
-		$flag = true;
+		$succeed = true;
 		foreach($queries as $query){
 			if(!$dbh->query($query)){
 				$dbh->rollback();
-				$flag = false;
+				$succeed = false;
 				$error = true;
 				$errMSG = mysqli_error($dbh);
 				return;
 			}
 		}
-		if($flag){
+		if($succeed){
 			$dbh->commit();
 			$error = false;
 			$sucMSG = "Team(s) successfully deleted.";
