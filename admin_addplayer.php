@@ -48,6 +48,7 @@
 			echo $throwsbats;
 			echo $minitial;
 			echo strlen($throwsbats);
+			echo strlen($minitial);
 			$errMSG = 'Throws/Bats code must be one letter.';
 		}
 		
