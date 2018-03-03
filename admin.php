@@ -9,6 +9,9 @@
 	if(isset($_POST['btn-add-players']) ) {
 		header("Location: admin_addplayer.php");
 	}
+	if(isset($_POST['btn-add-teams']) ) {
+		header("Location: admin_addteam.php");
+	}
 ?>
 
 <!DOCTYPE html>
