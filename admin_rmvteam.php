@@ -56,7 +56,6 @@
 			}else{
 				echo "No data available.  Redirecting to your homepage...";
 				header('Refresh: 4; index.php');
-				exit;
 				
 			}
 			echo '</table><br>';
