@@ -42,7 +42,7 @@
 			echo '<th scope="col">Games Won</th>';
 			echo '<th scope="col">Games Lost</th>';
 			echo ' </tr>';
-			if($rows){
+			if($rowCount >= 1){
 				foreach($rows as $row){
 					echo '<tr>';
 					echo '<td scope="row">' . $row['name'] . '</td>';
