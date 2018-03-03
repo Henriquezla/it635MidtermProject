@@ -1,5 +1,6 @@
 <?php 
 	include("functions.php");
+	include("admin_addplayerteam.php");
 	session_start();
 	gatekeeper('Admin');
 	require_once 'sqlcon.php';
@@ -13,26 +14,6 @@
 		$dbh->autocommit(false);
 		$addID = $_POST['addID'];
 		header('chooseteam.php');
-/* 		$queries = array();
-		foreach($addID as $adID){
-			//$queries[] = "DELETE FROM players where id = '$adID';";
-		}
-		$succeed = true;
-		foreach($queries as $query){
-			if(!$dbh->query($query)){
-				$dbh->rollback();
-				$succeed = false;
-				$error = true;
-				$errMSG = mysqli_error($dbh);
-				return;
-			}
-		}
-		if($succeed){
-			$dbh->commit();
-			$error = false;
-			$sucMSG = "Player(s) successfully added to team.";
-		}
-		$dbh->close();	 */	
 		
 	}
 	
@@ -43,10 +24,10 @@
 		
 		if(!$error){
 			if(empty($searchTerm)){
-				$query = "SELECT * FROM players WHERE id NOT IN (SELECT player_id FROM team_roster_per_season);";
+				$query = "SELECT * from teams";
 				
 			}else{
-				$query = "SELECT * FROM players WHERE f_name LIKE '%$searchTerm%' AND id NOT IN (SELECT player_id FROM team_roster_per_season);";
+				$query = "SELECT * from teams where name like '%$searchTerm%'";
 			}
 			
 				
@@ -62,30 +43,29 @@
 			echo '<tr>';
 			echo '<th scope="col">Select</th>';
 			echo '<th scope="col">ID</th>';
-			echo '<th scope="col">First Name</th>';
-			echo '<th scope="col">Middle Initial</th>';
-			echo '<th scope="col">Last Name</th>';
-			echo '<th scope="col">DOB</th>';
-			echo '<th scope="col">Country</th>';
-			echo '<th scope="col">Bats/Throws</th>';
+			echo '<th scope="col">Team Name</th>';
+			echo '<th scope="col">Abbreviation</th>';
+			echo '<th scope="col">Games Played</th>';
+			echo '<th scope="col">Games Won</th>';
+			echo '<th scope="col">Games Lost</th>';
 			echo ' </tr>';
 			if($rowCount >= 1){
 				foreach($rows as $row){
 					echo '<tr>';
 					echo '<td scope="row"><input type="checkbox" name="rmvID[]" value="'.$row['id'].'"</td>';
 					echo '<td scope="row">' . $row['id'] . '</td>';
-					echo '<td scope="row">' . $row['f_name'] . '</td>';
-					echo '<td scope="row">' . $row['m_initial'] . '</td>';
-					echo '<td scope="row">' . $row['l_name'] . '</td>';
-					echo '<td scope="row">' . $row['dob'] . '</td>';
-					echo '<td scope="row">' . $row['country'] . '</td>';
-					echo '<td scope="row">' . $row['bats_throws'] . '</td>';
+					echo '<td scope="row">' . $row['name'] . '</td>';
+					echo '<td scope="row">' . $row['abbreviation'] . '</td>';
+					echo '<td scope="row">' . $row['games_played'] . '</td>';
+					echo '<td scope="row">' . $row['games_won'] . '</td>';
+					echo '<td scope="row">' . $row['games_lost'] . '</td>';
 					echo '</tr>';
 				}
 			
 			}else{
-				echo '<h4 class="form-signin-heading">No such player was found.  Redirecting to your homepage...</h4><br>';
-				header('Refresh: 4; index.php');
+				echo '<h4 class="form-signin-heading">No such team was found.  Try Again...</h4><br>';
+				$searchPerformed = false;
+				//header('Refresh: 4; index.php');
 				
 			}
 			echo '</table><br>';
@@ -97,8 +77,6 @@
 	}
 			
 ?>
-
-
 
 
 <!DOCTYPE html>
@@ -157,8 +135,8 @@
 					echo '<br>';
 					
 				}else{
-					echo '<h3 class="form-signin-heading">Enter Player Information</h3><br>';
-					echo '<input type="text" class="form-control" name="searchbox" id="searchbox" placeholder="Search player by first name or press Enter to load available players..." autofocus><br>';
+					echo '<h3 class="form-signin-heading">Enter Team Information</h3><br>';
+					echo '<input type="text" class="form-control" name="searchbox" id="searchbox" placeholder="Search teams by name or press Enter to load all teams..." autofocus><br>';
 					echo '<button class="btn btn-lg btn-primary btn-block" type="search" name="btn-search">Search</button><br><br>';
 				}
 			?>			
