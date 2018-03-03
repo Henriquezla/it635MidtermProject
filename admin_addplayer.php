@@ -76,6 +76,9 @@
 				$error = true;
 				$errMSG = mysqli_error($dbh);
 				
+			}else{
+				$error = false;
+				$sucMSG = "Record saved.";
 			}
 							
 		}
@@ -111,6 +114,18 @@
 					<div class="form-group">
 					<div class="alert alert-danger">
 					<span class="glyphicon glyphicon-info-sign"></span> <?php echo $errMSG; ?>
+					</div>
+					</div>
+					<?php
+				}
+			?>
+			<?php
+				if (!$error && isset($sucMSG)) {
+					
+					?>
+					<div class="form-group">
+					<div class="alert alert-success">
+					<span class="glyphicon glyphicon-ok-sign"></span> <?php echo $sucMSG; ?>
 					</div>
 					</div>
 					<?php
