@@ -19,7 +19,7 @@
 		$country = strtoupper(sanitizeData($_POST['country']));
 		$throwsbats = strtoupper(sanitizeData($_POST['throwsbats']));
 		
-		if(empty($fname) || empty($minitial) || empty($dob) || empty($country) || empty($throwsbats)){
+		if(empty($fname) || empty($lname) || empty($dob) || empty($country) || empty($throwsbats)){
 			echo 'empty strings';
 			$error = true;
 			$errMSG = "A required field was empty. Enter all required values.";
