@@ -36,6 +36,7 @@
 			echo '<form class="form-signin" id="userchoice" role="form" method="post" action="">';
 			echo '<table class="table table-striped">';
 			echo '<tr>';
+			echo '<th scope="col">Select</th>';
 			echo '<th scope="col">ID</th>';
 			echo '<th scope="col">Team Name</th>';
 			echo '<th scope="col">Abbreviation</th>';
