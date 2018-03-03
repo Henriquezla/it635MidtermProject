@@ -36,16 +36,17 @@
 			echo '<form class="form-signin" id="userchoice" role="form" method="post" action="">';
 			echo '<table class="table table-striped">';
 			echo '<tr>';
+			echo '<th scope="col">ID</th>';
 			echo '<th scope="col">Team Name</th>';
 			echo '<th scope="col">Abbreviation</th>';
 			echo '<th scope="col">Games Played</th>';
 			echo '<th scope="col">Games Won</th>';
 			echo '<th scope="col">Games Lost</th>';
 			echo ' </tr>';
-			echo $rowCount;
 			if($rowCount >= 1){
 				foreach($rows as $row){
 					echo '<tr>';
+					echo '<td scope="row">' . $row['id'] . '</td>';
 					echo '<td scope="row">' . $row['name'] . '</td>';
 					echo '<td scope="row">' . $row['abbreviation'] . '</td>';
 					echo '<td scope="row">' . $row['games_played'] . '</td>';
