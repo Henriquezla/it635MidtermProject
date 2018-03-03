@@ -18,7 +18,7 @@
 				$query = "SELECT * from teams";
 				
 			}else{
-				$query = "SELECT * from teams where name like '%$searchTerm'%";
+				$query = "SELECT * from teams where name like '%$searchTerm%'";
 			}
 			
 				
