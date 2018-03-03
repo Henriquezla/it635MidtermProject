@@ -42,21 +42,21 @@
 			exit;
 		}
 		
-		if(mb_strlen($minitial, 'utf8') > 1) {
+		if(mb_strlen($minitial, 'utf8') > 5) {
 			echo 'minitial';
 			$error = true;
 			$errMSG = 'Middle Name initial should only be one letter.';
 			exit;
 		}
 		
-		if(mb_strlen($country, 'utf8') > 2) {
+		if(mb_strlen($country, 'utf8') > 10) {
 			echo 'country';
 			$error = true;
 			$errMSG = 'Country code must be two letters.';
 			exit;
 		}
 		
-		if(mb_strlen($throwsbats, 'utf8') > 1) {
+		if(mb_strlen($throwsbats, 'utf8') > 5) {
 			echo 'throwsbats';
 			$error = true;
 			echo $throwsbats;
@@ -69,7 +69,7 @@
 		
 		echo 'no error'; */
 		if(!$error) {
-			$query = "INSERT INTO players(f_name,m_initial,l_name,dob,country,bats_throws) VALUES('$fname','$minitial','$lname','$dob','$country','$throwsbats')";
+			$query = "INSERT INTO players(f_name,m_initial,l_name,dob,country,bats_throws) VALUES('$fname','$minitial','$lname',STR_TO_DATE('$dob','%y-%m-%d'),'$country','$throwsbats')";
 			$result = $dbh->query($query);
 			$row = array();
 			if(!$result){
