@@ -27,7 +27,7 @@
 			}
 		}
 		if($flag){
-			$dbh->commit;
+			$dbh->commit();
 			$error = false;
 			$sucMSG = "Team(s) successfully deleted.";
 		}
