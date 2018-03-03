@@ -11,6 +11,7 @@
 	
 	if(isset($_POST['btn-submit-addplayer']) ) {
 		echo 'is set';
+		$error = false;
 		$fname = ucwords(sanitizeData($_POST['fname'])).'<br>';
 		$minitial = strtoupper(sanitizeData($_POST['minitial'])).'<br>';
 		$lname = ucwords(sanitizeData($_POST['lname'])).'<br>';
@@ -39,7 +40,7 @@
 			$error = true;
 			$errMSG = 'Last Name must only contain letters and spaces.';
 			exit;
-		} */
+		}
 		
 		if(mb_strlen($minitial, 'utf8') > 1) {
 			echo 'minitial';
@@ -66,7 +67,7 @@
 			exit;
 		}
 		
-		echo 'no error';
+		echo 'no error'; */
 		if(!$error) {
 			$query = "INSERT INTO players(f_name,m_initial,l_name,dob,country,bats_throws) VALUES('$fname','$minitial','$lname','$dob','$country','$throwsbats')";
 			$result = $dbh->query($query);
