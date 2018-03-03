@@ -27,7 +27,7 @@
 			while($row = $result->fetch_array(MYSQLI_ASSOC)){
 				$rows[] = $row;
 			}
-			$rowCount = count($row);
+			$rowCount = count($rows);
 			/* foreach($rows as $row){
 				echo $row['f_name'] . "<br>";
 			} */
