@@ -142,7 +142,7 @@
 			<?php
 				if (isset($searchPerformed) ) {
 					?>
-					<button class="btn btn-lg btn-primary btn-block" type="delete" name="btn-delete">Delete Selected</button><br><br>
+					<button class="btn btn-lg btn-primary btn-block" type="delete" name="btn-delete">Add Selected</button><br><br>
 					<?php
 				}
 			?>

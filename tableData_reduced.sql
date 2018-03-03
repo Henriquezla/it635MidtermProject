@@ -51,7 +51,7 @@ INSERT INTO players (f_name, m_initial, l_name, dob, country, bats_throws) VALUE
 ('Rowney', null, 'Rootham', '2002-11-26', 'PT', 'A')
 ;
 
-INSERT INTO pitching (player_id, games_pitched, games_won, games_lost, ERA, K, BB) VALUES 
+/* INSERT INTO pitching (player_id, games_pitched, games_won, games_lost, ERA, K, BB) VALUES 
 	(100000, 30, 12, 18, 1.59, 87, 28),
 	(100001, 38, 1, 37, 4.13, 98, 31),
 	(100002, 33, 2, 31, 0.81, 16, 34),
@@ -105,7 +105,7 @@ INSERT INTO batting (player_id,games_played,AB,H,bat_AVG,BB,K) VALUES
 	(100047,31,233,86, 0.369,10, 39),
 	(100048,48,118,56, 0.475,27, 34),
 	(100049,46,111,64, 0.577,36, 7)
-	;
+	; */
 
 
 INSERT INTO teams (name, abbreviation, games_played, games_won, games_lost) VALUES

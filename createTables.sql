@@ -23,7 +23,7 @@ CREATE TABLE players (
 )Engine=InnoDB;
 ALTER TABLE players AUTO_INCREMENT=100000;
 
-CREATE TABLE pitching (
+/* CREATE TABLE pitching (
     player_id INT UNSIGNED NOT NULL,
 	games_pitched SMALLINT UNSIGNED NOT NULL,
 	games_won SMALLINT UNSIGNED NOT NULL,
@@ -49,7 +49,7 @@ CREATE TABLE batting (
     FOREIGN KEY (player_id) REFERENCES players (id)
        ON DELETE CASCADE
        ON UPDATE CASCADE
-)Engine=InnoDB;
+)Engine=InnoDB; */
 
 CREATE TABLE teams (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
