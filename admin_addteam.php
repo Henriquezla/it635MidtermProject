@@ -65,7 +65,7 @@
 		
 		
 		if(!$error) {
-			$query = "INSERT INTO teams(name,abbreviation,games_played,games_won,games_lost) VALUES('$name','$abbreviation','$games_played','$games_won','$games_lost')";
+			$query = "INSERT INTO teams(name,abbreviation,games_played,games_won,games_lost) VALUES('$name','$abbrv','$gplayed','$gwon','$glost')";
 			
 			$result = $dbh->query($query);
 			$row = array();
