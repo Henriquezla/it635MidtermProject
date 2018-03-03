@@ -39,6 +39,9 @@
 		}
 		
 		if(!is_int($gplayed) || !is_int($gwon) || !is_int($glost)) {
+			echo $gplayed;
+			echo $gwon;
+			echo $gwon;
 			echo 'arent integer';
 			$error = true;
 			$errMSG = 'Games Played, Won and Lost must be a valid integer.';
