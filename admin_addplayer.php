@@ -10,6 +10,7 @@
 	}
 	
 	if(isset($_POST['btn-submit-addplayer']) ) {
+		echo 'is set';
 		$fname = ucwords(sanitizeData($_POST['fname'])).'<br>';
 		$minitial = strtoupper(sanitizeData($_POST['minitial'])).'<br>';
 		$lname = ucwords(sanitizeData($_POST['lname'])).'<br>';
@@ -18,6 +19,7 @@
 		$throwsbats = strtoupper(sanitizeData($_POST['throwsbats'])).'<br>';
 		
 		if(empty($fname) || empty($minitial) || empty($dob) || empty($country) || empty($throwsbats)){
+			echo 'empty strings';
 			$error = true;
 			$errMSG = "A required field was empty. Enter all required values.";
 			exit;
@@ -25,30 +27,35 @@
 		}
 		
 		if (ctype_alpha(str_replace(' ', '', $fname)) === false) {
+			echo 'fname';
 			$error = true;
 			$errMSG = 'First Name must only contain letters and spaces.';
 			exit;
 		}
 		
 		if (ctype_alpha(str_replace(' ', '', $lname)) === false) {
+			echo 'lname';
 			$error = true;
 			$errMSG = 'Last Name must only contain letters and spaces.';
 			exit;
 		}
 		
 		if (mb_strlen($minitial, 'utf8') > 1) {
+			echo 'minitial';
 			$error = true;
 			$errMSG = 'Middle Name initial should only be one letter.';
 			exit;
 		}
 		
 		if (mb_strlen($country, 'utf8') > 2) {
+			echo 'country';
 			$error = true;
 			$errMSG = 'Country code must be two letters.';
 			exit;
 		}
 		
 		if (mb_strlen($throwsbats, 'utf8') > 1) {
+			echo 'throwsbats';
 			$error = true;
 			echo $throwsbats;
 			echo $minitial;
@@ -58,7 +65,7 @@
 			exit;
 		}
 		
-		
+		echo 'no error';
 		if (!$error) {
 			$query = "INSERT INTO players(f_name,m_initial,l_name,dob,country,bats_throws) VALUES('$fname','$minitial','$lname','$dob','$country','$throwsbats')";
 			$result = $dbh->query($query);
