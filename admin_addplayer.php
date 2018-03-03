@@ -46,6 +46,7 @@
 		if (strlen($throwsbats) > 1) {
 			$error = true;
 			echo $throwsbats;
+			echo $minitial;
 			echo strlen($throwsbats);
 			$errMSG = 'Throws/Bats code must be one letter.';
 		}
