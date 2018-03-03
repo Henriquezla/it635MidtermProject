@@ -4,21 +4,67 @@
 	gatekeeper('Admin');
 	require_once 'sqlcon.php';
 	ini_set("display_errors", true);
-	if(isset($_POST['btn-submit-addplayer']) ) {
-		echo ucwords(sanitizeData($_POST['fname'])).'<br>';
-		echo strtoupper(sanitizeData($_POST['minitial'])).'<br>';
-		echo ucwords(sanitizeData($_POST['lname'])).'<br>';
-		echo sanitizeData($_POST['dob']).'<br>';
-		echo strtoupper(sanitizeData($_POST['country'])).'<br>';
-		echo strtoupper(sanitizeData($_POST['throwsbats'])).'<br>';
-	}
-	if(isset($_POST['btn-submit-addplayer']) ) {
-		header('index.php');
-	}
 	if(isset($_POST['btn-cancel']) ) {
 		header('index.php');
 		exit;
 	}
+	
+	if(isset($_POST['btn-submit-addplayer']) ) {
+		$fname = ucwords(sanitizeData($_POST['fname'])).'<br>';
+		$minitial = strtoupper(sanitizeData($_POST['minitial'])).'<br>';
+		$lname = ucwords(sanitizeData($_POST['lname'])).'<br>';
+		$dob = sanitizeData($_POST['dob']).'<br>';
+		$country = strtoupper(sanitizeData($_POST['country'])).'<br>';
+		$throwsbats = strtoupper(sanitizeData($_POST['throwsbats'])).'<br>';
+		
+		if(empty($fname) || empty($minitial) || empty($dob) || empty($country) || empty($throwsbats)){
+			$error = true;
+			$errMSG = "A required field was empty. Enter all required values.";
+
+		}
+		
+		if (ctype_alpha(str_replace(' ', '', $fname)) === false) {
+			$error = true;
+			$errMSG = 'First Name must only contain letters and spaces.';
+		}
+		
+		if (ctype_alpha(str_replace(' ', '', $lname)) === false) {
+			$error = true;
+			$errMSG = 'Last Name must only contain letters and spaces.';
+		}
+		
+		if (strlen($minitial) > 1) {
+			$error = true;
+			$errMSG = 'Middle Name initial should only be one letter.';
+		}
+		
+		if (strlen($country) > 2) {
+			$error = true;
+			$errMSG = 'Country code must be two letters.';
+		}
+		
+		if (strlen($throwsbats) > 1) {
+			$error = true;
+			$errMSG = 'Throws/Bats code must be one letter.';
+		}
+		
+		
+		if (!$error) {
+			$query = "INSERT INTO players(f_name,m_initial,l_name,dob,country,bats_throws) VALUES('$fname','$minitial','$lname','$dob','$country','$throwsbats')";
+			$result = $dbh->query($query);
+			$row = array();
+			if(!$result){
+				$error = true;
+				$errMSG = 'mysqli_error($dbh)';
+				
+			}
+							
+		}
+		
+	}
+	
+	
+	
 	
 	
 ?>
