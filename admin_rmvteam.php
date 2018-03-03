@@ -10,7 +10,7 @@
 	}
 	
 	if(isset($_POST['btn-delete']) ) {
-		$deleteID = $_POST['rmvID[]'];
+		$deleteID = $_POST['rmvID'];
 		foreach($deleteID as $rmID){
 			echo $rmID.'<br>';
 			
