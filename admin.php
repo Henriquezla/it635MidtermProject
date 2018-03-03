@@ -12,6 +12,9 @@
 	if(isset($_POST['btn-add-teams']) ) {
 		header("Location: admin_addteam.php");
 	}
+	if(isset($_POST['btn-rmv-teams']) ) {
+		header("Location: admin_rmvteam.php");
+	}
 ?>
 
 <!DOCTYPE html>
