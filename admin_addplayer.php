@@ -69,7 +69,7 @@
 		
 		echo 'no error'; */
 		if(!$error) {
-			$query = "INSERT INTO players(f_name,m_initial,l_name,dob,country,bats_throws) VALUES('$fname','$minitial','$lname',STR_TO_DATE('$dob','%y-%m-%d'),'$country','$throwsbats')";
+			$query = "INSERT INTO players(f_name,m_initial,l_name,dob,country,bats_throws) VALUES('$fname','$minitial','$lname',STR_TO_DATE('$dob','%m-%d-%y'),'$country','$throwsbats')";
 			$result = $dbh->query($query);
 			$row = array();
 			if(!$result){
