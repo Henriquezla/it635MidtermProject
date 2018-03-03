@@ -26,14 +26,14 @@
 
 		}
 		
-		if (ctype_alpha(str_replace(' ', '', $fname)) === false) {
+		if (!ctype_alpha(str_replace(' ', '', $fname))) {
 			echo 'fname';
 			$error = true;
 			$errMSG = 'First Name must only contain letters and spaces.';
 			exit;
 		}
 		
-		if (ctype_alpha(str_replace(' ', '', $lname)) === false) {
+		if (!ctype_alpha(str_replace(' ', '', $lname))) {
 			echo 'lname';
 			$error = true;
 			$errMSG = 'Last Name must only contain letters and spaces.';
