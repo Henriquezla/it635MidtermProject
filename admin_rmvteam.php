@@ -22,7 +22,7 @@
 			}
 			
 				
-			$result = $dbh->query($userQuery);
+			$result = $dbh->query($query);
 			while($row = $result->fetch_array(MYSQLI_ASSOC)){
 				$rows[] = $row;
 			}
