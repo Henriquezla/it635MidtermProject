@@ -6,7 +6,7 @@
 	if(isset($_POST['btn-logout']) ) {
 		header("Location: logout.php");
 	}
-	if(isset($_POST['btn-add-teams']) ) {
+	if(isset($_POST['btn-add-players']) ) {
 		header("Location: admin_addplayer.php");
 	}
 ?>
