@@ -10,11 +10,40 @@
 	}
 	
 	if(isset($_POST['btn-delete']) ) {
+		$dbh->autocommit(false);
 		$deleteID = $_POST['rmvID'];
+		$queries = array();
 		foreach($deleteID as $rmID){
-			echo $rmID.'<br>';
-			
+			$queries[] = "DELETE FROM teams where id = '$rmID';";
 		}
+		$flag = true;
+		foreach($queries as $query){
+			if(!$db->query($query){
+				$db->rollback();
+				$flag = false;
+				$error = true;
+				$errMSG = mysqli_error($dbh);
+				return;
+			}
+		}
+		if($flag){
+			$db->commit
+			$error = false;
+			$sucMSG = "Team(s) deleted.";
+		}
+		$db->close();  
+		/* $result = $dbh->query($query);
+		$row = array();
+		if(!$result){
+			$error = true;
+			$errMSG = mysqli_error($dbh);
+			
+		}else{
+			$error = false;
+			$sucMSG = "Team(s) deleted.";
+		} */
+			
+		
 		
 	}
 	
