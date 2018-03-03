@@ -10,14 +10,14 @@
 	}
 	
 	if(isset($_POST['btn-submit-addplayer']) ) {
-		/* echo 'is set'; */
+		echo 'is set';
 		$error = false;
-		$fname = ucwords(sanitizeData($_POST['fname'])).'<br>';
-		$minitial = strtoupper(sanitizeData($_POST['minitial'])).'<br>';
-		$lname = ucwords(sanitizeData($_POST['lname'])).'<br>';
-		$dob = sanitizeData($_POST['dob']).'<br>';
-		$country = strtoupper(sanitizeData($_POST['country'])).'<br>';
-		$throwsbats = strtoupper(sanitizeData($_POST['throwsbats'])).'<br>';
+		$fname = ucwords(sanitizeData($_POST['fname']));
+		$minitial = strtoupper(sanitizeData($_POST['minitial']));
+		$lname = ucwords(sanitizeData($_POST['lname']));
+		$dob = sanitizeData($_POST['dob']);
+		$country = strtoupper(sanitizeData($_POST['country']));
+		$throwsbats = strtoupper(sanitizeData($_POST['throwsbats']));
 		
 		if(empty($fname) || empty($minitial) || empty($dob) || empty($country) || empty($throwsbats)){
 			echo 'empty strings';
@@ -27,7 +27,7 @@
 
 		}
 		
-		/* if(!ctype_alpha(str_replace(' ', '', $fname))) {
+		if(!ctype_alpha(str_replace(' ', '', $fname))) {
 			echo 'fname';
 			echo $fname;
 			$error = true;
@@ -42,21 +42,21 @@
 			exit;
 		}
 		
-		if(mb_strlen($minitial, 'utf8') > 5) {
+		if(mb_strlen($minitial, 'utf8') > 1) {
 			echo 'minitial';
 			$error = true;
 			$errMSG = 'Middle Name initial should only be one letter.';
 			exit;
 		}
 		
-		if(mb_strlen($country, 'utf8') > 10) {
+		if(mb_strlen($country, 'utf8') > 2) {
 			echo 'country';
 			$error = true;
 			$errMSG = 'Country code must be two letters.';
 			exit;
 		}
 		
-		if(mb_strlen($throwsbats, 'utf8') > 5) {
+		if(mb_strlen($throwsbats, 'utf8') > 1) {
 			echo 'throwsbats';
 			$error = true;
 			echo $throwsbats;
@@ -67,9 +67,8 @@
 			exit;
 		}
 		
-		echo 'no error'; */
+		echo 'no error';
 		if(!$error) {
-			echo $dob;
 			$query = "INSERT INTO players(f_name,m_initial,l_name,dob,country,bats_throws) VALUES('$fname','$minitial','$lname','$dob','$country','$throwsbats')";
 			$result = $dbh->query($query);
 			$row = array();
