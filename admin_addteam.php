@@ -18,36 +18,42 @@
 		$glost = sanitizeData($_POST['glost']);
 		
 		if(empty($tname) || empty($abbrv) || empty($gplayed) || empty($gwon) || empty($glost)){
+			echo 'empty';
 			$error = true;
 			$errMSG = "A required field was empty. Enter all required values.";
 			
 		}
 		
 		if(!ctype_alpha(str_replace(' ', '', $tname))) {
+			echo 'tname';
 			$error = true;
 			$errMSG = 'Team Name must only contain letters and spaces.';
 			
 		}
 		
 		if(mb_strlen($abbrv, 'utf8') > 2) {
+			echo 'abbrv';
 			$error = true;
 			$errMSG = 'Abbreviation must be only two letters.';
 			
 		}
 		
 		if(!is_int($gplayed) || !is_int($gwon) || !is_int($glost)) {
+			echo 'arent integer';
 			$error = true;
 			$errMSG = 'Games Played, Won and Lost must be a valid integer.';
 			
 		}
 		
 		if($gplayed < 0 || $gwon < 0 || $glost < 0) {
+			echo 'less than zero';
 			$error = true;
 			$errMSG = 'Games Played, Won and Lost must be a positive integer.';
 			
 		}
 		
 		if($gwon + $glost !== $gplayed){
+			echo 'dont add up';
 			$error = true;
 			$errMSG = 'Games won and games lost must add up to total games played.';
 			
