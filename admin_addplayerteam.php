@@ -12,6 +12,7 @@
 	if(isset($_POST['btn-add']) ) {
 		//$dbh->autocommit(false);
 		$addID = $_POST['addID'];
+		$_SESSION['addID'] = $_POST['addID'];
 		header('chooseteam.php');
 /* 		$queries = array();
 		foreach($addID as $adID){
