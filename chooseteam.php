@@ -2,7 +2,7 @@
 	include("functions.php");
 	include("admin_addplayerteam.php");
 	session_start();
-	gatekeeper('Admin');
+	//gatekeeper('Admin');
 	require_once 'sqlcon.php';
 	ini_set("display_errors", true);
 	if(isset($_POST['btn-cancel']) ) {
