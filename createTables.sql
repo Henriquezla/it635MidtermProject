@@ -13,7 +13,7 @@ DROP TABLE IF EXISTS
 CREATE TABLE players (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     f_name VARCHAR(255) NOT NULL,
-	m_initial CHAR(1) DEFAULT NULL,
+	m_initial CHAR(5) DEFAULT NULL,
 	l_name VARCHAR(255) NOT NULL,
 	dob DATE NOT NULL,
 	country VARCHAR(255) NOT NULL,
@@ -131,7 +131,7 @@ CREATE TABLE IF NOT EXISTS users (
     f_name VARCHAR(255) NOT NULL,
 	l_name VARCHAR(255) NOT NULL,
 	pw_hash VARCHAR(255) NOT NULL,
-	admin_rights CHAR(1) DEFAULT NULL,
+	admin_rights CHAR(5) DEFAULT NULL,
 	PRIMARY KEY(email_hash)
 	
 )Engine=InnoDB;

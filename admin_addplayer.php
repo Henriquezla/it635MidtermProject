@@ -10,7 +10,7 @@
 	}
 	
 	if(isset($_POST['btn-submit-addplayer']) ) {
-		echo 'is set';
+		/* echo 'is set'; */
 		$error = false;
 		$fname = ucwords(sanitizeData($_POST['fname'])).'<br>';
 		$minitial = strtoupper(sanitizeData($_POST['minitial'])).'<br>';
