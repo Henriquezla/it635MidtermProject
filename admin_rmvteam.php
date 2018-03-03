@@ -10,7 +10,11 @@
 	}
 	
 	if(isset($_POST['btn-delete']) ) {
-		$deleteID = array();
+		$deleteID = $_POST['rmvID[]'];
+		foreach($deleteID as $rmID){
+			echo $rmID.'<br>';
+			
+		}
 		
 	}
 	
@@ -52,7 +56,7 @@
 			if($rowCount >= 1){
 				foreach($rows as $row){
 					echo '<tr>';
-					echo '<td scope="row"><input type="checkbox" name="'.$row['id'].'" value="'.$row['id'].'"</td>';
+					echo '<td scope="row"><input type="checkbox" name="rmvID[]" value="'.$row['id'].'"</td>';
 					echo '<td scope="row">' . $row['id'] . '</td>';
 					echo '<td scope="row">' . $row['name'] . '</td>';
 					echo '<td scope="row">' . $row['abbreviation'] . '</td>';
