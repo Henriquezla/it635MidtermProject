@@ -27,9 +27,9 @@
 			}
 		}
 		if($flag){
-			$dbh->commit
+			$dbh->commit;
 			$error = false;
-			$sucMSG = "Team(s) deleted.";
+			$sucMSG = "Team(s) successfully deleted.";
 		}
 		$dbh->close();  
 		/* $result = $dbh->query($query);
