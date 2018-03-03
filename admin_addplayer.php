@@ -36,19 +36,19 @@
 			exit;
 		}
 		
-		if (mb_strlen($minitial) > 1) {
+		if (mb_strlen($minitial, 'utf8') > 1) {
 			$error = true;
 			$errMSG = 'Middle Name initial should only be one letter.';
 			exit;
 		}
 		
-		if (mb_strlen($country) > 2) {
+		if (mb_strlen($country, 'utf8') > 2) {
 			$error = true;
 			$errMSG = 'Country code must be two letters.';
 			exit;
 		}
 		
-		if (mb_strlen($throwsbats) > 1) {
+		if (mb_strlen($throwsbats, 'utf8') > 1) {
 			$error = true;
 			echo $throwsbats;
 			echo $minitial;
