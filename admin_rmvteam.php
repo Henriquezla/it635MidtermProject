@@ -18,8 +18,8 @@
 		}
 		$flag = true;
 		foreach($queries as $query){
-			if(!$db->query($query){
-				$db->rollback();
+			if(!$dbh->query($query)){
+				$dbh->rollback();
 				$flag = false;
 				$error = true;
 				$errMSG = mysqli_error($dbh);
@@ -27,11 +27,11 @@
 			}
 		}
 		if($flag){
-			$db->commit
+			$dbh->commit
 			$error = false;
 			$sucMSG = "Team(s) deleted.";
 		}
-		$db->close();  
+		$dbh->close();  
 		/* $result = $dbh->query($query);
 		$row = array();
 		if(!$result){
