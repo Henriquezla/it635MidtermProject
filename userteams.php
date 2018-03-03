@@ -23,7 +23,7 @@
 	
 <?php
 	$row = array();
-	$userQuery = "SELECT * FROM teams LIMIT 0,15";
+	$userQuery = "SELECT * FROM teams";
 	$result = $dbh->query($userQuery);
 	while($row = $result->fetch_array(MYSQLI_ASSOC)){
 		$rows[] = $row;
