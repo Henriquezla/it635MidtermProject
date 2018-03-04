@@ -21,6 +21,7 @@
 		}
 		$_SESSION['teamID'] = $_POST['addID'];
 		header('Location: chooseseason.php');
+		exit();
 		
 		
 	}
