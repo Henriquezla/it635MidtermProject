@@ -3,7 +3,7 @@
 	session_start();
 	gatekeeper('User');
 	require_once 'sqlcon.php';
-	ini_set("display_errors", true);
+	
 	if(isset($_POST['btn-goback']) ) {
 		header("Location: home.php");
 	}

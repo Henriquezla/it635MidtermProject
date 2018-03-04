@@ -2,7 +2,7 @@
 	include("functions.php");
 	session_start();
 	gatekeeper('User');
-	ini_set("display_errors", true);
+	
 	if(isset($_POST['btn-logout']) ) {
 		header("Location: logout.php");
 	}

@@ -3,7 +3,7 @@
 	session_start();
 	gatekeeper('Admin');
 	require_once 'sqlcon.php';
-	ini_set("display_errors", true);
+	
 	if(isset($_POST['btn-cancel']) ) {
 		header('index.php');
 		exit;
@@ -14,7 +14,6 @@
 			$error = false;
 			$teamID = $_POST['rmvID'][0];
 			$query = "SELECT (SELECT name FROM teams WHERE id='$teamID') AS 'Team Name', p1.f_name AS 'First Name',p1.l_name AS 'Last Name',s1.season_year AS 'Season' FROM team_roster_per_season s1 LEFT JOIN players p1 ON s1.player_id = p1.id WHERE s1.team_id='$teamID';";
-			echo $query;
 			$result = $dbh->query($query);
 			
 				while($row = $result->fetch_array(MYSQLI_ASSOC)){

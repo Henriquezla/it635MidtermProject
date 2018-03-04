@@ -4,7 +4,7 @@
 	session_start();
 	gatekeeper('Admin');
 	require_once 'sqlcon.php';
-	ini_set("display_errors", true);
+	
 	if(isset($_POST['btn-cancel']) ) {
 		header('index.php');
 		exit;
