@@ -11,17 +11,21 @@
 	}
 	
 	if(isset($_POST['btn-add']) ) {
-		//$addID = $_POST['addID'];
-		//header('chooseteam.php');
-		/* echo 'add id='.$addID;
-		echo '_POST add id='.$_POST['addID']; */
-		foreach($_SESSION['playersID'] as $id){
-			echo 'ID = '.$id.'<br>';
-			
-		}
-		$_SESSION['teamID'] = $_POST['addID'];
-		header('Location: chooseseason.php');
-		exit();
+		if(!empty($_POST['addID'])){
+			//$addID = $_POST['addID'];
+			//header('chooseteam.php');
+			/* echo 'add id='.$addID;
+			echo '_POST add id='.$_POST['addID']; */
+			foreach($_SESSION['playersID'] as $id){
+				echo 'ID = '.$id.'<br>';
+				
+			}
+			$_SESSION['teamID'] = $_POST['addID'];
+			header('Location: chooseseason.php');
+			exit();
+		}else{
+		$error = true;
+		$errMSG = 'Please select one team.';
 		
 		
 	}
