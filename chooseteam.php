@@ -26,7 +26,7 @@
 		}else{
 		$error = true;
 		$errMSG = 'Please select one team.';
-		
+		}
 		
 	}
 	
