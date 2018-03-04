@@ -169,6 +169,7 @@
 			<?php
 				}else{
 					?>
+					<div style="margin:auto;width: 50%;padding: 40px;"><br><br>
 					<button class="btn btn-lg btn-primary btn-block" type="button" onclick="window.location.href = 'admin.php' "; name="btn-cancel">Go Home</button>
 				<?php
 				}
