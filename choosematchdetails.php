@@ -62,7 +62,7 @@
 				}
 			?>
 			<div style="margin:auto;width: 50%;padding: 40px;">
-				<h3 class="form-signin-heading">Enter Player Information</h3><br>
+				<h3 class="form-signin-heading">Enter Match Details</h3><br>
 				<a href="#" id="flipToRecover" class="flipLink">
 				</a>
 				<input type="text" class="form-control" name="town" id="town" placeholder="Town where match will take place" required autofocus><br>
