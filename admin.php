@@ -24,6 +24,9 @@
 	if(isset($_POST['btn-view-roster']) ) {
 		header("Location: admin_viewroster.php");
 	}
+	if(isset($_POST['btn-add-match']) ) {
+		header("Location: admin_addmatch.php");
+	}
 ?>
 
 <!DOCTYPE html>
