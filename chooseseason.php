@@ -135,23 +135,21 @@
 				}
 			?>
 			
-			<div class="container text-center">
+		
 
 
-     <h3>Choose Season</h3>
-     <input class="date-own form-control" style="width: 300px;" type="text">
-
-
-  <script type="text/javascript">
-      $('.date-own').datepicker({
-         minViewMode: 2,
-         format: 'yyyy'
-       });
-  </script>
-
-
-</div>
 			<div style="margin:auto;width: 50%;padding: 40px;"><br>
+				
+			 <h3>Choose Season</h3>
+			 <input class="date-own form-control" style="width: 300px;" type="text">
+
+
+			<script type="text/javascript">
+				  $('.date-own').datepicker({
+					 minViewMode: 2,
+					 format: 'yyyy'
+				   });
+			 </script>
 			<button class="btn btn-lg btn-primary btn-block" type="add" name="btn-add">Next</button><br><br>
 			
 			
