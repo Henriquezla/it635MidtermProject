@@ -12,11 +12,12 @@
 	
 	if(isset($_POST['btn-add']) ) {
 		$destTeam = $_SESSION['teamID'];
-		$seasonID = $_POST['rmvID'];
+		$seasonID = $_POST['seasonyear'];
+		echo $seasonID;
 		$dbh->autocommit(false);
 		$queries = array();
 		foreach($_SESSION['playersID'] as $id){
-			/* echo 'ID = '.$id.'<br>'; */
+			echo 'ID = '.$id.'<br>';
 			$queries[] = "INSERT INTO team_roster_per_season(player_id,team_id,season_year) VALUES('$id','$destTeam','$seasonID');";
 		}
 		/* foreach($_SESSION['teamID'] as $id){
@@ -42,7 +43,7 @@
 				
 	}
 	
-	if(isset($_POST['btn-search']) ) {
+	/* if(isset($_POST['btn-search']) ) {
 		$searchPerformed = true;
 		$error = false;
 		$searchTerm = ucwords(sanitizeData($_POST['searchbox']));
@@ -99,7 +100,7 @@
 								
 		}
 							
-	}
+	} */
 			
 ?>
 
@@ -150,7 +151,7 @@
 			
 			<div style="margin:auto;width: 50%;padding: 40px;"><br>
 				<h3>Choose Season</h3>
-				<input class="date-own form-control" style="width: 300px;" type="text">
+				<input class="date-own form-control" style="width: 300px;" type="text" name="seasonyear" id="seasonyear">
 				<script type="text/javascript">
 				  $('.date-own').datepicker({
 					 minViewMode: 2,
