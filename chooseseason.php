@@ -19,8 +19,12 @@
 			echo 'ID = '.$id.'<br>';
 			
 		}
-		$_SESSION['teamID'] = $_POST['addID'];
-		header('Location: chooseseason.php');
+		foreach($_SESSION['teamID'] as $id){
+			echo 'ID = '.$id.'<br>';
+			
+		}
+		/* $_SESSION['teamID'] = $_POST['addID'];
+		header('Location: chooseseason.php'); */
 		
 		
 	}
