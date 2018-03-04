@@ -147,7 +147,10 @@
 					<?php
 				}
 			?>
-			
+			<?php
+				if (!isset($sucMSG)) {
+					
+					?>
 			<div style="margin:auto;width: 50%;padding: 40px;"><br>
 				<h3>Choose Season</h3>
 				<input class="date-own form-control" style="width: 300px;" type="text" name="seasonyear" id="seasonyear">
@@ -163,6 +166,13 @@
 				</a>
 				<button class="btn btn-lg btn-danger btn-block" type="button" onclick="window.location.href = 'admin.php' "; name="btn-cancel">Cancel</button>
 			</div>
+			<?php
+				}else{
+					?>
+					<button class="btn btn-lg btn-primary btn-block" type="button" onclick="window.location.href = 'admin.php' "; name="btn-cancel">Go Home</button>
+				<?php
+				}
+			?>
           </form>
     
         </div>
