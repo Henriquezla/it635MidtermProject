@@ -12,16 +12,12 @@
 	
 	if(isset($_POST['btn-add']) ) {
 		$dbh->autocommit(false);
-		$destTeam = $_SESSION['teamID'];
-		echo 'desteam='.$destTeam[0];
+		$destTeam = $_SESSION['teamID'][0];
 		$seasonID = $_POST['seasonyear'];
 		$queries = array();
 		$playersIDs = $_SESSION['playersID'];
-		$i = 0;
 		foreach($playersIDs as $id){
 			$queries[] = "INSERT INTO team_roster_per_season(player_id,team_id,season_year) VALUES('$id','$destTeam','$seasonID');";
-			echo queries[0];
-			$i = $i + 1;
 		}
 		/* foreach($_SESSION['teamID'] as $id){
 			echo 'ID = '.$id.'<br>';
