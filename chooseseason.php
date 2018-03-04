@@ -11,22 +11,34 @@
 	}
 	
 	if(isset($_POST['btn-add']) ) {
-		//$addID = $_POST['addID'];
-		//header('chooseteam.php');
-		/* echo 'add id='.$addID;
-		echo '_POST add id='.$_POST['addID']; */
+		$destTeam = $_SESSION['teamID'];
+		$seasonID = $_POST['rmvID'];
+		$dbh->autocommit(false);
 		foreach($_SESSION['playersID'] as $id){
+			/* echo 'ID = '.$id.'<br>'; */
+			$queries[] = "INSERT INTO team_roster_per_season(player_id,team_id,season_year) VALUES('$id','$destTeam','$seasonID');";
+		}
+		/* foreach($_SESSION['teamID'] as $id){
 			echo 'ID = '.$id.'<br>';
 			
+		} */
+		$succeed = true;
+		foreach($queries as $query){
+			if(!$dbh->query($query)){
+				$dbh->rollback();
+				$succeed = false;
+				$error = true;
+				$errMSG = mysqli_error($dbh);
+				return;
+			}
 		}
-		foreach($_SESSION['teamID'] as $id){
-			echo 'ID = '.$id.'<br>';
-			
+		if($succeed){
+			$dbh->commit();
+			$error = false;
+			$sucMSG = "Player(s) successfully added to team.";
 		}
-		/* $_SESSION['teamID'] = $_POST['addID'];
-		header('Location: chooseseason.php'); */
-		
-		
+		$dbh->close();		
+				
 	}
 	
 	if(isset($_POST['btn-search']) ) {
@@ -135,31 +147,19 @@
 				}
 			?>
 			
-		
-
-
 			<div style="margin:auto;width: 50%;padding: 40px;"><br>
-				
-			 <h3>Choose Season</h3>
-			 <input class="date-own form-control" style="width: 300px;" type="text">
-
-
-			<script type="text/javascript">
+				<h3>Choose Season</h3>
+				<input class="date-own form-control" style="width: 300px;" type="text">
+				<script type="text/javascript">
 				  $('.date-own').datepicker({
 					 minViewMode: 2,
 					 format: 'yyyy'
 				   });
-			 </script>
-			 <br><br>
-			<button class="btn btn-lg btn-primary btn-block" type="add" name="btn-add">Next</button><br><br>
-			
-			
-					
+				</script>
+				<br><br>
+				<button class="btn btn-lg btn-primary btn-block" type="add" name="btn-add">Submit</button><br><br>
 				<a href="#" id="flipToRecover" class="flipLink">
 				</a>
-				
-				
-				
 				<button class="btn btn-lg btn-danger btn-block" type="button" onclick="window.location.href = 'admin.php' "; name="btn-cancel">Cancel</button>
 			</div>
           </form>
