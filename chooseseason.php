@@ -134,15 +134,8 @@
 					<?php
 				}
 			?>
-			<div style="margin:auto;width: 50%;padding: 40px;">
-			<button class="btn btn-lg btn-primary btn-block" type="add" name="btn-add">Next</button><br><br>
 			
-			
-					
-				<a href="#" id="flipToRecover" class="flipLink">
-				</a>
-				
-				<div class="container text-center">
+			<div class="container text-center">
 
 
      <h3>Choose Season</h3>
@@ -158,6 +151,15 @@
 
 
 </div>
+			<div style="margin:auto;width: 50%;padding: 40px;"><br>
+			<button class="btn btn-lg btn-primary btn-block" type="add" name="btn-add">Next</button><br><br>
+			
+			
+					
+				<a href="#" id="flipToRecover" class="flipLink">
+				</a>
+				
+				
 				
 				<button class="btn btn-lg btn-danger btn-block" type="button" onclick="window.location.href = 'admin.php' "; name="btn-cancel">Cancel</button>
 			</div>
