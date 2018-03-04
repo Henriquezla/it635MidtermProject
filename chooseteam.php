@@ -24,8 +24,8 @@
 			header('Location: chooseseason.php');
 			exit();
 		}else{
-		$error = true;
-		$errMSG = 'Please select one team.';
+			$error = true;
+			$errMSG = 'Please select one team.';
 		}
 		
 	}

@@ -11,11 +11,7 @@
 	}
 	
 	if(isset($_POST['btn-add']) ) {
-		$destTeam = $_SESSION['teamID'][0];
-		$seasonID = $_POST['seasonyear'];
-		$playersIDs = $_SESSION['playersID'];
-		
-		if(!isset($destTeam) || !isset($seasonID) || !isset($playersIDs) || empty($destTeam) || empty($seasonID) || empty($playersIDs)){
+		if(!empty($_POST['seasonyear'])){
 			$dbh->autocommit(false);
 			$destTeam = $_SESSION['teamID'][0];
 			$seasonID = $_POST['seasonyear'];
@@ -42,11 +38,11 @@
 				$dbh->commit();
 				$error = false;
 				$sucMSG = "Player(s) successfully added to team.";
-			}else{
-				$error = true;
-				$errMSG = mysqli_error($dbh);
 			}
-			$dbh->close();	
+			$dbh->close();
+		}else{
+			$error = true;
+			$errMSG = 'Please select a season.';
 		}			
 				
 	}
