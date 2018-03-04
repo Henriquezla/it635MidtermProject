@@ -13,6 +13,7 @@
 	if(isset($_POST['btn-add']) ) {
 		$dbh->autocommit(false);
 		$destTeam = $_SESSION['teamID'];
+		echo 'desteam='.$destTeam;
 		$seasonID = $_POST['seasonyear'];
 		$queries = array();
 		$playersIDs = $_SESSION['playersID'];
