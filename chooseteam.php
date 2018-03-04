@@ -60,7 +60,7 @@
 			if($rowCount >= 1){
 				foreach($rows as $row){
 					echo '<tr>';
-					echo '<td scope="row"><input type="checkbox" name="rmvID[]" value="'.$row['id'].'"</td>';
+					echo '<td scope="row"><input type="checkbox" name="addID[]" value="'.$row['id'].'"</td>';
 					echo '<td scope="row">' . $row['id'] . '</td>';
 					echo '<td scope="row">' . $row['name'] . '</td>';
 					echo '<td scope="row">' . $row['abbreviation'] . '</td>';
