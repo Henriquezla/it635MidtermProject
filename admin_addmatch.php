@@ -18,8 +18,8 @@
 				
 			}
 			$_SESSION['teamID'] = $_POST['addID'];
-			//header('Location: chooseseason.php');
-			//exit();
+			header('Location: choosematchdetails.php');
+			exit();
 		}else{
 			$error = true;
 			$errMSG = 'Please select TWO teams.';
