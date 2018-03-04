@@ -10,28 +10,33 @@
 	}
 	
 	if(isset($_POST['btn-delete']) ) {
-		$dbh->autocommit(false);
-		$deleteID = $_POST['rmvID'];
-		$queries = array();
-		foreach($deleteID as $rmID){
-			$queries[] = "DELETE FROM players where id = '$rmID';";
-		}
-		$succeed = true;
-		foreach($queries as $query){
-			if(!$dbh->query($query)){
-				$dbh->rollback();
-				$succeed = false;
-				$error = true;
-				$errMSG = mysqli_error($dbh);
-				return;
+		if(!empty($_POST['rmvID'])){
+			$dbh->autocommit(false);
+			$deleteID = $_POST['rmvID'];
+			$queries = array();
+			foreach($deleteID as $rmID){
+				$queries[] = "DELETE FROM players where id = '$rmID';";
 			}
-		}
-		if($succeed){
-			$dbh->commit();
-			$error = false;
-			$sucMSG = "Player(s) successfully deleted.";
-		}
-		$dbh->close();		
+			$succeed = true;
+			foreach($queries as $query){
+				if(!$dbh->query($query)){
+					$dbh->rollback();
+					$succeed = false;
+					$error = true;
+					$errMSG = mysqli_error($dbh);
+					return;
+				}
+			}
+			if($succeed){
+				$dbh->commit();
+				$error = false;
+				$sucMSG = "Player(s) successfully deleted.";
+			}
+			$dbh->close();
+		}else{
+			$error = true;
+			$errMSG = 'Please select at least one player.';
+		}			
 		
 	}
 	
