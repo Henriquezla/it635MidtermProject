@@ -15,7 +15,11 @@
 		//header('chooseteam.php');
 		/* echo 'add id='.$addID;
 		echo '_POST add id='.$_POST['addID']; */
-		echo 'Session ='.$_SESSION['addID'];
+		foreach($_SESSION['addID'] as $id){
+			echo 'ID = '.$id.'<br>';
+			
+		}
+		
 		
 	}
 	
