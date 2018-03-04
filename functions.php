@@ -2,14 +2,14 @@
 	
 	function gatekeeper($type){
 		if ($_SESSION['user']==""){
-			echo "Login first. Redirecting to Login page...<br>";
+			echo '<h3 class="form-signin-heading">You must login to access this page.<br> Redirecting to Login page...</h3><br>';
 			header("refresh:3; url=index.php");
 			exit();
 			
 		}
 		
 		if ($_SESSION["state"] != $type) {
-			echo "Login as '$type'. Redirecting to Login page...<br>";
+			echo "<h3 class='form-signin-heading'>Login as '$type'.<br> Redirecting to Homepage...</h3><br>";
 			header("refresh:3; url=index.php");
 			exit();
 			
