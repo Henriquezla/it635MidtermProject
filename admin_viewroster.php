@@ -41,7 +41,7 @@
 					}
 				
 				}else{
-					echo '<h4 class="form-signin-heading">No such team was found.  Redirecting to your homepage...</h4><br>';
+					echo '<h4 class="form-signin-heading">No players in the selected team.  Redirecting to your homepage...</h4><br>';
 					header('Refresh: 4; index.php');
 					
 				}
