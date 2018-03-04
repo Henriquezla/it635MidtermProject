@@ -11,37 +11,43 @@
 	}
 	
 	if(isset($_POST['btn-add']) ) {
-		$dbh->autocommit(false);
 		$destTeam = $_SESSION['teamID'][0];
 		$seasonID = $_POST['seasonyear'];
-		$queries = array();
 		$playersIDs = $_SESSION['playersID'];
-		foreach($playersIDs as $id){
-			$queries[] = "INSERT INTO team_roster_per_season(player_id,team_id,season_year) VALUES('$id','$destTeam','$seasonID');";
-		}
-		/* foreach($_SESSION['teamID'] as $id){
-			echo 'ID = '.$id.'<br>';
-			
-		} */
-		$succeed = true;
-		foreach($queries as $query){
-			if(!$dbh->query($query)){
-				$dbh->rollback();
-				$succeed = false;
+		
+		if(!isset($destTeam) || !isset($seasonID) || !isset($playersIDs) || empty($destTeam) || empty($seasonID) || empty($playersIDs)){
+			$dbh->autocommit(false);
+			$destTeam = $_SESSION['teamID'][0];
+			$seasonID = $_POST['seasonyear'];
+			$queries = array();
+			$playersIDs = $_SESSION['playersID'];
+			foreach($playersIDs as $id){
+				$queries[] = "INSERT INTO team_roster_per_season(player_id,team_id,season_year) VALUES('$id','$destTeam','$seasonID');";
+			}
+			/* foreach($_SESSION['teamID'] as $id){
+				echo 'ID = '.$id.'<br>';
+				
+			} */
+			$succeed = true;
+			foreach($queries as $query){
+				if(!$dbh->query($query)){
+					$dbh->rollback();
+					$succeed = false;
+					$error = true;
+					$errMSG = mysqli_error($dbh);
+					return;
+				}
+			}
+			if($succeed){
+				$dbh->commit();
+				$error = false;
+				$sucMSG = "Player(s) successfully added to team.";
+			}else{
 				$error = true;
 				$errMSG = mysqli_error($dbh);
-				return;
 			}
-		}
-		if($succeed){
-			$dbh->commit();
-			$error = false;
-			$sucMSG = "Player(s) successfully added to team.";
-		}else{
-			$error = true;
-			$errMSG = mysqli_error($dbh);
-		}
-		$dbh->close();		
+			$dbh->close();	
+		}			
 				
 	}
 	
