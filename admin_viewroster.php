@@ -13,6 +13,7 @@
 		$error = false;
 		$teamID = $_POST['rmvID'][0];
 		$query = "SELECT (SELECT name FROM teams WHERE id='$teamID') AS 'Team Name', p1.f_name AS 'First Name',p1.l_name AS 'Last Name',s1.season_year AS 'Season' FROM team_roster_per_season s1 LEFT JOIN players p1 ON s1.player_id = p1.id;";
+		echo $query;
 		$result = $dbh->query($query);
 		
 			while($row = $result->fetch_array(MYSQLI_ASSOC)){
@@ -192,7 +193,7 @@
 					
 				}else{
 					echo '<h3 class="form-signin-heading">Enter Team Information</h3><br>';
-					echo '<input type="text" class="form-control" name="searchbox" id="searchbox" placeholder="Search teams by name or press Enter to load all teams..." autofocus><br>';
+					echo '<input type="text" class="form-control" name="searchbox" id="searchbox" placeholder="Search teams by name or press Enter to load all teams..."><br>';
 					echo '<button class="btn btn-lg btn-primary btn-block" type="search" name="btn-search">Search</button><br><br>';
 				}
 			?>			
