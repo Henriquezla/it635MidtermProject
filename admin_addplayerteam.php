@@ -36,7 +36,8 @@
 		$dbh->close();	 */	
 		
 	}else{
-		echo 'error';
+		$error = true;
+		$errMSG = 'You must select at least one player';
 	}
 	
 	if(isset($_POST['btn-search']) ) {
