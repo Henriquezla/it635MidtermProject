@@ -13,13 +13,13 @@
 	if(isset($_POST['btn-add']) ) {
 		if(count($_POST['addID']) === 2){
 			echo 'Two teams selected';
-			/* foreach($_SESSION['playersID'] as $id){
+			foreach($_POST['addID'] as $id){
 				echo 'ID = '.$id.'<br>';
 				
 			}
 			$_SESSION['teamID'] = $_POST['addID'];
-			header('Location: chooseseason.php');
-			exit(); */
+			//header('Location: chooseseason.php');
+			//exit();
 		}else{
 			$error = true;
 			$errMSG = 'Please select TWO teams.';

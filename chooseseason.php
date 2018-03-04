@@ -39,6 +39,8 @@
 				$error = false;
 				$sucMSG = "Player(s) successfully added to team.";
 			}
+			unset($_SESSION['teamID']);
+			unset($_SESSION['playersID']);
 			$dbh->close();
 		}else{
 			$error = true;
