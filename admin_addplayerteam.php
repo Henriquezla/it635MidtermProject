@@ -9,35 +9,39 @@
 		exit;
 	}
 	
-	if(isset($_POST['btn-add']) && !empty($_POST['addID'])) {
-		//$dbh->autocommit(false);
-		$_SESSION['playersID'] = $_POST['addID'];
-		header('Location: chooseteam.php');
-		exit();
-/* 		$queries = array();
-		foreach($addID as $adID){
-			//$queries[] = "DELETE FROM players where id = '$adID';";
-		}
-		$succeed = true;
-		foreach($queries as $query){
-			if(!$dbh->query($query)){
-				$dbh->rollback();
-				$succeed = false;
-				$error = true;
-				$errMSG = mysqli_error($dbh);
-				return;
+	if(isset($_POST['btn-add'])) {
+		if(!empty($_POST['addID'])){
+			//$dbh->autocommit(false);
+			$_SESSION['playersID'] = $_POST['addID'];
+			header('Location: chooseteam.php');
+			exit();
+		/*	$queries = array();
+			foreach($addID as $adID){
+				//$queries[] = "DELETE FROM players where id = '$adID';";
 			}
-		}
-		if($succeed){
-			$dbh->commit();
-			$error = false;
-			$sucMSG = "Player(s) successfully added to team.";
-		}
-		$dbh->close();	 */	
-		
-	}else{
+			$succeed = true;
+			foreach($queries as $query){
+				if(!$dbh->query($query)){
+					$dbh->rollback();
+					$succeed = false;
+					$error = true;
+					$errMSG = mysqli_error($dbh);
+					return;
+				}
+			}
+			if($succeed){
+				$dbh->commit();
+				$error = false;
+				$sucMSG = "Player(s) successfully added to team.";
+			}
+			$dbh->close();	 */	
+			
+		}else{
 		$error = true;
 		$errMSG = 'You must select at least one player';
+		
+		
+		}
 	}
 	
 	if(isset($_POST['btn-search']) ) {
