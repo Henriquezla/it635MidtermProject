@@ -67,7 +67,7 @@
 				</a>
 				<input type="text" class="form-control" name="town" id="town" placeholder="Town where match will take place" required autofocus><br>
 				<input type="date" class="form-control" name="matchdate" id="matchdate" placeholder="Date of the match" required><br>
-				<input type="time" id="matchtime" name="matchtime" value="17:00:00"><br>
+				<input type="time" class="form-control" name="matchtime" id="matchtime" value="17:00:00"><br><br>
 				<button class="btn btn-lg btn-primary btn-block" type="submit" name="btn-submit-addmatch">Submit</button><br><br>
 				<button class="btn btn-lg btn-danger btn-block" type="button" onclick="window.location.href = 'admin.php' "; name="btn-cancel">Cancel</button>
 			</div>
