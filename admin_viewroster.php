@@ -10,6 +10,41 @@
 	}
 	
 	if(isset($_POST['btn-delete']) ) {
+		$error = false;
+		$teamID = $_POST['id'][0];
+		$query = "SELECT (SELECT name FROM teams WHERE id='$teamID') AS 'Team Name', p1.f_name AS 'First Name',p1.l_name AS 'Last Name',s1.season_year AS 'Season' FROM team_roster_per_season s1 LEFT JOIN players p1 ON s1.player_id = p1.id;";
+		$result = $dbh->query($query);
+		
+			while($row = $result->fetch_array(MYSQLI_ASSOC)){
+				$rows[] = $row;
+			}
+			$rowCount = count($rows);
+			echo '<div style="margin:auto;width:75%;padding:40px;">';
+			echo '<h3 class="form-signin-heading">Teams</h3><br>';
+			echo '<form class="form-signin" id="userchoice" role="form" method="post" action="">';
+			echo '<table class="table table-striped">';
+			echo '<tr>';
+			echo '<th scope="col">Team Name</th>';
+			echo '<th scope="col">Player First Name</th>';
+			echo '<th scope="col">Player Last Name</th>';
+			echo '<th scope="col">Season</th>';
+			echo ' </tr>';
+			if($rowCount >= 1){
+				foreach($rows as $row){
+					echo '<tr>';
+					echo '<td scope="row">' . $row['Team Name'] . '</td>';
+					echo '<td scope="row">' . $row['First Name'] . '</td>';
+					echo '<td scope="row">' . $row['Last Name'] . '</td>';
+					echo '<td scope="row">' . $row['Season'] . '</td>';
+					echo '</tr>';
+				}
+			
+			}else{
+				echo '<h4 class="form-signin-heading">No such team was found.  Redirecting to your homepage...</h4><br>';
+				header('Refresh: 4; index.php');
+				
+			}
+			echo '</table><br>';
 		/* $dbh->autocommit(false);
 		$deleteID = $_POST['rmvID'];
 		$queries = array();
@@ -71,7 +106,7 @@
 			if($rowCount >= 1){
 				foreach($rows as $row){
 					echo '<tr>';
-					echo '<td scope="row"><input type="checkbox" name="rmvID[]" value="'.$row['id'].'"</td>';
+					echo '<td scope="row"><input type="radio" name="rmvID[]" value="'.$row['id'].'"</td>';
 					echo '<td scope="row">' . $row['id'] . '</td>';
 					echo '<td scope="row">' . $row['name'] . '</td>';
 					echo '<td scope="row">' . $row['abbreviation'] . '</td>';
