@@ -10,7 +10,7 @@
 	}
 	
 	if(isset($_POST['btn-delete']) ) {
-		$dbh->autocommit(false);
+		/* $dbh->autocommit(false);
 		$deleteID = $_POST['rmvID'];
 		$queries = array();
 		foreach($deleteID as $rmID){
@@ -31,7 +31,7 @@
 			$error = false;
 			$sucMSG = "Team(s) successfully deleted.";
 		}
-		$dbh->close();  
+		$dbh->close();   */
 		
 		
 	}
