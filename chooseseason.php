@@ -37,6 +37,9 @@
 			$dbh->commit();
 			$error = false;
 			$sucMSG = "Player(s) successfully added to team.";
+		}else{
+			$error = true;
+			$errMSG = mysqli_error($dbh);
 		}
 		$dbh->close();		
 				
