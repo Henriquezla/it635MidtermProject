@@ -21,6 +21,9 @@
 	if(isset($_POST['btn-add-players-team']) ) {
 		header("Location: admin_addplayerteam.php");
 	}
+	if(isset($_POST['btn-view-roster']) ) {
+		header("Location: admin_viewroster.php");
+	}
 ?>
 
 <!DOCTYPE html>
