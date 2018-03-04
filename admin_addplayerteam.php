@@ -12,8 +12,7 @@
 	if(isset($_POST['btn-add']) ) {
 		//$dbh->autocommit(false);
 		$_SESSION['addID'] = $_POST['addID'];
-		header('chooseteam.php');
-		exit;
+		header('Location: chooseteam.php');
 /* 		$queries = array();
 		foreach($addID as $adID){
 			//$queries[] = "DELETE FROM players where id = '$adID';";
