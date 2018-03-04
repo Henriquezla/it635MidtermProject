@@ -9,13 +9,14 @@
 		exit;
 	}
 	
-	if(isset($_POST['btn-submit-addmatch']) ) 
+	if(isset($_POST['btn-submit-addmatch']) ) {
 		echo "lol ur funny<br>";
 		echo $_POST['town'].'<br>';
 		echo $_POST['matchdate'].'<br>';
 		echo $_POST['matchtime'].'<br>';
 		
 	}
+	
 	
 	
 	
