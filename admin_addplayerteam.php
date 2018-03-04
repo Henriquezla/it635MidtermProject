@@ -9,7 +9,7 @@
 		exit;
 	}
 	
-	if(isset($_POST['btn-add']) ) {
+	if(isset($_POST['btn-add']) && !empty($_POST['addID'])) {
 		//$dbh->autocommit(false);
 		$_SESSION['playersID'] = $_POST['addID'];
 		header('Location: chooseteam.php');
@@ -35,6 +35,8 @@
 		}
 		$dbh->close();	 */	
 		
+	}else{
+		echo 'error';
 	}
 	
 	if(isset($_POST['btn-search']) ) {
