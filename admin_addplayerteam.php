@@ -13,6 +13,7 @@
 		//$dbh->autocommit(false);
 		$_SESSION['addID'] = $_POST['addID'];
 		header('chooseteam.php');
+		exit;
 /* 		$queries = array();
 		foreach($addID as $adID){
 			//$queries[] = "DELETE FROM players where id = '$adID';";
