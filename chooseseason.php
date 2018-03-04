@@ -14,6 +14,7 @@
 		$destTeam = $_SESSION['teamID'];
 		$seasonID = $_POST['rmvID'];
 		$dbh->autocommit(false);
+		$queries = array();
 		foreach($_SESSION['playersID'] as $id){
 			/* echo 'ID = '.$id.'<br>'; */
 			$queries[] = "INSERT INTO team_roster_per_season(player_id,team_id,season_year) VALUES('$id','$destTeam','$seasonID');";
