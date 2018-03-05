@@ -12,7 +12,6 @@
 	
 	if(isset($_POST['btn-add']) ) {
 		if(count($_POST['addID']) === 2){
-			echo 'Two teams selected';
 			foreach($_POST['addID'] as $id){
 				echo 'ID = '.$id.'<br>';
 				

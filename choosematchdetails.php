@@ -10,11 +10,21 @@
 	}
 	
 	if(isset($_POST['btn-submit-addmatch']) ) {
-		echo "lol ur funny<br>";
-		echo $_POST['town'].'<br>';
-		echo $_POST['matchdate'].'<br>';
-		echo $_POST['matchtime'].'<br>';
-		
+		$teamA = $_SESSION['teamID'][0];
+		$teamB = $_SESSION['teamID'][1];
+		$town = ucwords(sanitizeData($_POST['town']));
+		$matchdate = sanitizeData($_POST['matchdate']);
+		$matchtime = sanitizeData($_POST['matchtime']);
+		$query = "INSERT INTO game_schedule(team_A_id,team_B_id,schd_date,schd_time,town) VALUES('$teamA','$teamB','$town','$matchdate','$matchtime')";
+		$result = $dbh->query($query);
+		if(!$result){
+			$error = true;
+			$errMSG = mysqli_error($dbh);
+				
+		}else{
+			$error = false;
+			$sucMSG = "Match added.";
+		}
 	}
 	
 ?>
