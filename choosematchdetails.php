@@ -15,7 +15,7 @@
 		$town = ucwords(sanitizeData($_POST['town']));
 		$matchdate = sanitizeData($_POST['matchdate']);
 		$matchtime = sanitizeData($_POST['matchtime']);
-		$query = "INSERT INTO game_schedule(team_A_id,team_B_id,schd_date,schd_time,town) VALUES('$teamA','$teamB','$town','$matchdate','$matchtime')";
+		$query = "INSERT INTO game_schedule(team_A_id,team_B_id,schd_date,schd_time,town) VALUES('$teamA','$teamB','$matchdate','$matchtime','$town')";
 		$result = $dbh->query($query);
 		if(!$result){
 			$error = true;
