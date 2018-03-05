@@ -11,7 +11,7 @@
 	
 	if(isset($_POST['btn-edit']) ) {
 		if(!empty($_POST['addID'])){
-			echo "Edit clicked";
+			echo $_POST['addID'];
 			/* if(!empty($_POST['rmvID'])){
 				$dbh->autocommit(false);
 				$deleteID = $_POST['rmvID'];
@@ -42,7 +42,7 @@
 			 */
 		}else{
 			$error = true;
-			$errMSG = 'Please select one team.';
+			$errMSG = 'Please select one match.';
 			
 		}
 		
@@ -55,10 +55,10 @@
 		
 		if(!$error){
 			if(empty($searchTerm)){
-				$query = "select (select name from teams where teams.id = game_schedule.team_A_id) AS 'Team A', (select name from teams where teams.id = game_schedule.team_B_id) AS 'Team B', team_A_score, team_B_score, total_innings, schd_date, schd_time, town from game_schedule;";
+				$query = "select id, (select name from teams where teams.id = game_schedule.team_A_id) AS 'Team A', (select name from teams where teams.id = game_schedule.team_B_id) AS 'Team B', team_A_score, team_B_score, total_innings, schd_date, schd_time, town from game_schedule;";
 				
 			}else{
-				$query = "select (select name from teams where teams.id = game_schedule.team_A_id) AS 'Team A', (select name from teams where teams.id = game_schedule.team_B_id) AS 'Team B', team_A_score, team_B_score, total_innings, schd_date, schd_time, town from game_schedule where (select name from teams where teams.id = game_schedule.team_A_id) like '%$searchTerm%' or (select name from teams where teams.id = game_schedule.team_B_id) like '%$searchTerm%';";
+				$query = "select id, (select name from teams where teams.id = game_schedule.team_A_id) AS 'Team A', (select name from teams where teams.id = game_schedule.team_B_id) AS 'Team B', team_A_score, team_B_score, total_innings, schd_date, schd_time, town from game_schedule where (select name from teams where teams.id = game_schedule.team_A_id) like '%$searchTerm%' or (select name from teams where teams.id = game_schedule.team_B_id) like '%$searchTerm%';";
 			}
 			
 				
@@ -68,7 +68,7 @@
 			}
 			$rowCount = count($rows);
 			echo '<div style="margin:auto;width:75%;padding:40px;">';
-			echo '<h3 class="form-signin-heading">Teams</h3><br>';
+			echo '<h3 class="form-signin-heading">Matches</h3><br>';
 			echo '<form class="form-signin" id="userchoice" role="form" method="post" action="">';
 			echo '<table class="table table-striped">';
 			echo '<tr>';
@@ -172,7 +172,7 @@
 					echo '<br>';
 					
 				}else{
-					echo '<h3 class="form-signin-heading">Enter Team Information</h3><br>';
+					echo '<h3 class="form-signin-heading">Enter Match Information</h3><br>';
 					echo '<input type="text" class="form-control" name="searchbox" id="searchbox" placeholder="Search schedules by entering one of the team\'s name or press Enter to load all schedules..." autofocus><br>';
 					echo '<button class="btn btn-lg btn-primary btn-block" type="search" name="btn-search">Search</button><br><br>';
 				}
