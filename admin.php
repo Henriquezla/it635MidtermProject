@@ -27,6 +27,9 @@
 	if(isset($_POST['btn-add-match']) ) {
 		header("Location: admin_addmatch.php");
 	}
+	if(isset($_POST['btn-update-score']) ) {
+		header("Location: admin_updatescore.php");
+	}
 ?>
 
 <!DOCTYPE html>

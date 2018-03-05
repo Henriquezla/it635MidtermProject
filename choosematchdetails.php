@@ -20,7 +20,7 @@
 		if(!$result){
 			$error = true;
 			$errMSG = mysqli_error($dbh);
-				
+			unset($_SESSION['teamID']);
 		}else{
 			$error = false;
 			$sucMSG = "Match added.";
