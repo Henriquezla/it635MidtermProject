@@ -11,7 +11,7 @@
 	
 	if(isset($_POST['btn-edit']) ) {
 		if(!empty($_POST['addID'])){
-			echo $_POST['addID'];
+			echo $_POST['addID'][0];
 			/* if(!empty($_POST['rmvID'])){
 				$dbh->autocommit(false);
 				$deleteID = $_POST['rmvID'];
@@ -173,7 +173,7 @@
 					
 				}else{
 					echo '<h3 class="form-signin-heading">Enter Match Information</h3><br>';
-					echo '<input type="text" class="form-control" name="searchbox" id="searchbox" placeholder="Search schedules by entering one of the team\'s name or press Enter to load all schedules..." autofocus><br>';
+					echo '<input type="text" class="form-control" name="searchbox" id="searchbox" placeholder="Search schedules by team or press Enter to load all schedules..." autofocus><br>';
 					echo '<button class="btn btn-lg btn-primary btn-block" type="search" name="btn-search">Search</button><br><br>';
 				}
 			?>			
