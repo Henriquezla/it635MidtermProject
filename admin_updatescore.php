@@ -10,35 +10,41 @@
 	}
 	
 	if(isset($_POST['btn-edit']) ) {
-		echo "Edit clicked";
-		/* if(!empty($_POST['rmvID'])){
-			$dbh->autocommit(false);
-			$deleteID = $_POST['rmvID'];
-			$queries = array();
-			foreach($deleteID as $rmID){
-				$queries[] = "DELETE FROM teams where id = '$rmID';";
-			}
-			$succeed = true;
-			foreach($queries as $query){
-				if(!$dbh->query($query)){
-					$dbh->rollback();
-					$succeed = false;
-					$error = true;
-					$errMSG = mysqli_error($dbh);
-					return;
+		if(!empty($_POST['addID'])){
+			echo "Edit clicked";
+			/* if(!empty($_POST['rmvID'])){
+				$dbh->autocommit(false);
+				$deleteID = $_POST['rmvID'];
+				$queries = array();
+				foreach($deleteID as $rmID){
+					$queries[] = "DELETE FROM teams where id = '$rmID';";
 				}
-			}
-			if($succeed){
-				$dbh->commit();
-				$error = false;
-				$sucMSG = "Team(s) successfully deleted.";
-			}
-			$dbh->close();  
+				$succeed = true;
+				foreach($queries as $query){
+					if(!$dbh->query($query)){
+						$dbh->rollback();
+						$succeed = false;
+						$error = true;
+						$errMSG = mysqli_error($dbh);
+						return;
+					}
+				}
+				if($succeed){
+					$dbh->commit();
+					$error = false;
+					$sucMSG = "Team(s) successfully deleted.";
+				}
+				$dbh->close();  
+			}else{
+				$error = true;
+				$errMSG = 'Please select at least one team.';
+			}		
+			 */
 		}else{
 			$error = true;
-			$errMSG = 'Please select at least one team.';
-		}		
-		 */
+			$errMSG = 'Please select one team.';
+			
+		}
 		
 	}
 	
@@ -79,7 +85,7 @@
 			if($rowCount >= 1){
 				foreach($rows as $row){
 					echo '<tr>';
-					echo '<td scope="row"><input type="checkbox" name="addID[]" value="'.$row['id'].'"</td>';
+					echo '<td scope="row"><input type="radio" name="addID[]" value="'.$row['id'].'"</td>';
 					echo '<td scope="row">' . $row['Team A'] . '</td>';
 					echo '<td scope="row">' . $row['Team B'] . '</td>';
 					echo '<td scope="row">' . $row['team_A_score'] . '</td>';
