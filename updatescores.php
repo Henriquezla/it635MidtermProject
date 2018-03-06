@@ -42,6 +42,7 @@
 		
 		if(!$error) {
 			$query = "INSERT INTO game_schedule(team_A_score,team_B_score,total_innings) VALUES($scoreA,$scoreB,$innings)";
+			echo $query;
 			$result = $dbh->query($query);
 			$row = array();
 			if(!$result){
