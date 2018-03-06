@@ -11,56 +11,33 @@
 	
 	if(isset($_POST['btn-submit-editscore']) ) {
 		$error = false;
-		$fname = ucwords(sanitizeData($_POST['fname']));
-		$minitial = strtoupper(sanitizeData($_POST['minitial']));
-		$lname = ucwords(sanitizeData($_POST['lname']));
-		$dob = sanitizeData($_POST['dob']);
-		$country = strtoupper(sanitizeData($_POST['country']));
-		$throwsbats = strtoupper(sanitizeData($_POST['throwsbats']));
+		$scoreA = sanitizeData($_POST['teamAScore']);
+		$scoreB = sanitizeData($_POST['teamBScore']);
+		$innings = sanitizeData($_POST['innings']);
 		
-		if(empty($fname) || empty($lname) || empty($dob) || empty($country) || empty($throwsbats)){
+		if(empty($scoreA) || empty($scoreB) || empty($innings)){
 			$error = true;
 			$errMSG = "A required field was empty. Enter all required values.";
-			
-
 		}
 		
-		if(!ctype_alpha(str_replace(' ', '', $fname))) {
+		if($scoreA === $scoreB){
 			$error = true;
-			$errMSG = 'First Name must only contain letters and spaces.';
+			$errMSG = "Teams scores cannot be equal.";
 			
 		}
-		
-		if(!ctype_alpha(str_replace(' ', '', $lname))) {
+		if(!is_int($teamAScore) || !is_int($teamBScore) || !is_int($innings)){
 			$error = true;
-			$errMSG = 'Last Name must only contain letters and spaces.';
+			$errMSG = "Only valid integers are allowed for Scores and Innings.";
 			
 		}
-		
-		if(mb_strlen($minitial, 'utf8') > 1) {
+		if($innings < 9){
 			$error = true;
-			$errMSG = 'Middle Name initial should only be one letter.';
-			
-		}
-		
-		if(mb_strlen($country, 'utf8') > 2) {
-			$error = true;
-			$errMSG = 'Country code must be two letters.';
-			
-		}
-		
-		if(mb_strlen($throwsbats, 'utf8') > 1) {
-			$error = true;
-			$errMSG = 'Throws/Bats code must be one letter.';
+			$errMSG = "Total innings cannot be less than 9.";
 			
 		}
 		
 		if(!$error) {
-			if(empty($minitial)){
-				$query = "INSERT INTO players(f_name,l_name,dob,country,bats_throws) VALUES('$fname','$lname','$dob','$country','$throwsbats')";			
-			}else{
-				$query = "INSERT INTO players(f_name,m_initial,l_name,dob,country,bats_throws) VALUES('$fname','$minitial','$lname','$dob','$country','$throwsbats')";
-			}
+			$query = "INSERT INTO game_schedule(team_A_score,team_B_score,total_innings) VALUES($scoreA,$scoreB,$innings)";
 			$result = $dbh->query($query);
 			$row = array();
 			if(!$result){
@@ -139,7 +116,7 @@
 					<?php
 					}
 				?>
-				<button class="btn btn-lg btn-danger btn-block" type="button" onclick="window.location.href = 'admin.php' "; name="btn-cancel">Cancel</button>
+				<button class="btn btn-lg btn-danger btn-block" type="button" onclick="window.location.href = 'admin.php' "; name="btn-cancel">Cancel/Go Home</button>
 			</div>
           </form>
     
