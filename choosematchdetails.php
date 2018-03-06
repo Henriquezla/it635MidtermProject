@@ -25,7 +25,12 @@
 		$numAffectedRows = intval($rowAffectedRows['row_count()']);
 		if(!$result && $numAffectedRows < 1){
 			$error = true;
-			$errMSG = mysqli_error($dbh);
+			if(empty(mysqli_error($dbh))){
+				$errMSG = "One of the teams is already scheduled for that date. Please change the date.";
+			}else{
+				$errMSG = mysqli_error($dbh);
+			}
+			
 			unset($_SESSION['teamID']);
 		}else{
 			$error = false;
