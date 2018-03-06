@@ -11,9 +11,9 @@
 	
 	if(isset($_POST['btn-submit-editscore']) ) {
 		$error = false;
-		$scoreA = sanitizeData($_POST['teamAScore']);
-		$scoreB = sanitizeData($_POST['teamBScore']);
-		$innings = sanitizeData($_POST['innings']);
+		$scoreA = intval(sanitizeData($_POST['teamAScore']));
+		$scoreB = intval(sanitizeData($_POST['teamBScore']));
+		$innings = intval(sanitizeData($_POST['innings']));
 		echo $scoreA.'-'.$scoreB.'-'.$innings;
 		if(is_int($teamAScore)) echo 'true team a';
 		if(is_int($teamBScore)) echo 'true team b';
