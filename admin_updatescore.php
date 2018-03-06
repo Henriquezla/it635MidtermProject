@@ -15,7 +15,7 @@
 			$_SESSION['matchID'] = $_POST['addID'];
 			$_SESSION['teamAScore'] = $row['Team A'];
 			$_SESSION['teamBScore'] = $row['Team B'];
-			echo $_SESSION['matchID'].$_SESSION['teamAScore'].$_SESSION['teamBScore'];
+			echo $_SESSION['matchID'][0].$_SESSION['teamAScore'][0].$_SESSION['teamBScore'][0];
 			//header('Location: updatescores.php');
 
 		}else{
