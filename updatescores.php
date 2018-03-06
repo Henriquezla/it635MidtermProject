@@ -17,7 +17,7 @@
 		echo $scoreA.'-'.$scoreB.'-'.$innings;
 		is_int($teamAScore);
 		is_int($teamBScore);
-		is_int($innings)
+		is_int($innings);
 		
 		if(empty($scoreA) || empty($scoreB) || empty($innings)){
 			$error = true;
