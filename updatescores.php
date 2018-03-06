@@ -41,7 +41,7 @@
 		}
 		
 		if(!$error) {
-			$query = "INSERT INTO game_schedule(team_A_score,team_B_score,total_innings) VALUES($scoreA,$scoreB,$innings) where id=".$_SESSION['matchID'][0];
+			$query = "INSERT INTO game_schedule(team_A_score,team_B_score,total_innings) VALUES($scoreA,$scoreB,$innings) where id='".$_SESSION['matchID'][0]."'";
 			echo $query;
 			$result = $dbh->query($query);
 			$row = array();
