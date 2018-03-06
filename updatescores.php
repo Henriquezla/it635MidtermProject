@@ -19,10 +19,10 @@
 		if(is_int($scoreB)) echo 'true team b';
 		if(is_int($innings)) echo 'true innings';
 		
-		if(empty($_POST['teamAScore']) || empty($$_POST['teamBScore']) || empty($_POST['innings'])){
+		/* if(empty($_POST['teamAScore']) || empty($$_POST['teamBScore']) || empty($_POST['innings'])){
 			$error = true;
 			$errMSG = "A required field was empty. Enter all required values.";
-		}
+		} */
 		
 		if($scoreA === $scoreB){
 			$error = true;
