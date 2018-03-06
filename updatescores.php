@@ -14,16 +14,7 @@
 		$scoreA = intval(sanitizeData($_POST['teamAScore']));
 		$scoreB = intval(sanitizeData($_POST['teamBScore']));
 		$innings = intval(sanitizeData($_POST['innings']));
-		echo $scoreA.'-'.$scoreB.'-'.$innings;
-		if(is_int($scoreA)) echo 'true team a';
-		if(is_int($scoreB)) echo 'true team b';
-		if(is_int($innings)) echo 'true innings';
-		
-		/* if(empty($_POST['teamAScore']) || empty($$_POST['teamBScore']) || empty($_POST['innings'])){
-			$error = true;
-			$errMSG = "A required field was empty. Enter all required values.";
-		} */
-		
+			
 		if($scoreA === $scoreB){
 			$error = true;
 			$errMSG = "Teams scores cannot be equal.";
@@ -42,7 +33,6 @@
 		
 		if(!$error) {
 			$query = "UPDATE game_schedule set team_A_score=$scoreA,team_B_score=$scoreB,total_innings=$innings where id='".$_SESSION['matchID'][0]."'";
-			echo $query;
 			$result = $dbh->query($query);
 			$row = array();
 			if(!$result){
