@@ -14,6 +14,7 @@
 		$scoreA = sanitizeData($_POST['teamAScore']);
 		$scoreB = sanitizeData($_POST['teamBScore']);
 		$innings = sanitizeData($_POST['innings']);
+		echo $scoreA.'-'.$scoreB.'-'.$innings;
 		
 		if(empty($scoreA) || empty($scoreB) || empty($innings)){
 			$error = true;
