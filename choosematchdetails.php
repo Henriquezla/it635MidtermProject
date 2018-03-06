@@ -18,7 +18,7 @@
 		//$query = "INSERT INTO game_schedule(team_A_id,team_B_id,schd_date,schd_time,town) VALUES('$teamA','$teamB','$matchdate','$matchtime','$town
 		//This alternate query inserts a new match ONLY if both teams are NOT scheduled in the same date, against any other team.
 		//Using this query avoids having to use a stored procedure for this purpose:
-		$query = "INSERT INTO game_schedule (team_A_id,team_B_id,schd_date,schd_time,town) SELECT $teamA,$teamB,$matchdate,$matchtime,$town FROM DUAL WHERE NOT EXISTS (SELECT 1 FROM game_schedule WHERE (team_A_id = $teamA AND schd_date='$matchdate') OR (team_B_id = $teamB AND schd_date='$matchdate'));";
+		$query = "INSERT INTO game_schedule (team_A_id,team_B_id,schd_date,schd_time,town) SELECT $teamA,$teamB,'$matchdate','$matchtime','$town' FROM DUAL WHERE NOT EXISTS (SELECT 1 FROM game_schedule WHERE (team_A_id = $teamA AND schd_date='$matchdate') OR (team_B_id = $teamB AND schd_date='$matchdate'));";
 		echo $teamA.'<br>';
 		echo $teamB.'<br>';
 		echo $matchdate.'<br>';
