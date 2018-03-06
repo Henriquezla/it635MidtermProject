@@ -29,7 +29,7 @@
 		$rowAffectedRows = $affectedRows->fetch_array(MYSQLI_ASSOC);
 		$numAffectedRows = intval($rowAffectedRows['row_count()']);
 		echo $numAffectedRows;
-		if(!$result && $numAffectedRows < 1){
+		if(!$result || $numAffectedRows < 1){
 			$error = true;
 			if(empty(mysqli_error($dbh))){
 				$errMSG = "One of the teams is already scheduled for that date. Please change the date.";
