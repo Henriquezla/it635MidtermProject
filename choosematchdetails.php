@@ -37,10 +37,10 @@
 				$errMSG = mysqli_error($dbh);
 			}
 			
-			unset($_SESSION['teamID']);
 		}else{
 			$error = false;
-			$sucMSG = "Match added.";
+			$sucMSG = "Match added.";			
+			unset($_SESSION['teamID']);
 		}
 	}
 	
