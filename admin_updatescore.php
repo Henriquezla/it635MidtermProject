@@ -24,7 +24,7 @@
 			
 			/* $_SESSION['teamAScore'] = $rows['team a'];
 			$_SESSION['teamBScore'] = $rows['team b']; */
-			echo $_SESSION['matchID'][0].'-'.$_SESSION['teamAScore'][0].'-'.$_SESSION['teamBScore'][0];
+			echo $_SESSION['matchID'][0].'-'.$_SESSION['teamAScore'].'-'.$_SESSION['teamBScore'];
 			//header('Location: updatescores.php');
 
 		}else{
