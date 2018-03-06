@@ -17,12 +17,12 @@
 				$rows[] = $row;
 			}
 			foreach($rows as $row){
-				$_SESSION['teamAScore'] = $rows['team a'];
-				$_SESSION['teamBScore'] = $rows['team b'];
+				$_SESSION['teamAScore'] = $row['team a'];
+			$_SESSION['teamBScore'] = $row['team b'];
 			}
 			$_SESSION['matchID'] = $_POST['addID'];
-			/* $_SESSION['teamAScore'] = $rows['team a'];
-			$_SESSION['teamBScore'] = $rows['team b']; */
+			$_SESSION['teamAScore'] = $rows['team a'];
+			$_SESSION['teamBScore'] = $rows['team b'];
 			echo $_SESSION['matchID'][0].$_SESSION['teamAScore'][0].$_SESSION['teamBScore'][0];
 			//header('Location: updatescores.php');
 
