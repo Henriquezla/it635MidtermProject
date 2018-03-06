@@ -15,9 +15,15 @@
 		$town = ucwords(sanitizeData($_POST['town']));
 		$matchdate = sanitizeData($_POST['matchdate']);
 		$matchtime = sanitizeData($_POST['matchtime']);
-		$query = "INSERT INTO game_schedule(team_A_id,team_B_id,schd_date,schd_time,town) VALUES('$teamA','$teamB','$matchdate','$matchtime','$town')";
+		//$query = "INSERT INTO game_schedule(team_A_id,team_B_id,schd_date,schd_time,town) VALUES('$teamA','$teamB','$matchdate','$matchtime','$town
+		//This alternate query inserts a new match ONLY if both teams are NOT scheduled in the same date, against any other team.
+		//Using this query avoids having to use a stored procedure for this purpose:
+		$query: = "INSERT INTO game_schedule (team_A_id,team_B_id,schd_date,schd_time,town) SELECT $teamA,$teamB,$matchdate,$matchtime,$town FROM DUAL WHERE NOT EXISTS (SELECT 1 FROM game_schedule WHERE (team_A_id = $teamA AND schd_date='$matchdate') OR (team_B_id = $teamB AND schd_date='$matchdate'));";
 		$result = $dbh->query($query);
-		if(!$result){
+		$affectedRows = $dbh->query("SELECT row_count()");
+		$rowAffectedRows = $affectedRows->fetch_array(MYSQLI_ASSOC);
+		$numAffectedRows = intval($rowAffectedRows['row_count()']);
+		if(!$result && $numAffectedRows < 1){
 			$error = true;
 			$errMSG = mysqli_error($dbh);
 			unset($_SESSION['teamID']);
