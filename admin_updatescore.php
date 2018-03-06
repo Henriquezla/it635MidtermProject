@@ -17,8 +17,10 @@
 				$rows[] = $row;
 			}
 			foreach($rows as $row){
+				echo $row['team a'];
+				echo $row['team b'];
 				$_SESSION['teamAScore'] = $row['team a'];
-			$_SESSION['teamBScore'] = $row['team b'];
+				$_SESSION['teamBScore'] = $row['team b'];
 			}
 			$_SESSION['matchID'] = $_POST['addID'];
 			/* $_SESSION['teamAScore'] = $rows['team a'];
