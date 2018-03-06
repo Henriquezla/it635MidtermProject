@@ -15,8 +15,8 @@
 		$scoreB = intval(sanitizeData($_POST['teamBScore']));
 		$innings = intval(sanitizeData($_POST['innings']));
 		echo $scoreA.'-'.$scoreB.'-'.$innings;
-		if(is_int($teamAScore)) echo 'true team a';
-		if(is_int($teamBScore)) echo 'true team b';
+		if(is_int($scoreA)) echo 'true team a';
+		if(is_int($scoreB)) echo 'true team b';
 		if(is_int($innings)) echo 'true innings';
 		
 		if(empty($scoreA) || empty($scoreB) || empty($innings)){
@@ -29,7 +29,7 @@
 			$errMSG = "Teams scores cannot be equal.";
 			
 		}
-		if(!is_int($teamAScore) || !is_int($teamBScore) || !is_int($innings)){
+		if(!is_int($scoreA) || !is_int($scoreB) || !is_int($innings)){
 			$error = true;
 			$errMSG = "Only valid integers are allowed for Scores and Innings.";
 			
