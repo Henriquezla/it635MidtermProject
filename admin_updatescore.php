@@ -13,21 +13,18 @@
 		if(!empty($_POST['addID'])){
 			$_SESSION['matchID'] = $_POST['addID'];
 			$query = "select t1.name as 'team a', t2.name as 'team b' from game_schedule g inner join teams t1 on g.team_A_id = t1.id inner join teams t2 on g.team_B_id = t2.id where g.id = '".$_SESSION['matchID'][0]."';";
-			echo $query;
 			$result = $dbh->query($query);
 			while($row = $result->fetch_array(MYSQLI_ASSOC)){
 				$rows[] = $row;
 			}
 			foreach($rows as $row){
-				echo $row['team a'];
-				echo $row['team b'];
 				$_SESSION['teamAScore'] = $row['team a'];
 				$_SESSION['teamBScore'] = $row['team b'];
 			}
 			
 			/* $_SESSION['teamAScore'] = $rows['team a'];
 			$_SESSION['teamBScore'] = $rows['team b']; */
-			echo $_SESSION['matchID'][0].$_SESSION['teamAScore'][0].$_SESSION['teamBScore'][0];
+			echo $_SESSION['matchID'][0].'-'.$_SESSION['teamAScore'][0].'-'.$_SESSION['teamBScore'][0];
 			//header('Location: updatescores.php');
 
 		}else{
