@@ -11,10 +11,14 @@
 	
 	if(isset($_POST['btn-edit']) ) {
 		if(!empty($_POST['addID'])){
-			echo $_POST['addID'][0];
+			$query = "select t1.name as 'team a', t2.name as 'team b' from game_schedule g inner join teams t1 on g.team_A_id = t1.id inner join teams t2 on g.team_B_id = t2.id where g.id = '".$_POST['addID']."';";
+			$result = $dbh->query($query);
+			while($row = $result->fetch_array(MYSQLI_ASSOC)){
+				$rows[] = $row;
+			}
 			$_SESSION['matchID'] = $_POST['addID'];
-			$_SESSION['teamAScore'] = $row['Team A'];
-			$_SESSION['teamBScore'] = $row['Team B'];
+			$_SESSION['teamAScore'] = $row['team a'];
+			$_SESSION['teamBScore'] = $row['team b'];
 			echo $_SESSION['matchID'][0].$_SESSION['teamAScore'][0].$_SESSION['teamBScore'][0];
 			//header('Location: updatescores.php');
 
