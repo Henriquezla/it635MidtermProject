@@ -12,34 +12,12 @@
 	if(isset($_POST['btn-edit']) ) {
 		if(!empty($_POST['addID'])){
 			echo $_POST['addID'][0];
-			/* if(!empty($_POST['rmvID'])){
-				$dbh->autocommit(false);
-				$deleteID = $_POST['rmvID'];
-				$queries = array();
-				foreach($deleteID as $rmID){
-					$queries[] = "DELETE FROM teams where id = '$rmID';";
-				}
-				$succeed = true;
-				foreach($queries as $query){
-					if(!$dbh->query($query)){
-						$dbh->rollback();
-						$succeed = false;
-						$error = true;
-						$errMSG = mysqli_error($dbh);
-						return;
-					}
-				}
-				if($succeed){
-					$dbh->commit();
-					$error = false;
-					$sucMSG = "Team(s) successfully deleted.";
-				}
-				$dbh->close();  
-			}else{
-				$error = true;
-				$errMSG = 'Please select at least one team.';
-			}		
-			 */
+			$_SESSION['matchID'] = $_POST['addID'];
+			$_SESSION['teamAScore'] = $row['Team A'];
+			$_SESSION['teamBScore'] = $row['Team B'];
+			echo $_SESSION['matchID'].$_SESSION['teamAScore'].$_SESSION['teamBScore'];
+			//header('Location: updatescores.php');
+
 		}else{
 			$error = true;
 			$errMSG = 'Please select one match.';

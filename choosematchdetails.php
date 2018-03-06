@@ -15,20 +15,13 @@
 		$town = ucwords(sanitizeData($_POST['town']));
 		$matchdate = sanitizeData($_POST['matchdate']);
 		$matchtime = sanitizeData($_POST['matchtime']);
-		//$query = "INSERT INTO game_schedule(team_A_id,team_B_id,schd_date,schd_time,town) VALUES('$teamA','$teamB','$matchdate','$matchtime','$town
-		//This alternate query inserts a new match ONLY if both teams are NOT scheduled in the same date, against any other team.
-		//Using this query avoids having to use a stored procedure for this purpose:
+		/* This alternate query inserts a new match ONLY if both teams are NOT scheduled in the same date, against any other team.
+		Using this query avoids having to use a stored procedure for this purpose: */
 		$query = "INSERT INTO game_schedule (team_A_id,team_B_id,schd_date,schd_time,town) SELECT $teamA,$teamB,'$matchdate','$matchtime','$town' FROM DUAL WHERE NOT EXISTS (SELECT 1 FROM game_schedule WHERE (team_A_id = $teamA AND schd_date='$matchdate') OR (team_B_id = $teamB AND schd_date='$matchdate') OR (team_A_id = $teamB AND schd_date='$matchdate') OR (team_B_id = $teamA AND schd_date='$matchdate'));";
-		echo $teamA.'<br>';
-		echo $teamB.'<br>';
-		echo $matchdate.'<br>';
-		echo $matchtime.'<br>';
-		echo $town.'<br>';
 		$result = $dbh->query($query);
 		$affectedRows = $dbh->query("SELECT row_count()");
 		$rowAffectedRows = $affectedRows->fetch_array(MYSQLI_ASSOC);
 		$numAffectedRows = intval($rowAffectedRows['row_count()']);
-		echo $numAffectedRows;
 		if(!$result || $numAffectedRows < 1){
 			$error = true;
 			if(empty(mysqli_error($dbh))){
@@ -89,10 +82,17 @@
 				<h3 class="form-signin-heading">Enter Match Details</h3><br>
 				<a href="#" id="flipToRecover" class="flipLink">
 				</a>
-				<input type="text" class="form-control" name="town" id="town" placeholder="Town where match will take place" required autofocus><br>
-				<input type="date" class="form-control" name="matchdate" id="matchdate" placeholder="Date of the match" required><br>
-				<input type="time" class="form-control" name="matchtime" id="matchtime" value="17:00:00"><br><br>
-				<button class="btn btn-lg btn-primary btn-block" type="submit" name="btn-submit-addmatch">Submit</button><br><br>
+				<?php
+				if (!isset($sucMSG)) {
+					
+					?>
+					<input type="text" class="form-control" name="town" id="town" placeholder="Town where match will take place" required autofocus><br>
+					<input type="date" class="form-control" name="matchdate" id="matchdate" placeholder="Date of the match" required><br>
+					<input type="time" class="form-control" name="matchtime" id="matchtime" value="17:00:00"><br><br>
+					<button class="btn btn-lg btn-primary btn-block" type="submit" name="btn-submit-addmatch">Submit</button><br><br>
+						<?php
+					}
+				?>
 				<button class="btn btn-lg btn-danger btn-block" type="button" onclick="window.location.href = 'admin.php' "; name="btn-cancel">Cancel</button>
 			</div>
           </form>
