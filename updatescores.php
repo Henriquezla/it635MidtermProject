@@ -16,8 +16,8 @@
 		$innings = sanitizeData($_POST['innings']);
 		echo $scoreA.'-'.$scoreB.'-'.$innings;
 		if(is_int($teamAScore)) echo 'true team a';
-		if(is_int(($teamBScore)) echo 'true team b';
-		if(is_int(($innings)) echo 'true innings';
+		if(is_int($teamBScore)) echo 'true team b';
+		if(is_int($innings)) echo 'true innings';
 		
 		if(empty($scoreA) || empty($scoreB) || empty($innings)){
 			$error = true;
