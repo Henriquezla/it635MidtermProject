@@ -21,9 +21,9 @@
 			$_SESSION['teamBScore'] = $row['team b'];
 			}
 			$_SESSION['matchID'] = $_POST['addID'];
-			$_SESSION['teamAScore'] = $rows['team a'];
-			$_SESSION['teamBScore'] = $rows['team b'];
-			echo $_SESSION['matchID'][0].$_SESSION['teamAScore'][0].$_SESSION['teamBScore'][0];
+			/* $_SESSION['teamAScore'] = $rows['team a'];
+			$_SESSION['teamBScore'] = $rows['team b']; */
+			echo $_SESSION['matchID'][0].$_SESSION['teamAScore'].$_SESSION['teamBScore'];
 			//header('Location: updatescores.php');
 
 		}else{
