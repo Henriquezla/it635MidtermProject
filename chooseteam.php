@@ -1,6 +1,5 @@
 <?php 
 	include("functions.php");
-	//include("admin_addplayerteam.php");
 	session_start();
 	gatekeeper('Admin');
 	require_once 'sqlcon.php';
@@ -12,10 +11,6 @@
 	
 	if(isset($_POST['btn-add']) ) {
 		if(!empty($_POST['addID'])){
-			//$addID = $_POST['addID'];
-			//header('chooseteam.php');
-			/* echo 'add id='.$addID;
-			echo '_POST add id='.$_POST['addID']; */
 			foreach($_SESSION['playersID'] as $id){
 				echo 'ID = '.$id.'<br>';
 				
@@ -78,8 +73,7 @@
 			}else{
 				echo '<h4 class="form-signin-heading">No such team was found.  Try Again...</h4><br>';
 				$searchPerformed = false;
-				//header('Refresh: 4; index.php');
-				
+								
 			}
 			echo '</table><br>';
 					
