@@ -11,31 +11,9 @@
 	
 	if(isset($_POST['btn-add'])) {
 		if(!empty($_POST['addID'])){
-			//$dbh->autocommit(false);
 			$_SESSION['playersID'] = $_POST['addID'];
 			header('Location: chooseteam.php');
 			exit();
-		/*	$queries = array();
-			foreach($addID as $adID){
-				//$queries[] = "DELETE FROM players where id = '$adID';";
-			}
-			$succeed = true;
-			foreach($queries as $query){
-				if(!$dbh->query($query)){
-					$dbh->rollback();
-					$succeed = false;
-					$error = true;
-					$errMSG = mysqli_error($dbh);
-					return;
-				}
-			}
-			if($succeed){
-				$dbh->commit();
-				$error = false;
-				$sucMSG = "Player(s) successfully added to team.";
-			}
-			$dbh->close();	 */	
-			
 		}else{
 		$error = true;
 		$errMSG = 'You must select at least one player';
@@ -49,7 +27,7 @@
 		$error = false;
 		$searchTerm = ucwords(sanitizeData($_POST['searchbox']));
 		
-		if(!$error){
+		if(!$error && $_SESSION["state"] === 'Admin'){
 			if(empty($searchTerm)){
 				$query = "SELECT * FROM players WHERE id NOT IN (SELECT player_id FROM team_roster_per_season);";
 				
