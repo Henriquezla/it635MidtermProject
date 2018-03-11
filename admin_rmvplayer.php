@@ -27,10 +27,13 @@
 					return;
 				}
 			}
-			if($succeed){
+			if($succeed && $_SESSION["state"] === 'Admin'){
 				$dbh->commit();
 				$error = false;
 				$sucMSG = "Player(s) successfully deleted.";
+			}else{
+				$error = true;
+				$errMSG = 'Operation not allowed.';
 			}
 			$dbh->close();
 		}else{
@@ -45,7 +48,7 @@
 		$error = false;
 		$searchTerm = ucwords(sanitizeData($_POST['searchbox']));
 		
-		if(!$error){
+		if(!$error && $_SESSION["state"] === 'Admin'){
 			if(empty($searchTerm)){
 				$query = "SELECT * from players";
 				

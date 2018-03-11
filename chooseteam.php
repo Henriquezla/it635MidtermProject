@@ -35,7 +35,7 @@
 		$error = false;
 		$searchTerm = ucwords(sanitizeData($_POST['searchbox']));
 		
-		if(!$error){
+		if(!$error && $_SESSION["state"] === 'Admin'){
 			if(empty($searchTerm)){
 				$query = "SELECT * from teams";
 				

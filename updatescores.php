@@ -31,7 +31,7 @@
 			
 		}
 		
-		if(!$error) {
+		if(!$error && $_SESSION["state"] === 'Admin') {
 			$query = "UPDATE game_schedule set team_A_score=$scoreA,team_B_score=$scoreB,total_innings=$innings where id='".$_SESSION['matchID'][0]."'";
 			$result = $dbh->query($query);
 			$row = array();
