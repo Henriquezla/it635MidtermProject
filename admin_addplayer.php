@@ -55,7 +55,7 @@
 			
 		}
 		
-		if(!$error) {
+		if(!$error && $_SESSION["state"] === 'Admin') {
 			if(empty($minitial)){
 				$query = "INSERT INTO players(f_name,l_name,dob,country,bats_throws) VALUES('$fname','$lname','$dob','$country','$throwsbats')";			
 			}else{
