@@ -11,6 +11,7 @@ Application URL:
 https://it635.lhenriquez.com/
 
 Credentials:
+
 User: kehoe_user@njit.edu
 User PW: 123456
 
