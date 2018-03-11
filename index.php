@@ -18,17 +18,14 @@
 		$pass = htmlspecialchars(strip_tags(trim($_POST['pass'])));
 		if(empty($email)){
 			$error = true;
-			$emailError = "Please enter your email address.";
-			echo $emailError;
+			$errMSG = "Please enter your email address.";
 		} else if ( !filter_var($email,FILTER_VALIDATE_EMAIL) ) {
 			$error = true;
-			$emailError = "Please enter valid email address.";
-			echo $emailError;
+			$errMSG = "Please enter a valid email address.";
 		}
 		if(empty($pass)){
 			$error = true;
-			$passError = "Please enter your password.";
-			echo $passError;
+			$errMSG = "Please enter your password.";
 		}
 		
 		if (!$error) {
