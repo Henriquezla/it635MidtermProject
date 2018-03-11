@@ -117,7 +117,7 @@
 				}
 			?>
 			<div style="margin:auto;width: 50%;padding: 40px;">
-				<h3 class="form-signin-heading">Enter Player Information</h3><br>
+				<h3 class="form-signin-heading">Enter Team Information</h3><br>
 				<a href="#" id="flipToRecover" class="flipLink">
 				</a>
 				<input type="text" class="form-control" name="tname" id="tname" placeholder="Team Name" required autofocus><br>

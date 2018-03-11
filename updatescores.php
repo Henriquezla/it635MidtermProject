@@ -97,16 +97,17 @@
 				<h3 class="form-signin-heading">Enter Scores</h3><br>
 				<a href="#" id="flipToRecover" class="flipLink">
 				</a>
+
+				<?php
+				if (!isset($sucMSG)) {
+					
+					?>
 				<h4 class="form-signin-heading"><?php echo $_SESSION['teamAScore']; ?></h4>
 				<input type="number" min="0" class="form-control" name="teamAScore" id="teamAScore" title="Team A Score" placeholder="Score for <?php echo $_SESSION['teamAScore']; ?>" required autofocus><br>
 				<h4 class="form-signin-heading"><?php echo $_SESSION['teamBScore']; ?></h4>
 				<input type="number" min="0" class="form-control" name="teamBScore" id="teamBScore" title="Team B Score" placeholder="Score for <?php echo $_SESSION['teamBScore']; ?>" required autofocus><br>
 				<h4 class="form-signin-heading">Innings</h4>
 				<input type="number" min="9" class="form-control" name="innings" id="innings" title="innings" placeholder="Total Innings" required autofocus><br>
-				<?php
-				if (!isset($sucMSG)) {
-					
-					?>
 				<button class="btn btn-lg btn-primary btn-block" type="submit" name="btn-submit-editscore">Submit</button><br><br>
 					<?php
 					}
