@@ -34,7 +34,6 @@
                         $query = new MongoDB\Driver\Query(array('email_hash' => $username));
                         $cursor = $manager->executeQuery('it635mongo.it635final', $query);
                         $obStr = (string)(json_encode($cursor->toArray()));
-                        echo $obStr.'<br>';
                         if(strcmp($obStr,'[]')!==0){
                                 $parsed_json = json_decode($obStr, true);
                                 if(crypt($pass,$parsed_json[0]['pw_hash'])==$parsed_json[0]['pw_hash']){
