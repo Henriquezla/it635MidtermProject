@@ -15,7 +15,7 @@
         }
         $rowCount = count($rows);
         echo '<div style="margin:auto;width:75%;padding:40px;">';
-        echo '<h3 class="form-signin-heading">Teams</h3><br>';
+        echo '<h3 class="form-signin-heading">Players</h3><br>';
         echo '<form class="form-signin" id="userchoice" role="form" method="post" action="">';
         echo '<table class="table table-striped">';
         echo '<tr>';
