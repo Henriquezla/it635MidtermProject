@@ -8,7 +8,11 @@
                 exit;
         }
 
-        if(isset($_POST['btn-submit-addpicture']) ) {
+        if(isset($_POST['btn-submit-addpicture'])  ) {
+                if( !isset($_FILES["photo"]) || $_FILES["photo"]["error"] !== 0){
+                        $errMSG = "No File Selected.";
+
+                }
                 $p_id = $_POST["p_id"];
                 $manager = new MongoDB\Driver\Manager("mongodb://lah8:ImdbGr0up!@ds247619.mlab.com:47619/it635mongo");
                 $bulk = new MongoDB\Driver\BulkWrite;
@@ -20,8 +24,8 @@
                 $blk1 = $bulk->insert($document1);
                 var_dump($blk1);
                 if(strcmp($obStr,'[]')!==0){
-                        $errMSG = "The record already exists.";
-                }else{
+                        $errMSG = "The MongoDB record already exists. Nothing was added.";
+                }else if (isset($_FILES["photo"]) && $_FILES["photo"]["error"] == 0){
                         $sucMSG = "Record successfully updated.";
                         $result = $manager->executeBulkWrite('it635mongo.it635final', $bulk);
                 }
@@ -31,18 +35,11 @@
                         $filename = $_FILES["photo"]["name"];
                         $filetype = $_FILES["photo"]["type"];
                         $filesize = $_FILES["photo"]["size"];
-
-                        // Verify file extension
                         $ext = pathinfo($filename, PATHINFO_EXTENSION);
                         if(!array_key_exists($ext, $allowed)) die("Error: Please select a valid file format.");
-
-                        // Verify file size - 5MB maximum
                         $maxsize = 5 * 1024 * 1024;
                         if($filesize > $maxsize) die("Error: File size is larger than the allowed limit.");
-
-                        // Verify MYME type of the file
                         if(in_array($filetype, $allowed)){
-                            // Check whether file exists before uploading it
                                 if(file_exists("images" . $_FILES["photo"]["name"])){
                                         $errMSG =  $_FILES["photo"]["name"] . " already exists.";
                                 } else{
