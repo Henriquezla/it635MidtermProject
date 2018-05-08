@@ -25,7 +25,7 @@
                         $sucMSG = "Record successfully updated.";
                         $result = $manager->executeBulkWrite('it635mongo.it635final', $bulk);
                 }
-                /* File upload code borrowed and modified accordingly from https://www.tutorialrepublic.com/php-tutorial/php-file-upload.php */
+
                  if(isset($_FILES["photo"]) && $_FILES["photo"]["error"] == 0){
                         $allowed = array("jpg" => "image/jpg", "jpeg" => "image/jpeg", "gif" => "image/gif", "png" => "image/png");
                         $filename = $_FILES["photo"]["name"];
@@ -101,7 +101,17 @@
                                 <h3 class="form-signin-heading">Enter Player Information</h3><br>
                                 <a href="#" id="flipToRecover" class="flipLink">
                                 </a>
-                                <input type="text" class="form-control" name="p_id" id="p_id" placeholder="Player ID" required autofocus><br>
+                                <!---<input type="text" class="form-control" name="p_id" id="p_id" placeholder="Player ID" required autofocus><br> -->
+                                <label for="p_id">Player ID:</label>
+                                <select name="p_id" id="p_id">
+                                <?php
+                                        $query = "SELECT id FROM players";
+                                        $result = $dbh->query($query);
+                                        while ($row = $result->fetch_assoc()){
+                                                echo "<option value=".$row['id'].">" . $row['id'] . "</option>";
+                                        }
+                                ?>
+                                </select><br>
                                 <label for="fileSelect">Filename:</label>
                                 <input type="file" name="photo" id="fileSelect"
                                 <p><strong>Note:</strong> Only .jpg, .jpeg, .gif, .png formats allowed.</p>
