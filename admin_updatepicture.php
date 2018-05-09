@@ -98,13 +98,13 @@
                                 <a href="#" id="flipToRecover" class="flipLink">
                                 </a>
                                 <!---<input type="text" class="form-control" name="p_id" id="p_id" placeholder="Player ID" required autofocus><br> -->
-                                <label for="p_id">Player ID:</label>
+                                <label for="p_id">Select Player:</label>
                                 <select name="p_id" id="p_id">
                                 <?php
-                                        $query = "SELECT id FROM players";
+                                        $query = "SELECT id, CONCAT (f_name,' ',l_name) AS fullName  FROM players";
                                         $result = $dbh->query($query);
                                         while ($row = $result->fetch_assoc()){
-                                                echo "<option value=".$row['id'].">" . $row['id'] . "</option>";
+                                                echo "<option value=".$row['id'].">" . $row['id']. " - ". $row['fullName'] . "</option>";
                                         }
                                 ?>
                                 </select><br>
