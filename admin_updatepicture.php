@@ -22,7 +22,6 @@
                 $obStr = (string)(json_encode($cursor->toArray()));
                 $parsed_json = json_decode($obStr, true);
                 $blk1 = $bulk->insert($document1);
-                var_dump($blk1);
                 if(strcmp($obStr,'[]')!==0){
                         $errMSG = "The MongoDB record already exists. Nothing was added.";
                 }else if (isset($_FILES["photo"]) && $_FILES["photo"]["error"] == 0){
