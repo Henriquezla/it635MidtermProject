@@ -49,7 +49,7 @@
                                  $errMSG =  "Error: There was a problem uploading your file. Please try again.";
                         }
                 } else{
-                         $errMSG = "Error: " . $_FILES["photo"]["error"];
+                         $errMSG = "Error uploading the file. Verify that the path is correct.";
                 }
         }
 ?>
